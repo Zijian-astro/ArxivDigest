@@ -7,70 +7,127 @@ on:
   workflow_dispatch: {}
   schedule:
     # * is a special character in YAML so you have to quote this string
-    # Feel free to change this cron schedule
-    # Currently its scheduled for 1:25 pm UTC, Sun-Thurs
-    - cron:  '25 13 * * 0-4'
+    # Runs every day at 12:00 Beijing time (04:00 UTC).
+    - cron: '0 4 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
   generate_and_send_digest:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - config: personal_config.yaml
+            artifact: astro-jwst-lrd
+          - config: personal_config_ai_astro.yaml
+            artifact: ai-for-astro
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.8
+        python-version: '3.10'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Generate Digest 
       run: |
-        python src/action.py
+        python src/action.py --config ${{ matrix.config }}
       env:
+        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
         FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
         TO_EMAIL: ${{ secrets.TO_EMAIL }}
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: digest.html
-        path: digest.html
-    - name: check
-      id: check
-      env:
-        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
         MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
         MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
         MAIL_CONNECTION: ${{ secrets.MAIL_CONNECTION }}
-      if: "${{ env.SENDGRID_API_KEY == '' && (env.MAIL_CONNECTION || env.MAIL_USERNAME != '' && env.MAIL_PASSWORD != '') }}"
-      run: echo "DEFINED=true" >> $GITHUB_OUTPUT 
-    - name: Send mail
-      uses: dawidd6/action-send-mail@v3
-      env:
-        DEFINED: ${{ steps.check.outputs.DEFINED }}
-      if: ${{ env.DEFINED == 'true' }}
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-        # Specify connection via URL (replaces server_address, server_port, secure,
-        # username and password)
-        #
-        # Format:
-        #
-        #  * smtp://user:password@server:port
-        #  * smtp+starttls://user:password@server:port
-        connection_url: ${{secrets.MAIL_CONNECTION}}
-        # Required mail server address if not connection_url:
-        server_address: smtp.gmail.com
-        # Server port, default 25:
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        secure: true
-        subject: Personalized arXiv Digest 
-        to: ${{ secrets.TO_EMAIL }} 
-        from: "Personalized arxiv digest" 
-        html_body: file://digest.html
-        ignore_cert: true
-        convert_markdown: true
-        priority: normal 
+        name: arxiv-digest-${{ matrix.artifact }}
+        path: |
+          digest.html
+          outputs/
+
+  deploy_pages:
+    needs: generate_and_send_digest
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Download digest artifacts
+      uses: actions/download-artifact@v4
+      with:
+        pattern: arxiv-digest-*
+        path: site
+        merge-multiple: false
+    - name: Build Pages landing page
+      run: |
+        python - <<'PY'
+        from datetime import datetime, timezone
+        from pathlib import Path
+        import html
+
+        site = Path("site")
+        links = []
+        for index in sorted(site.glob("*/outputs/*/index.html")):
+            name = index.parent.name
+            artifact = index.parts[1]
+            rel = index.relative_to(site).as_posix()
+            links.append((name, artifact, rel))
+
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        cards = "\n".join(
+            f'<a class="card" href="{html.escape(rel)}">'
+            f'<span>{html.escape(name)}</span>'
+            f'<small>{html.escape(artifact)}</small>'
+            f'</a>'
+            for name, artifact, rel in links
+        )
+        (site / "index.html").write_text(f"""<!doctype html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Personal arXiv Digest</title>
+          <style>
+            body {{ margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f7f4; color: #1e2528; }}
+            main {{ width: min(900px, calc(100% - 32px)); margin: 56px auto; }}
+            h1 {{ margin: 0 0 8px; font-size: 34px; }}
+            p {{ color: #5f6b70; }}
+            .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 24px; }}
+            .card {{ display: block; padding: 20px; border: 1px solid #d9dedb; border-radius: 8px; background: #fff; color: inherit; text-decoration: none; }}
+            .card span {{ display: block; font-size: 20px; font-weight: 700; }}
+            .card small {{ display: block; margin-top: 8px; color: #5f6b70; }}
+          </style>
+        </head>
+        <body>
+          <main>
+            <h1>Personal arXiv Digest</h1>
+            <p>Last generated: {html.escape(now)}</p>
+            <div class="grid">{cards}</div>
+          </main>
+        </body>
+        </html>""", encoding="utf-8")
+        PY
+    - name: Configure GitHub Pages
+      uses: actions/configure-pages@v5
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: site
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

@@ -161,3 +161,10 @@ cython_debug/
 
 # vim
 *.sw*
+
+# Local generated digest artifacts
+.DS_Store
+.env~
+data/
+outputs/
+digest.html
