@@ -69,7 +69,14 @@ def openai_completion(
             - an openai_object.OpenAIObject object (if return_text is False)
             - a list of objects of the above types (if decoding_args.n > 1)
     """
-    is_chat_model = "gpt-3.5" in model_name or "gpt-4" in model_name
+    chat_model_markers = (
+        "gpt-3.5",
+        "gpt-4",
+        "gpt-4o",
+        "deepseek-chat",
+        "deepseek-reasoner",
+    )
+    is_chat_model = any(marker in model_name for marker in chat_model_markers)
     is_single_prompt = isinstance(prompts, (str, dict))
     if is_single_prompt:
         prompts = [prompts]
@@ -132,7 +139,7 @@ def openai_completion(
                     raise e
                 else:
                     backoff -= 1
-                    logging.warning("Hit request rate limit; retrying...")
+                    logging.warning("Request failed; retrying...")
                     time.sleep(sleep_time)  # Annoying rate limit on requests.
 
     if return_text:

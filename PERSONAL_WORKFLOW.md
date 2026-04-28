@@ -24,7 +24,30 @@ python src/action.py --config personal_config.yaml
 
 If the environment already exists, skip `conda env create -f environment.yml` and just activate it.
 
-Set `OPENAI_API_KEY` in `.env`. Add SendGrid or SMTP secrets only if you want email delivery.
+Set `DEEPSEEK_API_KEY` in `.env`. Add SendGrid or SMTP secrets only if you want email delivery.
+
+The personal configs use:
+
+```yaml
+provider: "deepseek"
+model: "deepseek-chat"
+```
+
+If you later want to switch a config back to OpenAI, set `provider: "openai"`, choose an OpenAI model, and provide `OPENAI_API_KEY`.
+
+For Gmail SMTP delivery, set:
+
+```bash
+MAIL_USERNAME=your.email@gmail.com
+MAIL_PASSWORD=your_google_app_password
+TO_EMAIL=recipient@example.com
+```
+
+Then send a local test email:
+
+```bash
+python src/send_smtp_test.py
+```
 
 Run the AI-for-astronomy supplement with:
 
@@ -41,6 +64,14 @@ Each run writes:
 - `outputs/ai-for-astro/`: supplemental AI-for-astronomy digest output.
 
 The GitHub Action now runs both configs every day at 12:00 Beijing time and uploads separate artifacts for each.
+
+It also deploys the generated HTML dashboards to GitHub Pages. In your GitHub fork, enable:
+
+```text
+Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+```
+
+After a successful run, the Pages URL is shown in the `deploy_pages` job summary.
 
 ## Deep Reading With MCP
 

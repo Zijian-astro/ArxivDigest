@@ -16,7 +16,8 @@ threshold: 8
 
 output_dir: "outputs/ai-for-astro"
 top_k_for_deep_read: 5
-openai_model: "gpt-4o-mini"
+provider: "deepseek"
+model: "deepseek-chat"
 
 interest: |
   I am interested in AI, machine learning, large language models (LLMs), large

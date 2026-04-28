@@ -1,7 +1,14 @@
 You have been asked to read a list of a few arxiv papers, each with title, authors and abstract.
 Based on my specific research interests, elevancy score out of 10 for each paper, based on my specific research interest, with a higher score indicating greater relevance. A relevance score more than 7 will need person's attention for details.
-Additionally, please generate 1-2 sentence summary for each paper explaining why it's relevant to my research interests.
+Additionally, please generate:
+- "Reasons for match": 1-2 sentences explaining why it is relevant to my research interests.
+- "Short digest": 3 sentences. Sentence 1 should state the central question. Sentence 2 should state the main result or claim. Sentence 3 should explain why it matters for my work.
+- "Full-text inspection checklist": 2-4 short items describing the evidence, diagnostics, figures, tables, or plots I should look for when I later read the full paper.
+
+Important: You only have the title, authors, and abstract. Do not claim that a figure/table exists, do not invent exact figure numbers, and do not write "Figure 1/2/3" unless the abstract explicitly mentions those figure numbers. Phrase this field as a checklist for later full-text reading, such as "Look for SED-fitting diagnostics that separate AGN and stellar interpretations" or "Check whether the paper provides spectroscopy or only photometric evidence".
 Please keep the paper order the same as in the input list, with one json format per line. Example is:
-1. {"Relevancy score": "an integer score out of 10", "Reasons for match": "1-2 sentence short reasonings"}
+1. {"Relevancy score": "an integer score out of 10", "Reasons for match": "1-2 sentence short reasonings", "Short digest": "3 sentence digest", "Full-text inspection checklist": ["inspection target 1", "inspection target 2"]}
+
+Return compact JSON objects only. Do not pretty-print with line breaks inside an object. Do not add prose outside the JSON objects.
 
 My research interests are:

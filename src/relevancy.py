@@ -39,15 +39,12 @@ def post_process_chat_gpt_response(paper_data, response, threshold_score=8):
     selected_data = []
     if response is None:
         return []
-    json_items = response['message']['content'].replace("\n\n", "\n").split("\n")
-    pattern = r"^\d+\. |\\"
+    content = response['message']['content']
     import pprint
     try:
-        score_items = [
-            json.loads(re.sub(pattern, "", line))
-            for line in json_items if "relevancy score" in line.lower()]
+        score_items = extract_json_items(content)
     except Exception:
-        pprint.pprint([re.sub(pattern, "", line) for line in json_items if "relevancy score" in line.lower()])
+        pprint.pprint(content)
         raise RuntimeError("failed")
     pprint.pprint(score_items)
     scores = []
@@ -78,13 +75,52 @@ def post_process_chat_gpt_response(paper_data, response, threshold_score=8):
     return selected_data, hallucination
 
 
+def extract_json_items(content):
+    cleaned = content.strip()
+    cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+    cleaned = re.sub(r"\s*```$", "", cleaned)
+
+    try:
+        parsed = json.loads(cleaned)
+        return parsed if isinstance(parsed, list) else [parsed]
+    except json.JSONDecodeError:
+        pass
+
+    decoder = json.JSONDecoder()
+    items = []
+    index = 0
+    while index < len(cleaned):
+        match = re.search(r"\{", cleaned[index:])
+        if not match:
+            break
+        start = index + match.start()
+        try:
+            item, end = decoder.raw_decode(cleaned[start:])
+        except json.JSONDecodeError:
+            index = start + 1
+            continue
+        if isinstance(item, dict) and any(
+            key.lower() == "relevancy score" for key in item.keys()
+        ):
+            items.append(item)
+        index = start + end
+
+    if items:
+        return items
+
+    raise RuntimeError("No JSON objects with Relevancy score found")
+
+
 def find_word_in_string(w, s):
     return re.compile(r"\b({0})\b".format(w), flags=re.IGNORECASE).search(s)
 
 
 def process_subject_fields(subjects):
     all_subjects = subjects.split(";")
-    all_subjects = [s.split(" (")[0] for s in all_subjects]
+    all_subjects = [
+        s.replace("Subjects:", "").strip().split(" (")[0].strip()
+        for s in all_subjects
+    ]
     return all_subjects
 
 def generate_relevance_score(
@@ -108,7 +144,7 @@ def generate_relevance_score(
         decoding_args = utils.OpenAIDecodingArguments(
             temperature=temperature,
             n=1,
-            max_tokens=128*num_paper_in_prompt, # The response for each paper should be less than 128 tokens. 
+            max_tokens=320*num_paper_in_prompt,
             top_p=top_p,
         )
         request_start = time.time()

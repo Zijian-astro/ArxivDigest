@@ -14,7 +14,8 @@ threshold: 7
 # Optional output controls used by the personalized action script.
 output_dir: "outputs/astro-jwst-lrd"
 top_k_for_deep_read: 5
-openai_model: "gpt-4o-mini"
+provider: "deepseek"
+model: "deepseek-chat"
 
 interest: |
   I study JWST observations of high-redshift galaxies and AGN, especially

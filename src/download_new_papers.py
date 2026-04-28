@@ -6,12 +6,28 @@ import urllib.request
 import json
 import datetime
 import pytz
+import re
+
+
+def _clean_labeled_text(element, label):
+    text = element.get_text(" ", strip=True)
+    return re.sub(rf"^{label}:\s*", "", text).strip()
+
+
+def _paper_number_from_dt(dt):
+    abs_link = dt.find("a", href=re.compile(r"^/abs/"))
+    if abs_link and abs_link.get("href"):
+        return abs_link["href"].split("/abs/", 1)[1].strip()
+    text_match = re.search(r"arXiv:([^\s]+)", dt.get_text(" ", strip=True))
+    if text_match:
+        return text_match.group(1)
+    raise RuntimeError(f"Could not parse arXiv id from: {dt.get_text(' ', strip=True)}")
 
 
 def _download_new_papers(field_abbr):
     NEW_SUB_URL = f'https://arxiv.org/list/{field_abbr}/new'  # https://arxiv.org/list/cs/new
     page = urllib.request.urlopen(NEW_SUB_URL)
-    soup = bs(page)
+    soup = bs(page, features="html.parser")
     content = soup.body.find("div", {'id': 'content'})
 
     # find the first h3 element in content
@@ -26,15 +42,23 @@ def _download_new_papers(field_abbr):
     new_paper_list = []
     for i in tqdm.tqdm(range(len(dt_list))):
         paper = {}
-        paper_number = dt_list[i].text.strip().split(" ")[2].split(":")[-1]
+        paper_number = _paper_number_from_dt(dt_list[i])
         paper['main_page'] = arxiv_base + paper_number
         paper['pdf'] = arxiv_base.replace('abs', 'pdf') + paper_number
 
-        paper['title'] = dd_list[i].find("div", {"class": "list-title mathjax"}).text.replace("Title: ", "").strip()
-        paper['authors'] = dd_list[i].find("div", {"class": "list-authors"}).text \
-                            .replace("Authors:\n", "").replace("\n", "").strip()
-        paper['subjects'] = dd_list[i].find("div", {"class": "list-subjects"}).text.replace("Subjects: ", "").strip()
-        paper['abstract'] = dd_list[i].find("p", {"class": "mathjax"}).text.replace("\n", " ").strip()
+        paper['title'] = _clean_labeled_text(
+            dd_list[i].find("div", {"class": "list-title mathjax"}),
+            "Title",
+        )
+        paper['authors'] = _clean_labeled_text(
+            dd_list[i].find("div", {"class": "list-authors"}),
+            "Authors",
+        )
+        paper['subjects'] = _clean_labeled_text(
+            dd_list[i].find("div", {"class": "list-subjects"}),
+            "Subjects",
+        )
+        paper['abstract'] = dd_list[i].find("p", {"class": "mathjax"}).get_text(" ", strip=True)
         new_paper_list.append(paper)
 
 
@@ -53,12 +77,21 @@ def _download_new_papers(field_abbr):
 def get_papers(field_abbr, limit=None):
     date = datetime.date.fromtimestamp(datetime.datetime.now(tz=pytz.timezone("America/New_York")).timestamp())
     date = date.strftime("%a, %d %b %y")
-    if not os.path.exists(f"./data/{field_abbr}_{date}.jsonl"):
+    data_path = f"./data/{field_abbr}_{date}.jsonl"
+    if not os.path.exists(data_path):
         _download_new_papers(field_abbr)
     results = []
-    with open(f"./data/{field_abbr}_{date}.jsonl", "r") as f:
+    with open(data_path, "r") as f:
         for i, line in enumerate(f.readlines()):
             if limit and i == limit:
                 return results
             results.append(json.loads(line))
+    if any(paper.get("main_page", "").rstrip("/") == "https://arxiv.org/abs" for paper in results):
+        _download_new_papers(field_abbr)
+        results = []
+        with open(data_path, "r") as f:
+            for i, line in enumerate(f.readlines()):
+                if limit and i == limit:
+                    return results
+                results.append(json.loads(line))
     return results
