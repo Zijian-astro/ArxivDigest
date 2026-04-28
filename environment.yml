@@ -1,0 +1,15 @@
+name: arxiv-digest
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pyyaml=6.0
+  - beautifulsoup4=4.12.2
+  - numpy=1.24.2
+  - python-dotenv=1.0.0
+  - pytz=2023.3
+  - tqdm=4.65.0
+  - pip:
+      - openai==0.27.8
+      - sendgrid==6.10.0

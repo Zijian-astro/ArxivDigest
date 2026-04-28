@@ -1,0 +1,43 @@
+# Personal arXiv digest configuration.
+#
+# Edit this file as your interests evolve, then run:
+#   python src/action.py --config personal_config.yaml
+
+topic: "Astrophysics"
+categories:
+  - "Astrophysics of Galaxies"
+  - "Cosmology and Nongalactic Astrophysics"
+  - "Instrumentation and Methods for Astrophysics"
+
+threshold: 7
+
+# Optional output controls used by the personalized action script.
+output_dir: "outputs/astro-jwst-lrd"
+top_k_for_deep_read: 5
+openai_model: "gpt-4o-mini"
+
+interest: |
+  I study JWST observations of high-redshift galaxies and AGN, especially
+  little red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,
+  early black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.
+
+  Prioritize papers about:
+  1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN
+  2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and
+     high-redshift black hole candidates
+  3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar
+     masses, dust attenuation, AGN contamination, and source classification
+  4. high-redshift galaxy formation, reionization-era galaxies, early SMBH
+     growth, and galaxy/AGN co-evolution
+  5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,
+     RUBIES, and similar JWST deep fields
+
+  Also keep papers about AI, machine learning, large language models (LLMs),
+  large multimodal models (LMMs), foundation models, anomaly detection,
+  automated classification, spectral/photometric inference, or research agents
+  when they are applied to astronomy, astrophysics, JWST data, galaxy surveys,
+  AGN selection, or literature/data analysis.
+
+  Deprioritize unrelated stellar, solar-system, local-universe, gravitational
+  wave, or purely theoretical papers unless they directly inform high-redshift
+  galaxies, AGN, JWST analysis, or AI-for-astronomy workflows.

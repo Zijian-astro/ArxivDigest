@@ -4,8 +4,11 @@ from sendgrid.helpers.mail import Mail, Email, To, Content
 from datetime import date
 
 import argparse
+import json
 import yaml
 import os
+import re
+from pathlib import Path
 from dotenv import load_dotenv
 import openai
 from relevancy import generate_relevance_score, process_subject_fields
@@ -221,7 +224,18 @@ category_map = {
 }
 
 
-def generate_body(topic, categories, interest, threshold):
+def _paper_id_from_url(url):
+    match = re.search(r"arxiv\.org/abs/([^?#]+)", url or "")
+    return match.group(1) if match else ""
+
+
+def _normalize_paper(paper):
+    normalized = dict(paper)
+    normalized["arxiv_id"] = _paper_id_from_url(normalized.get("main_page", ""))
+    return normalized
+
+
+def generate_digest(topic, categories, interest, threshold, model_name="gpt-4o-mini"):
     if topic == "Physics":
         raise RuntimeError("You must choose a physics subtopic.")
     elif topic in physics_topics:
@@ -247,11 +261,13 @@ def generate_body(topic, categories, interest, threshold):
             papers,
             query={"interest": interest},
             threshold_score=threshold,
+            model_name=model_name,
             num_paper_in_prompt=16,
         )
+        relevancy = [_normalize_paper(paper) for paper in relevancy]
         body = "<br><br>".join(
             [
-                f'Title: <a href="{paper["main_page"]}">{paper["title"]}</a><br>Authors: {paper["authors"]}<br>Score: {paper["Relevancy score"]}<br>Reason: {paper["Reasons for match"]}'
+                f'Title: <a href="{paper["main_page"]}">{paper["title"]}</a><br>Authors: {paper["authors"]}<br>arXiv ID: {paper["arxiv_id"]}<br>Score: {paper["Relevancy score"]}<br>Reason: {paper["Reasons for match"]}'
                 for paper in relevancy
             ]
         )
@@ -260,14 +276,99 @@ def generate_body(topic, categories, interest, threshold):
                 "Warning: the model hallucinated some papers. We have tried to remove them, but the scores may not be accurate.<br><br>"
                 + body
             )
+        selected_papers = relevancy
     else:
+        papers = [_normalize_paper(paper) for paper in papers]
         body = "<br><br>".join(
             [
-                f'Title: <a href="{paper["main_page"]}">{paper["title"]}</a><br>Authors: {paper["authors"]}'
+                f'Title: <a href="{paper["main_page"]}">{paper["title"]}</a><br>Authors: {paper["authors"]}<br>arXiv ID: {paper["arxiv_id"]}'
                 for paper in papers
             ]
         )
+        selected_papers = papers
+        hallucination = False
+    return body, selected_papers, hallucination
+
+
+def generate_body(topic, categories, interest, threshold):
+    body, _, _ = generate_digest(topic, categories, interest, threshold)
     return body
+
+
+def write_digest_outputs(body, papers, config, output_dir="outputs"):
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    today = date.today().isoformat()
+    digest = {
+        "generated_on": today,
+        "topic": config["topic"],
+        "categories": config["categories"],
+        "threshold": config["threshold"],
+        "interest": config.get("interest", ""),
+        "papers": papers,
+    }
+
+    (output_path / "digest.html").write_text(body, encoding="utf-8")
+    (output_path / "digest.json").write_text(
+        json.dumps(digest, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    markdown_lines = [
+        f"# Personalized arXiv Digest - {today}",
+        "",
+        f"Topic: {config['topic']}",
+        f"Categories: {', '.join(config['categories']) if config['categories'] else 'All'}",
+        f"Threshold: {config['threshold']}",
+        "",
+    ]
+    for index, paper in enumerate(papers, start=1):
+        score = paper.get("Relevancy score", "n/a")
+        reason = paper.get("Reasons for match", "")
+        markdown_lines.extend(
+            [
+                f"## {index}. {paper['title']}",
+                "",
+                f"- arXiv ID: `{paper.get('arxiv_id', '')}`",
+                f"- Authors: {paper['authors']}",
+                f"- Score: {score}",
+                f"- Link: {paper['main_page']}",
+                f"- PDF: {paper['pdf']}",
+                f"- Subjects: {paper['subjects']}",
+            ]
+        )
+        if reason:
+            markdown_lines.append(f"- Reason: {reason}")
+        markdown_lines.append("")
+    (output_path / "digest.md").write_text("\n".join(markdown_lines), encoding="utf-8")
+
+    top_k = int(config.get("top_k_for_deep_read", 5))
+    queue_lines = [
+        f"# MCP Deep Read Queue - {today}",
+        "",
+        "Use this with arxiv-mcp-server. For each paper you care about, ask your MCP client to:",
+        "",
+        "1. call `download_paper` with the arXiv ID",
+        "2. call `read_paper`",
+        "3. summarize, compare, or build a literature review",
+        "",
+        "Suggested prompt:",
+        "",
+        "> Please deep-read the papers below with arxiv-mcp-server. Download missing papers, read their full text, then produce: problem, method, main contribution, implementation idea, and whether I should follow up.",
+        "",
+    ]
+    for paper in papers[:top_k]:
+        queue_lines.append(f"- `{paper.get('arxiv_id', '')}` - {paper['title']}")
+    (output_path / "mcp_deep_read_queue.md").write_text(
+        "\n".join(queue_lines), encoding="utf-8"
+    )
+
+    return {
+        "html": output_path / "digest.html",
+        "json": output_path / "digest.json",
+        "markdown": output_path / "digest.md",
+        "queue": output_path / "mcp_deep_read_queue.md",
+    }
 
 
 if __name__ == "__main__":
@@ -291,9 +392,20 @@ if __name__ == "__main__":
     to_email = os.environ.get("TO_EMAIL")
     threshold = config["threshold"]
     interest = config["interest"]
-    body = generate_body(topic, categories, interest, threshold)
+    model_name = config.get("openai_model", "gpt-4o-mini")
+    body, papers, hallucination = generate_digest(
+        topic, categories, interest, threshold, model_name=model_name
+    )
     with open("digest.html", "w") as f:
         f.write(body)
+    output_files = write_digest_outputs(
+        body, papers, config, output_dir=config.get("output_dir", "outputs")
+    )
+    if hallucination:
+        print("Warning: model hallucination cleanup was triggered.")
+    print("Wrote personalized outputs:")
+    for name, path in output_files.items():
+        print(f"- {name}: {path}")
     if os.environ.get("SENDGRID_API_KEY", None):
         sg = SendGridAPIClient(api_key=os.environ.get("SENDGRID_API_KEY"))
         from_email = Email(from_email)  # Change to your verified sender

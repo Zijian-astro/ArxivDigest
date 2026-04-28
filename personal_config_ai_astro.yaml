@@ -1,0 +1,42 @@
+# Supplemental digest for AI/LLM/LMM methods that may be useful in astronomy.
+#
+# Run with:
+#   conda activate arxiv-digest
+#   python src/action.py --config personal_config_ai_astro.yaml
+
+topic: "Computer Science"
+categories:
+  - "Artificial Intelligence"
+  - "Computation and Language"
+  - "Computer Vision and Pattern Recognition"
+  - "Machine Learning"
+  - "Information Retrieval"
+
+threshold: 8
+
+output_dir: "outputs/ai-for-astro"
+top_k_for_deep_read: 5
+openai_model: "gpt-4o-mini"
+
+interest: |
+  I am interested in AI, machine learning, large language models (LLMs), large
+  multimodal models (LMMs), foundation models, retrieval-augmented generation,
+  research agents, and automated scientific discovery methods that can be
+  useful for astronomy and astrophysics.
+
+  Prioritize papers that could help with:
+  1. JWST imaging/spectroscopy analysis, especially high-redshift galaxies,
+     AGN, and little red dots
+  2. astronomical source classification, anomaly detection, morphology,
+     deblending, photometric redshifts, SED fitting, spectral fitting, or
+     uncertainty estimation
+  3. multimodal models that combine images, spectra, catalogs, tables, text, or
+     literature
+  4. LLM agents for literature review, data analysis, coding, scientific
+     workflows, or reproducible research
+  5. methods that could transfer to large survey data from JWST, Roman, Euclid,
+     Rubin/LSST, HST, ALMA, or multi-wavelength catalogs
+
+  Deprioritize generic NLP, chatbots, robotics, games, social media, medicine,
+  finance, or benchmark-only papers unless the method clearly transfers to
+  astronomical research workflows.
