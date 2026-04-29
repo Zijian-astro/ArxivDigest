@@ -16,6 +16,7 @@ threshold: 8
 
 output_dir: "outputs/ai-for-astro"
 top_k_for_deep_read: 5
+min_papers: 7
 provider: "deepseek"
 model: "deepseek-chat"
 

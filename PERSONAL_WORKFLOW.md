@@ -55,6 +55,14 @@ Run the AI-for-astronomy supplement with:
 python src/action.py --config personal_config_ai_astro.yaml
 ```
 
+Run a historical arXiv submission date with:
+
+```bash
+python src/action.py --config personal_config.yaml --date 2026-04-28
+```
+
+Each personal config keeps at least 7 papers by score, even if fewer than 7 pass the preferred relevance threshold.
+
 ## Outputs
 
 Each run writes:
@@ -65,13 +73,15 @@ Each run writes:
 
 The GitHub Action now runs both configs every day at 12:00 Beijing time and uploads separate artifacts for each.
 
-It also deploys the generated HTML dashboards to GitHub Pages. In your GitHub fork, enable:
+It also deploys the generated HTML dashboards to GitHub Pages and preserves historical daily pages on the `gh-pages` branch. In your GitHub fork, enable:
 
 ```text
-Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+Settings -> Pages -> Build and deployment -> Source: Deploy from a branch
+Branch: gh-pages
+Folder: / (root)
 ```
 
-After a successful run, the Pages URL is shown in the `deploy_pages` job summary.
+After a successful run, your public page will be available at the repository's GitHub Pages URL.
 
 ## Deep Reading With MCP
 

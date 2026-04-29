@@ -131,7 +131,8 @@ def generate_relevance_score(
     num_paper_in_prompt=4,
     temperature=0.4,
     top_p=1.0,
-    sorting=True
+    sorting=True,
+    min_results=0,
 ):
     ans_data = []
     request_idx = 1
@@ -159,7 +160,9 @@ def generate_relevance_score(
         request_duration = time.time() - request_start
 
         process_start = time.time()
-        batch_data, hallu = post_process_chat_gpt_response(prompt_papers, response, threshold_score=threshold_score)
+        batch_data, hallu = post_process_chat_gpt_response(
+            prompt_papers, response, threshold_score=0
+        )
         hallucination = hallucination or hallu
         ans_data.extend(batch_data)
 
@@ -168,6 +171,19 @@ def generate_relevance_score(
 
     if sorting:
         ans_data = sorted(ans_data, key=lambda x: int(x["Relevancy score"]), reverse=True)
+
+    if min_results:
+        ans_data = [
+            paper
+            for index, paper in enumerate(ans_data)
+            if int(paper["Relevancy score"]) >= threshold_score or index < min_results
+        ]
+    else:
+        ans_data = [
+            paper
+            for paper in ans_data
+            if int(paper["Relevancy score"]) >= threshold_score
+        ]
     
     return ans_data, hallucination
 

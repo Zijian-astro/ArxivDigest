@@ -260,7 +260,15 @@ def _inspection_items(paper):
     )
 
 
-def generate_digest(topic, categories, interest, threshold, model_name="gpt-4o-mini"):
+def generate_digest(
+    topic,
+    categories,
+    interest,
+    threshold,
+    model_name="gpt-4o-mini",
+    target_date=None,
+    min_papers=0,
+):
     if topic == "Physics":
         raise RuntimeError("You must choose a physics subtopic.")
     elif topic in physics_topics:
@@ -273,14 +281,14 @@ def generate_digest(topic, categories, interest, threshold, model_name="gpt-4o-m
         for category in categories:
             if category not in category_map[topic]:
                 raise RuntimeError(f"{category} is not a category of {topic}")
-        papers = get_papers(abbr)
+        papers = get_papers(abbr, target_date=target_date)
         papers = [
             t
             for t in papers
             if bool(set(process_subject_fields(t["subjects"])) & set(categories))
         ]
     else:
-        papers = get_papers(abbr)
+        papers = get_papers(abbr, target_date=target_date)
     if interest:
         relevancy, hallucination = generate_relevance_score(
             papers,
@@ -288,6 +296,7 @@ def generate_digest(topic, categories, interest, threshold, model_name="gpt-4o-m
             threshold_score=threshold,
             model_name=model_name,
             num_paper_in_prompt=16,
+            min_results=min_papers,
         )
         relevancy = [_normalize_paper(paper) for paper in relevancy]
         body = "<br><br>".join(
@@ -345,11 +354,11 @@ def configure_llm_provider(config):
     raise RuntimeError(f"Unsupported provider: {provider}")
 
 
-def write_digest_outputs(body, papers, config, output_dir="outputs"):
+def write_digest_outputs(body, papers, config, output_dir="outputs", digest_date=None):
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    today = date.today().isoformat()
+    today = digest_date or date.today().isoformat()
     digest = {
         "generated_on": today,
         "topic": config["topic"],
@@ -609,6 +618,11 @@ if __name__ == "__main__":
     parser.add_argument(
         "--config", help="yaml config file to use", default="config.yaml"
     )
+    parser.add_argument(
+        "--date",
+        help="arXiv submission date to digest in YYYY-MM-DD format. Defaults to today's arXiv /new page.",
+        default=None,
+    )
     args = parser.parse_args()
     with open(args.config, "r") as f:
         config = yaml.safe_load(f)
@@ -621,12 +635,22 @@ if __name__ == "__main__":
     interest = config["interest"]
     model_name = configure_llm_provider(config)
     body, papers, hallucination = generate_digest(
-        topic, categories, interest, threshold, model_name=model_name
+        topic,
+        categories,
+        interest,
+        threshold,
+        model_name=model_name,
+        target_date=args.date,
+        min_papers=int(config.get("min_papers", 0)),
     )
     with open("digest.html", "w") as f:
         f.write(body)
     output_files = write_digest_outputs(
-        body, papers, config, output_dir=config.get("output_dir", "outputs")
+        body,
+        papers,
+        config,
+        output_dir=config.get("output_dir", "outputs"),
+        digest_date=args.date,
     )
     if hallucination:
         print("Warning: model hallucination cleanup was triggered.")

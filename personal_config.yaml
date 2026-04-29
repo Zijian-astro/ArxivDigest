@@ -14,6 +14,7 @@ threshold: 7
 # Optional output controls used by the personalized action script.
 output_dir: "outputs/astro-jwst-lrd"
 top_k_for_deep_read: 5
+min_papers: 7
 provider: "deepseek"
 model: "deepseek-chat"
 
