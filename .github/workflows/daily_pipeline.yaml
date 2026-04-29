@@ -4,16 +4,19 @@
 name: Daily pipeline 
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Optional arXiv submission date to digest, in YYYY-MM-DD format'
+        required: false
+        type: string
   schedule:
     # * is a special character in YAML so you have to quote this string
     # Runs every day at 12:00 Beijing time (04:00 UTC).
     - cron: '0 4 * * *'
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: github-pages
@@ -42,7 +45,11 @@ jobs:
         pip install -r requirements.txt
     - name: Generate Digest 
       run: |
-        python src/action.py --config ${{ matrix.config }}
+        if [ -n "${{ inputs.date }}" ]; then
+          python src/action.py --config ${{ matrix.config }} --date "${{ inputs.date }}"
+        else
+          python src/action.py --config ${{ matrix.config }}
+        fi
       env:
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -63,40 +70,83 @@ jobs:
   deploy_pages:
     needs: generate_and_send_digest
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
+    - uses: actions/checkout@v4
     - name: Download digest artifacts
       uses: actions/download-artifact@v4
       with:
         pattern: arxiv-digest-*
-        path: site
+        path: new_site
         merge-multiple: false
-    - name: Build Pages landing page
+    - name: Restore existing Pages history
+      run: |
+        git fetch origin gh-pages || true
+        if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+          git worktree add public origin/gh-pages
+        else
+          mkdir public
+        fi
+    - name: Merge new digest pages
       run: |
         python - <<'PY'
+        import json
+        import shutil
         from datetime import datetime, timezone
         from pathlib import Path
         import html
 
-        site = Path("site")
+        new_site = Path("new_site")
+        public = Path("public")
+        public.mkdir(exist_ok=True)
+
+        for digest_json in sorted(new_site.glob("*/outputs/*/digest.json")):
+            digest_dir = digest_json.parent
+            digest = json.loads(digest_json.read_text(encoding="utf-8"))
+            date = digest["generated_on"]
+            name = digest_dir.name
+            target_dir = public / name
+            target_dir.mkdir(parents=True, exist_ok=True)
+            for filename in [
+                "index.html",
+                f"{date}.html",
+                "digest.html",
+                "digest.md",
+                "digest.json",
+                "mcp_deep_read_queue.md",
+            ]:
+                source = digest_dir / filename
+                if source.exists():
+                    if filename == "index.html":
+                        shutil.copy2(source, target_dir / "index.html")
+                    elif filename.startswith(date):
+                        shutil.copy2(source, target_dir / filename)
+                    else:
+                        dated_name = f"{date}-{filename}"
+                        shutil.copy2(source, target_dir / dated_name)
+
         links = []
-        for index in sorted(site.glob("*/outputs/*/index.html")):
-            name = index.parent.name
-            artifact = index.parts[1]
-            rel = index.relative_to(site).as_posix()
-            links.append((name, artifact, rel))
+        for digest_dir in sorted(path for path in public.iterdir() if path.is_dir()):
+            history = sorted(digest_dir.glob("*.html"), reverse=True)
+            dated_pages = [p for p in history if p.name != "index.html"]
+            latest = digest_dir / "index.html"
+            links.append((digest_dir.name, latest, dated_pages))
 
         now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-        cards = "\n".join(
-            f'<a class="card" href="{html.escape(rel)}">'
-            f'<span>{html.escape(name)}</span>'
-            f'<small>{html.escape(artifact)}</small>'
-            f'</a>'
-            for name, artifact, rel in links
-        )
-        (site / "index.html").write_text(f"""<!doctype html>
+        cards = []
+        for name, latest, dated_pages in links:
+            history_links = "\n".join(
+                f'<li><a href="{html.escape(page.relative_to(public).as_posix())}">{html.escape(page.stem)}</a></li>'
+                for page in dated_pages[:30]
+            )
+            cards.append(
+                f'<section class="card">'
+                f'<h2>{html.escape(name)}</h2>'
+                f'<a class="latest" href="{html.escape(latest.relative_to(public).as_posix())}">Latest digest</a>'
+                f'<h3>History</h3><ul>{history_links}</ul>'
+                f'</section>'
+            )
+
+        (public / "index.html").write_text(f"""<!doctype html>
         <html lang="en">
         <head>
           <meta charset="utf-8">
@@ -107,27 +157,36 @@ jobs:
             main {{ width: min(900px, calc(100% - 32px)); margin: 56px auto; }}
             h1 {{ margin: 0 0 8px; font-size: 34px; }}
             p {{ color: #5f6b70; }}
-            .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 24px; }}
-            .card {{ display: block; padding: 20px; border: 1px solid #d9dedb; border-radius: 8px; background: #fff; color: inherit; text-decoration: none; }}
-            .card span {{ display: block; font-size: 20px; font-weight: 700; }}
-            .card small {{ display: block; margin-top: 8px; color: #5f6b70; }}
+            .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 24px; }}
+            .card {{ padding: 20px; border: 1px solid #d9dedb; border-radius: 8px; background: #fff; }}
+            .card h2 {{ margin: 0 0 10px; }}
+            .latest {{ display: inline-block; margin-bottom: 12px; font-weight: 700; color: #096b72; }}
+            ul {{ margin: 8px 0 0 20px; padding: 0; }}
+            li {{ margin: 4px 0; }}
+            a {{ color: #096b72; }}
           </style>
         </head>
         <body>
           <main>
             <h1>Personal arXiv Digest</h1>
             <p>Last generated: {html.escape(now)}</p>
-            <div class="grid">{cards}</div>
+            <div class="grid">{''.join(cards)}</div>
           </main>
         </body>
         </html>""", encoding="utf-8")
         PY
-    - name: Configure GitHub Pages
-      uses: actions/configure-pages@v5
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: site
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+    - name: Publish gh-pages branch
+      run: |
+        cd public
+        if [ ! -e .git ]; then
+          git init
+        fi
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout -B gh-pages
+        git add .
+        git commit -m "Update arXiv digest pages" || exit 0
+        git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" || git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        git push --force origin gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
