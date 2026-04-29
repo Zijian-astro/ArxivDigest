@@ -3,15 +3,20 @@ import os
 import tqdm
 from bs4 import BeautifulSoup as bs
 import urllib.request
+import urllib.error
 import json
 import datetime
 import pytz
 import re
 import urllib.parse
 import xml.etree.ElementTree as ET
+import time
 
 
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
+ARXIV_HEADERS = {
+    "User-Agent": "ArxivDigest/1.0 (mailto:zjz.kiaa@stu.pku.edu.cn)"
+}
 ATOM_NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "arxiv": "http://arxiv.org/schemas/atom",
@@ -135,9 +140,28 @@ def _paper_number_from_dt(dt):
     raise RuntimeError(f"Could not parse arXiv id from: {dt.get_text(' ', strip=True)}")
 
 
+def _urlopen_with_retry(url, max_attempts=5):
+    request = urllib.request.Request(url, headers=ARXIV_HEADERS)
+    for attempt in range(max_attempts):
+        try:
+            return urllib.request.urlopen(request, timeout=60)
+        except urllib.error.HTTPError as error:
+            if error.code not in {429, 503} or attempt == max_attempts - 1:
+                raise
+            retry_after = error.headers.get("Retry-After")
+            if retry_after and retry_after.isdigit():
+                sleep_seconds = int(retry_after)
+            else:
+                sleep_seconds = 20 * (attempt + 1)
+            print(
+                f"arXiv API returned HTTP {error.code}; retrying in {sleep_seconds}s..."
+            )
+            time.sleep(sleep_seconds)
+
+
 def _download_new_papers(field_abbr):
     NEW_SUB_URL = f'https://arxiv.org/list/{field_abbr}/new'  # https://arxiv.org/list/cs/new
-    page = urllib.request.urlopen(NEW_SUB_URL)
+    page = _urlopen_with_retry(NEW_SUB_URL)
     soup = bs(page, features="html.parser")
     content = soup.body.find("div", {'id': 'content'})
 
@@ -200,7 +224,7 @@ def _download_papers_for_date(field_abbr, target_date, max_results=500):
         "sortOrder": "descending",
     }
     url = ARXIV_API_URL + "?" + urllib.parse.urlencode(params, safe=":+()[]")
-    with urllib.request.urlopen(url) as response:
+    with _urlopen_with_retry(url) as response:
         xml_text = response.read()
 
     root = ET.fromstring(xml_text)
