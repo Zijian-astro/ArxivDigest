@@ -71,7 +71,7 @@ Each run writes:
 - `outputs/astro-jwst-lrd/`: main astronomy digest output.
 - `outputs/ai-for-astro/`: supplemental AI-for-astronomy digest output.
 
-The GitHub Action now runs both configs every day at 12:00 Beijing time and uploads separate artifacts for each.
+The GitHub Action now runs both configs Monday-Friday at 12:00 Beijing time and uploads separate artifacts for each.
 
 It also deploys the generated HTML dashboards to GitHub Pages and preserves historical daily pages on the `gh-pages` branch. In your GitHub fork, enable:
 
