@@ -268,6 +268,9 @@ def generate_digest(
     model_name="gpt-4o-mini",
     target_date=None,
     min_papers=0,
+    max_papers=None,
+    digest_guidance="",
+    max_tokens_per_paper=320,
 ):
     if topic == "Physics":
         raise RuntimeError("You must choose a physics subtopic.")
@@ -292,11 +295,13 @@ def generate_digest(
     if interest:
         relevancy, hallucination = generate_relevance_score(
             papers,
-            query={"interest": interest},
+            query={"interest": interest, "digest_guidance": digest_guidance},
             threshold_score=threshold,
             model_name=model_name,
             num_paper_in_prompt=16,
             min_results=min_papers,
+            max_results=max_papers,
+            max_tokens_per_paper=max_tokens_per_paper,
         )
         relevancy = [_normalize_paper(paper) for paper in relevancy]
         body = "<br><br>".join(
@@ -642,6 +647,9 @@ if __name__ == "__main__":
         model_name=model_name,
         target_date=args.date,
         min_papers=int(config.get("min_papers", 0)),
+        max_papers=config.get("max_papers"),
+        digest_guidance=config.get("digest_guidance", ""),
+        max_tokens_per_paper=int(config.get("max_tokens_per_paper", 320)),
     )
     with open("digest.html", "w") as f:
         f.write(body)

@@ -21,6 +21,9 @@ def encode_prompt(query, prompt_papers):
     """Encode multiple prompt instructions into a single string."""
     prompt = open("src/relevancy_prompt.txt").read() + "\n"
     prompt += query['interest']
+    if query.get("digest_guidance"):
+        prompt += "\n\nAdditional digest guidance:\n"
+        prompt += query["digest_guidance"]
 
     for idx, task_dict in enumerate(prompt_papers):
         (title, authors, abstract) = task_dict["title"], task_dict["authors"], task_dict["abstract"]
@@ -133,6 +136,8 @@ def generate_relevance_score(
     top_p=1.0,
     sorting=True,
     min_results=0,
+    max_results=None,
+    max_tokens_per_paper=320,
 ):
     ans_data = []
     request_idx = 1
@@ -145,7 +150,7 @@ def generate_relevance_score(
         decoding_args = utils.OpenAIDecodingArguments(
             temperature=temperature,
             n=1,
-            max_tokens=320*num_paper_in_prompt,
+            max_tokens=max_tokens_per_paper*num_paper_in_prompt,
             top_p=top_p,
         )
         request_start = time.time()
@@ -184,6 +189,9 @@ def generate_relevance_score(
             for paper in ans_data
             if int(paper["Relevancy score"]) >= threshold_score
         ]
+
+    if max_results:
+        ans_data = ans_data[:max_results]
     
     return ans_data, hallucination
 
