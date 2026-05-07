@@ -195,7 +195,7 @@ jobs:
           <script>
             document.querySelectorAll('button[data-target]').forEach((button) => {{
               button.addEventListener('click', () => {{
-                const panel = document.getElementById(`history-${{button.dataset.target}}`);
+                const panel = document.getElementById('history-' + button.dataset.target);
                 panel.hidden = !panel.hidden;
               }});
             }});
@@ -208,7 +208,7 @@ jobs:
                   alert('No digest was generated for this date.');
                   return;
                 }}
-                window.location.href = `${{input.dataset.prefix}}/${{value}}.html`;
+                window.location.href = input.dataset.prefix + '/' + value + '.html';
               }};
               input.addEventListener('change', () => go(input.value));
               select.addEventListener('change', () => {{
