@@ -12,51 +12,47 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 24px; }
     .card { padding: 20px; border: 1px solid #d9dedb; border-radius: 8px; background: #fff; }
     .card h2 { margin: 0 0 10px; }
-    .latest { display: inline-block; margin-bottom: 12px; font-weight: 700; color: #096b72; }
-    ul { margin: 8px 0 0 20px; padding: 0; }
-    li { margin: 4px 0; }
+    .card-copy { margin: 0 0 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 8px 12px; border: 1px solid #b9c5c2; border-radius: 6px; background: #fff; color: #096b72; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .button.primary { background: #096b72; color: #fff; border-color: #096b72; }
+    .history-panel { margin-top: 16px; padding-top: 14px; border-top: 1px solid #d9dedb; }
+    label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; color: #5f6b70; }
+    input, select { width: 100%; min-height: 38px; margin-bottom: 10px; padding: 8px 10px; border: 1px solid #b9c5c2; border-radius: 6px; font: inherit; background: #fff; }
+    .hint { margin: 0; font-size: 13px; }
     a { color: #096b72; }
   </style>
 </head>
 <body>
   <main>
     <h1>Personal arXiv Digest</h1>
-    <p>Last generated: 2026-05-06 06:43 UTC</p>
-    <div class="grid"><section class="card"><h2>ai-for-astro</h2><a class="latest" href="ai-for-astro/index.html">Latest digest</a><h3>History</h3><ul><li><a href="ai-for-astro/2026-05-06.html">2026-05-06</a></li>
-<li><a href="ai-for-astro/2026-05-06-digest.html">2026-05-06-digest</a></li>
-<li><a href="ai-for-astro/2026-05-05.html">2026-05-05</a></li>
-<li><a href="ai-for-astro/2026-05-05-digest.html">2026-05-05-digest</a></li>
-<li><a href="ai-for-astro/2026-05-04.html">2026-05-04</a></li>
-<li><a href="ai-for-astro/2026-05-04-digest.html">2026-05-04-digest</a></li>
-<li><a href="ai-for-astro/2026-05-03.html">2026-05-03</a></li>
-<li><a href="ai-for-astro/2026-05-03-digest.html">2026-05-03-digest</a></li>
-<li><a href="ai-for-astro/2026-05-02.html">2026-05-02</a></li>
-<li><a href="ai-for-astro/2026-05-02-digest.html">2026-05-02-digest</a></li>
-<li><a href="ai-for-astro/2026-05-01.html">2026-05-01</a></li>
-<li><a href="ai-for-astro/2026-05-01-digest.html">2026-05-01-digest</a></li>
-<li><a href="ai-for-astro/2026-04-30.html">2026-04-30</a></li>
-<li><a href="ai-for-astro/2026-04-30-digest.html">2026-04-30-digest</a></li>
-<li><a href="ai-for-astro/2026-04-29.html">2026-04-29</a></li>
-<li><a href="ai-for-astro/2026-04-29-digest.html">2026-04-29-digest</a></li>
-<li><a href="ai-for-astro/2026-04-23.html">2026-04-23</a></li>
-<li><a href="ai-for-astro/2026-04-23-digest.html">2026-04-23-digest</a></li></ul></section><section class="card"><h2>astro-jwst-lrd</h2><a class="latest" href="astro-jwst-lrd/index.html">Latest digest</a><h3>History</h3><ul><li><a href="astro-jwst-lrd/2026-05-06.html">2026-05-06</a></li>
-<li><a href="astro-jwst-lrd/2026-05-06-digest.html">2026-05-06-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-05-05.html">2026-05-05</a></li>
-<li><a href="astro-jwst-lrd/2026-05-05-digest.html">2026-05-05-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-05-04.html">2026-05-04</a></li>
-<li><a href="astro-jwst-lrd/2026-05-04-digest.html">2026-05-04-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-05-03.html">2026-05-03</a></li>
-<li><a href="astro-jwst-lrd/2026-05-03-digest.html">2026-05-03-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-05-02.html">2026-05-02</a></li>
-<li><a href="astro-jwst-lrd/2026-05-02-digest.html">2026-05-02-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-05-01.html">2026-05-01</a></li>
-<li><a href="astro-jwst-lrd/2026-05-01-digest.html">2026-05-01-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-04-30.html">2026-04-30</a></li>
-<li><a href="astro-jwst-lrd/2026-04-30-digest.html">2026-04-30-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-04-29.html">2026-04-29</a></li>
-<li><a href="astro-jwst-lrd/2026-04-29-digest.html">2026-04-29-digest</a></li>
-<li><a href="astro-jwst-lrd/2026-04-23.html">2026-04-23</a></li>
-<li><a href="astro-jwst-lrd/2026-04-23-digest.html">2026-04-23-digest</a></li></ul></section></div>
+    <p>Last generated: 2026-05-08 06:13 UTC</p>
+    <div class="grid"><section class="card"><h2>ai-for-astro</h2><p class="card-copy">Latest available digest: <strong>2026-05-08</strong></p><div class="actions"><a class="button primary" href="ai-for-astro/index.html">Open latest</a><button class="button" type="button" data-target="ai-for-astro">Choose date</button></div><div class="history-panel" id="history-ai-for-astro" hidden><label for="date-ai-for-astro">Historical digest date</label><input id="date-ai-for-astro" type="date" min="2026-04-23-digest" max="2026-05-08" value="2026-05-08" data-dates="[&quot;2026-05-08&quot;, &quot;2026-05-08-digest&quot;, &quot;2026-05-06&quot;, &quot;2026-05-06-digest&quot;, &quot;2026-05-05&quot;, &quot;2026-05-05-digest&quot;, &quot;2026-05-04&quot;, &quot;2026-05-04-digest&quot;, &quot;2026-05-03&quot;, &quot;2026-05-03-digest&quot;, &quot;2026-05-02&quot;, &quot;2026-05-02-digest&quot;, &quot;2026-05-01&quot;, &quot;2026-05-01-digest&quot;, &quot;2026-04-30&quot;, &quot;2026-04-30-digest&quot;, &quot;2026-04-29&quot;, &quot;2026-04-29-digest&quot;, &quot;2026-04-23&quot;, &quot;2026-04-23-digest&quot;]" data-prefix="ai-for-astro"><select aria-label="Available dates for ai-for-astro"><option value="2026-05-08">2026-05-08</option><option value="2026-05-08-digest">2026-05-08-digest</option><option value="2026-05-06">2026-05-06</option><option value="2026-05-06-digest">2026-05-06-digest</option><option value="2026-05-05">2026-05-05</option><option value="2026-05-05-digest">2026-05-05-digest</option><option value="2026-05-04">2026-05-04</option><option value="2026-05-04-digest">2026-05-04-digest</option><option value="2026-05-03">2026-05-03</option><option value="2026-05-03-digest">2026-05-03-digest</option><option value="2026-05-02">2026-05-02</option><option value="2026-05-02-digest">2026-05-02-digest</option><option value="2026-05-01">2026-05-01</option><option value="2026-05-01-digest">2026-05-01-digest</option><option value="2026-04-30">2026-04-30</option><option value="2026-04-30-digest">2026-04-30-digest</option><option value="2026-04-29">2026-04-29</option><option value="2026-04-29-digest">2026-04-29-digest</option><option value="2026-04-23">2026-04-23</option><option value="2026-04-23-digest">2026-04-23-digest</option></select><p class="hint">Pick a date from the calendar or the available-date menu.</p></div></section><section class="card"><h2>astro-jwst-lrd</h2><p class="card-copy">Latest available digest: <strong>2026-05-08</strong></p><div class="actions"><a class="button primary" href="astro-jwst-lrd/index.html">Open latest</a><button class="button" type="button" data-target="astro-jwst-lrd">Choose date</button></div><div class="history-panel" id="history-astro-jwst-lrd" hidden><label for="date-astro-jwst-lrd">Historical digest date</label><input id="date-astro-jwst-lrd" type="date" min="2026-04-23-digest" max="2026-05-08" value="2026-05-08" data-dates="[&quot;2026-05-08&quot;, &quot;2026-05-08-digest&quot;, &quot;2026-05-06&quot;, &quot;2026-05-06-digest&quot;, &quot;2026-05-05&quot;, &quot;2026-05-05-digest&quot;, &quot;2026-05-04&quot;, &quot;2026-05-04-digest&quot;, &quot;2026-05-03&quot;, &quot;2026-05-03-digest&quot;, &quot;2026-05-02&quot;, &quot;2026-05-02-digest&quot;, &quot;2026-05-01&quot;, &quot;2026-05-01-digest&quot;, &quot;2026-04-30&quot;, &quot;2026-04-30-digest&quot;, &quot;2026-04-29&quot;, &quot;2026-04-29-digest&quot;, &quot;2026-04-23&quot;, &quot;2026-04-23-digest&quot;]" data-prefix="astro-jwst-lrd"><select aria-label="Available dates for astro-jwst-lrd"><option value="2026-05-08">2026-05-08</option><option value="2026-05-08-digest">2026-05-08-digest</option><option value="2026-05-06">2026-05-06</option><option value="2026-05-06-digest">2026-05-06-digest</option><option value="2026-05-05">2026-05-05</option><option value="2026-05-05-digest">2026-05-05-digest</option><option value="2026-05-04">2026-05-04</option><option value="2026-05-04-digest">2026-05-04-digest</option><option value="2026-05-03">2026-05-03</option><option value="2026-05-03-digest">2026-05-03-digest</option><option value="2026-05-02">2026-05-02</option><option value="2026-05-02-digest">2026-05-02-digest</option><option value="2026-05-01">2026-05-01</option><option value="2026-05-01-digest">2026-05-01-digest</option><option value="2026-04-30">2026-04-30</option><option value="2026-04-30-digest">2026-04-30-digest</option><option value="2026-04-29">2026-04-29</option><option value="2026-04-29-digest">2026-04-29-digest</option><option value="2026-04-23">2026-04-23</option><option value="2026-04-23-digest">2026-04-23-digest</option></select><p class="hint">Pick a date from the calendar or the available-date menu.</p></div></section></div>
   </main>
+  <script>
+    document.querySelectorAll('button[data-target]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const panel = document.getElementById('history-' + button.dataset.target);
+        panel.hidden = !panel.hidden;
+      });
+    });
+    document.querySelectorAll('.history-panel input[type="date"]').forEach((input) => {
+      const select = input.parentElement.querySelector('select');
+      const dates = JSON.parse(input.dataset.dates || '[]');
+      const go = (value) => {
+        if (!value) return;
+        if (!dates.includes(value)) {
+          alert('No digest was generated for this date.');
+          return;
+        }
+        window.location.href = input.dataset.prefix + '/' + value + '.html';
+      };
+      input.addEventListener('change', () => go(input.value));
+      select.addEventListener('change', () => {
+        input.value = select.value;
+        go(select.value);
+      });
+    });
+  </script>
 </body>
 </html>
