@@ -132,6 +132,19 @@ jobs:
             latest = digest_dir / "index.html"
             links.append((digest_dir.name, latest, dated_pages))
 
+        digest_data = {}
+        for digest_dir in sorted(path for path in public.iterdir() if path.is_dir()):
+            rows = []
+            for digest_json in sorted(digest_dir.glob("*-digest.json"), reverse=True):
+                digest = json.loads(digest_json.read_text(encoding="utf-8"))
+                digest_date = digest.get("generated_on", digest_json.name.split("-digest.json")[0])
+                for paper in digest.get("papers", []):
+                    row = dict(paper)
+                    row["digest_date"] = digest_date
+                    rows.append(row)
+            digest_data[digest_dir.name] = rows
+        digest_data_json = json.dumps(digest_data, ensure_ascii=False).replace("</", "<\\/")
+
         now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
         cards = []
         for name, latest, dated_pages in links:
@@ -151,12 +164,21 @@ jobs:
                 f'<div class="actions">'
                 f'<a class="button primary" href="{html.escape(latest_link)}">Open latest</a>'
                 f'<button class="button" type="button" data-target="{html.escape(name)}">Choose date</button>'
+                f'<button class="button" type="button" data-range-target="{html.escape(name)}">Date range</button>'
                 f'</div>'
                 f'<div class="history-panel" id="history-{html.escape(name)}" hidden>'
                 f'<label for="date-{html.escape(name)}">Historical digest date</label>'
                 f'<input id="date-{html.escape(name)}" type="date" min="{html.escape(min_date)}" max="{html.escape(latest_date)}" value="{html.escape(latest_date)}" data-dates="{dates_json}" data-prefix="{html.escape(name)}">'
                 f'<select aria-label="Available dates for {html.escape(name)}">{date_options}</select>'
                 f'<p class="hint">Pick a date from the calendar or the available-date menu.</p>'
+                f'</div>'
+                f'<div class="history-panel" id="range-{html.escape(name)}" hidden>'
+                f'<div class="range-grid">'
+                f'<div><label for="start-{html.escape(name)}">Start date</label><input id="start-{html.escape(name)}" type="date" min="{html.escape(min_date)}" max="{html.escape(latest_date)}" value="{html.escape(min_date)}"></div>'
+                f'<div><label for="end-{html.escape(name)}">End date</label><input id="end-{html.escape(name)}" type="date" min="{html.escape(min_date)}" max="{html.escape(latest_date)}" value="{html.escape(latest_date)}"></div>'
+                f'</div>'
+                f'<button class="button primary" type="button" data-range-run="{html.escape(name)}">Show sorted papers</button>'
+                f'<div class="range-results" id="range-results-{html.escape(name)}"></div>'
                 f'</div>'
                 f'</section>'
             )
@@ -180,6 +202,12 @@ jobs:
             .button {{ display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 8px 12px; border: 1px solid #b9c5c2; border-radius: 6px; background: #fff; color: #096b72; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }}
             .button.primary {{ background: #096b72; color: #fff; border-color: #096b72; }}
             .history-panel {{ margin-top: 16px; padding-top: 14px; border-top: 1px solid #d9dedb; }}
+            .range-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }}
+            .range-results {{ display: grid; gap: 10px; margin-top: 14px; }}
+            .paper-result {{ border: 1px solid #d9dedb; border-radius: 6px; padding: 12px; background: #fbfbf8; }}
+            .paper-result h3 {{ margin: 6px 0; font-size: 16px; }}
+            .paper-meta {{ display: flex; flex-wrap: wrap; gap: 8px; color: #5f6b70; font-size: 13px; }}
+            .score {{ display: inline-grid; place-items: center; min-width: 30px; height: 24px; border-radius: 4px; background: #096b72; color: #fff; font-weight: 700; }}
             label {{ display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; color: #5f6b70; }}
             input, select {{ width: 100%; min-height: 38px; margin-bottom: 10px; padding: 8px 10px; border: 1px solid #b9c5c2; border-radius: 6px; font: inherit; background: #fff; }}
             .hint {{ margin: 0; font-size: 13px; }}
@@ -193,14 +221,29 @@ jobs:
             <div class="grid">{''.join(cards)}</div>
           </main>
           <script>
+            const DIGEST_DATA = {digest_data_json};
+            function appendText(parent, tag, text, className) {{
+              const element = document.createElement(tag);
+              if (className) element.className = className;
+              element.textContent = text || '';
+              parent.appendChild(element);
+              return element;
+            }}
             document.querySelectorAll('button[data-target]').forEach((button) => {{
               button.addEventListener('click', () => {{
                 const panel = document.getElementById('history-' + button.dataset.target);
                 panel.hidden = !panel.hidden;
               }});
             }});
+            document.querySelectorAll('button[data-range-target]').forEach((button) => {{
+              button.addEventListener('click', () => {{
+                const panel = document.getElementById('range-' + button.dataset.rangeTarget);
+                panel.hidden = !panel.hidden;
+              }});
+            }});
             document.querySelectorAll('.history-panel input[type="date"]').forEach((input) => {{
               const select = input.parentElement.querySelector('select');
+              if (!select) return;
               const dates = JSON.parse(input.dataset.dates || '[]');
               const go = (value) => {{
                 if (!value) return;
@@ -214,6 +257,65 @@ jobs:
               select.addEventListener('change', () => {{
                 input.value = select.value;
                 go(select.value);
+              }});
+            }});
+            document.querySelectorAll('button[data-range-run]').forEach((button) => {{
+              button.addEventListener('click', () => {{
+                const name = button.dataset.rangeRun;
+                const startInput = document.getElementById('start-' + name);
+                const endInput = document.getElementById('end-' + name);
+                let start = startInput.value;
+                let end = endInput.value;
+                const results = document.getElementById('range-results-' + name);
+                results.textContent = '';
+                if (!start || !end) {{
+                  appendText(results, 'p', 'Choose both a start date and an end date.', 'hint');
+                  return;
+                }}
+                if (start > end) {{
+                  const previousStart = start;
+                  start = end;
+                  end = previousStart;
+                  startInput.value = start;
+                  endInput.value = end;
+                }}
+                const rows = (DIGEST_DATA[name] || [])
+                  .filter((paper) => paper.digest_date >= start && paper.digest_date <= end)
+                  .sort((a, b) => {{
+                    const scoreDelta = Number(b['Relevancy score'] || 0) - Number(a['Relevancy score'] || 0);
+                    if (scoreDelta) return scoreDelta;
+                    return String(b.digest_date || '').localeCompare(String(a.digest_date || ''));
+                  }});
+                if (!rows.length) {{
+                  appendText(results, 'p', 'No generated digest papers found in this date range.', 'hint');
+                  return;
+                }}
+                appendText(results, 'p', rows.length + ' papers found, sorted by relevance score.', 'hint');
+                rows.forEach((paper) => {{
+                  const card = document.createElement('article');
+                  card.className = 'paper-result';
+                  const meta = document.createElement('div');
+                  meta.className = 'paper-meta';
+                  appendText(meta, 'span', String(paper['Relevancy score'] || 'n/a'), 'score');
+                  if (paper.digest_date) {{
+                    const dayLink = document.createElement('a');
+                    dayLink.href = name + '/' + paper.digest_date + '.html';
+                    dayLink.textContent = paper.digest_date;
+                    meta.appendChild(dayLink);
+                  }}
+                  appendText(meta, 'span', paper.arxiv_id || '');
+                  card.appendChild(meta);
+                  const title = appendText(card, 'h3', paper.title || 'Untitled');
+                  if (paper.main_page) {{
+                    const link = document.createElement('a');
+                    link.href = paper.main_page;
+                    link.textContent = title.textContent;
+                    title.textContent = '';
+                    title.appendChild(link);
+                  }}
+                  appendText(card, 'p', paper['Short digest'] || paper['Reasons for match'] || '');
+                  results.appendChild(card);
+                }});
               }});
             }});
           </script>
