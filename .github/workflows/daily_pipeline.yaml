@@ -46,6 +46,10 @@ jobs:
         pip install -r requirements.txt
     - name: Generate Digest 
       run: |
+        if [ "${{ matrix.artifact }}" = "ai-for-astro" ]; then
+          echo "Waiting before the second arXiv query to reduce API throttling..."
+          sleep 90
+        fi
         if [ -n "${{ inputs.date }}" ]; then
           python src/action.py --config ${{ matrix.config }} --date "${{ inputs.date }}"
         else

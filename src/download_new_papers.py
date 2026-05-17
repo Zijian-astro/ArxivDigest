@@ -11,6 +11,7 @@ import re
 import urllib.parse
 import xml.etree.ElementTree as ET
 import time
+import socket
 
 
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
@@ -140,11 +141,11 @@ def _paper_number_from_dt(dt):
     raise RuntimeError(f"Could not parse arXiv id from: {dt.get_text(' ', strip=True)}")
 
 
-def _urlopen_with_retry(url, max_attempts=5):
+def _urlopen_with_retry(url, max_attempts=8):
     request = urllib.request.Request(url, headers=ARXIV_HEADERS)
     for attempt in range(max_attempts):
         try:
-            return urllib.request.urlopen(request, timeout=60)
+            return urllib.request.urlopen(request, timeout=90)
         except urllib.error.HTTPError as error:
             if error.code not in {429, 503} or attempt == max_attempts - 1:
                 raise
@@ -152,9 +153,17 @@ def _urlopen_with_retry(url, max_attempts=5):
             if retry_after and retry_after.isdigit():
                 sleep_seconds = int(retry_after)
             else:
-                sleep_seconds = 20 * (attempt + 1)
+                sleep_seconds = min(300, 30 * (2**attempt))
             print(
                 f"arXiv API returned HTTP {error.code}; retrying in {sleep_seconds}s..."
+            )
+            time.sleep(sleep_seconds)
+        except (TimeoutError, socket.timeout, urllib.error.URLError) as error:
+            if attempt == max_attempts - 1:
+                raise
+            sleep_seconds = min(300, 30 * (2**attempt))
+            print(
+                f"arXiv API request failed ({error}); retrying in {sleep_seconds}s..."
             )
             time.sleep(sleep_seconds)
 
