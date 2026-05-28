@@ -1,0 +1,64 @@
+{
+  "generated_on": "2026-05-28",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2605.27481",
+      "pdf": "https://arxiv.org/pdf/2605.27481",
+      "title": "Astronomy Open Science Competence Centre in Europe",
+      "authors": "Marco Molinaro , Mark Allen , Joachim Wambsganns , Enrique Solano , Baptiste Cecconi , Markus Demleitner , André Schaaff , Hendrik Heinl , Sara Bertocco",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "The Astronomy Open Science Competence Centre Pilot (Astro-CC) is an ESCAPE-cluster related project meant to enable the astronomy research communities to accelerate their use of Open Science by supporting the implementation of FAIR principles. The Astro-CC project aims at expanding the use of Virtual Observatory standards by astronomy-focused ESFRIs, RIs, and data-producing projects of all scales, enabling the astronomy research communities to accelerate their use of Open Science by supporting the implementation of FAIR principles. It will run community events engaging experts in astronomical data & service interoperability to prepare and define the scope of a Community Competence Center. The project will support the community development of the Virtual Observatory interoperability framework and its integration into EOSC, building on the progress made in the ESCAPE Science Cluster project. It aims at contributing to the vision of EOSC as a federation, providing feedback on the practical implementation of Open Science to the EOSC governance.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on open science infrastructure and FAIR principles in Europe, not on high-redshift galaxies, AGN, or JWST.",
+      "Short digest": "Central question: How can an open science competence centre accelerate FAIR implementation in astronomy? Main result: The Astro-CC pilot will expand Virtual Observatory standards and integrate into EOSC. Why it matters: Not directly relevant to high-redshift galaxy/AGN studies.",
+      "Full-text inspection checklist": [
+        "Check for any mention of high-redshift data products or JWST archives",
+        "Look for community engagement plans that might involve galaxy/AGN surveys"
+      ],
+      "summarized_text": "Title: Astronomy Open Science Competence Centre in Europe\nAuthors: Marco Molinaro , Mark Allen , Joachim Wambsganns , Enrique Solano , Baptiste Cecconi , Markus Demleitner , André Schaaff , Hendrik Heinl , Sara Bertocco\nLink: https://arxiv.org/abs/2605.27481\nRelevancy score: 1\nReasons for match: Focuses on open science infrastructure and FAIR principles in Europe, not on high-redshift galaxies, AGN, or JWST.\nShort digest: Central question: How can an open science competence centre accelerate FAIR implementation in astronomy? Main result: The Astro-CC pilot will expand Virtual Observatory standards and integrate into EOSC. Why it matters: Not directly relevant to high-redshift galaxy/AGN studies.\nFull-text inspection checklist: ['Check for any mention of high-redshift data products or JWST archives', 'Look for community engagement plans that might involve galaxy/AGN surveys']\n",
+      "arxiv_id": "2605.27481"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2605.27629",
+      "pdf": "https://arxiv.org/pdf/2605.27629",
+      "title": "The Celestial Reference Frame at K Band: The CRF-K-2025 Catalog",
+      "authors": "David Gordon (1), Aletha de Witt (2), Christopher S. Jacobs (3), Hana Krasna (4), Alessandra Bertarini (5), Jamie McCallum (6), Jonathan Quick (2), Cristina Garcia-Miro (7), Taehyun Jung (8), Jeffrey A. Hodgson (9), Whee Yeon Cheong (8), Sang-Sung Lee (8), Do-Young Byun (8) ((1) US Naval Observatory, (2) South African Radio Astronomy Observatory, (3) Jet Propulsion Laboratory, (4) TU Wien, Department of Geodesy and Geoinformation, (5) German Space Agency within DLR, (6) University of Tasmania, (7) Observatorio Astronomico Nacional, IGN, Spain, (8) Korea Astronomy and Space Science Institute, (9) Sejong University, Korea)",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "We present an updated K band (24 GHz) celestial reference frame (CRF) constructed from 3.5 million Very Long Baseline Interferometry (VLBI) observations collected during 211 observing epochs between May 2002 and December 2025 using the Very Long Baseline Array (VLBA), the HARTRAO-HOBART26 baseline, the HARTRAO-YEBES40M baseline, and the Korean VLBI Network (KVN) augmented with several other VLBI stations. We have successfully observed and determined precise angular coordinates for 1317 compact extragalactic radio sources, essentially quasars, covering the full sky. This updated K band catalog is designated as CRF-K-2025. The precision of CRF-K-2025 is characterized by median scaled uncertainties of 60 and 104 micro-arc-seconds in right ascension and declination, respectively. The increase in number of observations and sensitivity over earlier K band campaigns has resulted in a catalog with 493 additional sources and a precision approximately 25% better than the ICRF3-K catalog, and similar to the ICRF3-SX catalog. At K band, these quasar radio sources generally show less extended emission than at lower frequencies and thus can potentially provide a more stable long term celestial reference frame than at the standard S/X (2.3/8.4 GHz) observing bands of ICRF3-SX.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on VLBI astrometry of quasars for celestial reference frame, not high-redshift galaxies or AGN.",
+      "Short digest": "Central question: How to construct an updated K-band celestial reference frame. Main result: CRF-K-2025 catalog with 1317 sources and improved precision. Why it matters: Not directly relevant to high-redshift JWST studies.",
+      "Full-text inspection checklist": [
+        "Check if any sources overlap with high-redshift AGN samples",
+        "Look for any discussion of high-redshift quasar properties"
+      ],
+      "summarized_text": "Title: The Celestial Reference Frame at K Band: The CRF-K-2025 Catalog\nAuthors: David Gordon (1), Aletha de Witt (2), Christopher S. Jacobs (3), Hana Krasna (4), Alessandra Bertarini (5), Jamie McCallum (6), Jonathan Quick (2), Cristina Garcia-Miro (7), Taehyun Jung (8), Jeffrey A. Hodgson (9), Whee Yeon Cheong (8), Sang-Sung Lee (8), Do-Young Byun (8) ((1) US Naval Observatory, (2) South African Radio Astronomy Observatory, (3) Jet Propulsion Laboratory, (4) TU Wien, Department of Geodesy and Geoinformation, (5) German Space Agency within DLR, (6) University of Tasmania, (7) Observatorio Astronomico Nacional, IGN, Spain, (8) Korea Astronomy and Space Science Institute, (9) Sejong University, Korea)\nLink: https://arxiv.org/abs/2605.27629\nRelevancy score: 1\nReasons for match: Focuses on VLBI astrometry of quasars for celestial reference frame, not high-redshift galaxies or AGN.\nShort digest: Central question: How to construct an updated K-band celestial reference frame. Main result: CRF-K-2025 catalog with 1317 sources and improved precision. Why it matters: Not directly relevant to high-redshift JWST studies.\nFull-text inspection checklist: ['Check if any sources overlap with high-redshift AGN samples', 'Look for any discussion of high-redshift quasar properties']\n",
+      "arxiv_id": "2605.27629"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2605.28644",
+      "pdf": "https://arxiv.org/pdf/2605.28644",
+      "title": "Exploring non-Poisson satellite occupation in HOD models and its impact on 2- and 3-point galaxy clustering",
+      "authors": "Antoine Rocher",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "Understanding the connection between galaxies and dark matter halos is a central challenge in modern cosmology. The Halo Occupation Distribution (HOD) framework provides a widely used statistical description of how galaxies populate dark matter halos, enabling precise modelling of galaxy clustering. A common assumption in standard HOD models is that the number of satellite galaxies follows a Poisson distribution at fixed halo mass. In this work, we revisit this assumption and introduce the Conway-Maxwell-Poisson (CMP) distribution as a minimal extension of of the Poisson model, which add a single parameter, $\\nu$, to explore sub- and super-Poisson behaviour. We derive analytical approximations for the CMP expectation parameter $\\lambda$ and develop a numerical scheme that smoothly connects small- and large-$\\lambda$ regimes, achieving $\\sim5\\%$ accuracy for $0.5 < \\nu < 2$. Using the \\texttt{HODDIES} package, we study the impact of non-Poisson satellite occupations on mock galaxy catalogues and clustering statistics. Variations in the variance of the satellite occupation significantly affect small-scale clustering, producing deviations of up to $10\\%$ in projected clustering and $5\\%$ in the monopole and quadrupole. We further investigate higher-order statistics using counts-in-cylinders (CiC) and the tree-level galaxy bispectrum. CiC statistics are highly sensitive to changes in the variance, with variations up to $\\sim30\\%$, while the tree-level galaxy bispectrum (in the Sugiyama basis) is only weakly affected ($<2\\%$ up to $k_\\mathrm{max} = 0.3$). These results suggest that non-Poisson satellite statistics are important for small-scale analyses, but should have a limited impact on cosmological constraints from power spectrum and bispectrum measurements using large scales $k_\\mathrm{max} < 0.3$.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on HOD modeling of galaxy clustering, not JWST or high-redshift galaxies/AGN.",
+      "Short digest": "Central question: How does non-Poisson satellite occupation affect galaxy clustering? Main result: Non-Poisson statistics significantly impact small-scale clustering but have limited effect on large-scale cosmological constraints. Why it matters: Not directly relevant to my work on JWST high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "Check if any connection to high-redshift galaxy formation is discussed.",
+        "Look for any mention of JWST or high-redshift AGN."
+      ],
+      "summarized_text": "Title: Exploring non-Poisson satellite occupation in HOD models and its impact on 2- and 3-point galaxy clustering\nAuthors: Antoine Rocher\nLink: https://arxiv.org/abs/2605.28644\nRelevancy score: 1\nReasons for match: Focuses on HOD modeling of galaxy clustering, not JWST or high-redshift galaxies/AGN.\nShort digest: Central question: How does non-Poisson satellite occupation affect galaxy clustering? Main result: Non-Poisson statistics significantly impact small-scale clustering but have limited effect on large-scale cosmological constraints. Why it matters: Not directly relevant to my work on JWST high-redshift galaxies and AGN.\nFull-text inspection checklist: ['Check if any connection to high-redshift galaxy formation is discussed.', 'Look for any mention of JWST or high-redshift AGN.']\n",
+      "arxiv_id": "2605.28644"
+    }
+  ]
+}
