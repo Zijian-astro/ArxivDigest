@@ -1,0 +1,29 @@
+{
+  "generated_on": "2026-06-25",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2007.11556",
+      "pdf": "https://arxiv.org/pdf/2007.11556",
+      "title": "A nonsingular, anisotropic universe in a black hole with torsion and particle production",
+      "authors": "Nikodem J. Popławski",
+      "subjects": "General Relativity and Quantum Cosmology (gr-qc) ; Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "We consider a universe formed in a black hole in general relativity with spin and torsion. The interior of a Schwarzschild black hole can be represented by the Kantowski$-$Sachs metric that describes a closed anisotropic universe. We use this metric to derive the Einstein$-$Cartan field equations with a relativistic spin fluid as a source. We show that torsion may prevent a singularity and replace it with a nonsingular bounce if particle production dominates over shear. Particle production after the last bounce can generate a finite period of inflation, during which the universe expands and isotropizes to the current state. This scenario is only approximate: the Kantowski$-$Sachs metric is never reached and should be replaced with a more general metric that tends to that of a 3-sphere.",
+      "Relevancy score": 1,
+      "Reasons for match": "This paper is a purely theoretical cosmology paper about black hole interiors and torsion, with no connection to JWST observations or high-redshift galaxies/AGN.",
+      "Short digest": "The central question is whether a universe can form inside a black hole with torsion and avoid a singularity. The main claim is that torsion and particle production can prevent the singularity and cause a nonsingular bounce. This is irrelevant to my work on JWST observations of high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "No relevant figures or tables for JWST or high-redshift astronomy."
+      ],
+      "summarized_text": "Title: A nonsingular, anisotropic universe in a black hole with torsion and particle production\nAuthors: Nikodem J. Popławski\nLink: https://arxiv.org/abs/2007.11556\nRelevancy score: 1\nReasons for match: This paper is a purely theoretical cosmology paper about black hole interiors and torsion, with no connection to JWST observations or high-redshift galaxies/AGN.\nShort digest: The central question is whether a universe can form inside a black hole with torsion and avoid a singularity. The main claim is that torsion and particle production can prevent the singularity and cause a nonsingular bounce. This is irrelevant to my work on JWST observations of high-redshift galaxies and AGN.\nFull-text inspection checklist: ['No relevant figures or tables for JWST or high-redshift astronomy.']\n",
+      "arxiv_id": "2007.11556"
+    }
+  ]
+}
