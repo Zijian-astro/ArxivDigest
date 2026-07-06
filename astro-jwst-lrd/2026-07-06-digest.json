@@ -1,0 +1,133 @@
+{
+  "generated_on": "2026-07-06",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2607.01330",
+      "pdf": "https://arxiv.org/pdf/2607.01330",
+      "title": "Extreme outflow velocities and weak UV emission lines indicate quasars shedding their dust cocoons",
+      "authors": "Guozhen Ma , Stefan J. Geier , Johan P. U. Fynbo , Lise Christensen , Andrei Berdyugin , Rasmus Frederiksen , Kasper E. Heintz , Phillip D. Henriksen , Jens-Kristian Krogager , Cédric Ledoux , Vilppu Piirola , Palle Møller , Simone Vejlgaard , Hyunseop Choi",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "The recently discovered low-ionisation broad absorption line (LoBAL) quasar GQ 1309$+$2904 is unusual due to its very broad, highly blueshifted absorption troughs and an absence of broad emission lines except for ${\\mathrm{H} \\alpha}$. In this paper, we present observations of six quasars that appear very similar to GQ 1309$+$2904 in the rest-frame ultraviolet (UV). We measure the systemic redshifts of these quasars to be $z\\approx$ 2.07--3.28 from detected ${\\mathrm{H} \\alpha}$ emission lines. We confirm that all targets are quasars with highly blueshifted BALs possessing high-speed outflows with velocities up to $\\sim 0.16\\,c$, and five of them are confidently identified as LoBAL quasars. Based on ${\\mathrm{H} \\alpha}$ emission, black hole masses and Eddington ratios of these quasars are $M_{\\mathrm{BH}} \\approx 10^{8.7}$--$10^{9.4}\\,M_{\\odot}$ and $L_{\\mathrm{bol}} / L_{\\mathrm{Edd}} \\approx$ 0.14--0.34, indicating that their central black holes are very massive and active. Every quasar in our sample exhibits a very flat or reddened continuum. The spectral shapes of three objects are well-fitted by a normal quasar composite reddened by a Small-Magellanic-Cloud-like (SMC-like) extinction curve, while the other three require a steeper extinction law. Broad-band ($BVR$) polarimetry for two of the latter group (plus GQ 1309$+$2904) reveals their low polarisations, consistent with low inclination (more face-on) angles. We propose that these objects are weak emission-line quasars (WLQs) observed through the disc wind, caught emerging from their dust cocoons. As quasars shed their cocoons, dust grains in the disc wind are shattered into smaller particles, producing the UV-steeper extinction curve observed along the outflow. We present a schematic illustration of this shedding process that can account for the peculiar spectral features observed in our sample.",
+      "Relevancy score": 8,
+      "Reasons for match": "Studies quasars with extreme outflows and dust cocoons, relevant to obscured AGN, broad-line AGN, and early black-hole growth at high redshift.",
+      "Short digest": "What is the nature of quasars with extreme outflow velocities and weak UV emission lines? They are likely WLQs emerging from dust cocoons, with massive black holes and high Eddington ratios. This matters for understanding obscured AGN and early SMBH growth in high-redshift studies.",
+      "Full-text inspection checklist": [
+        "Check the SED fitting and extinction curves used (SMC-like vs. steeper).",
+        "Look for polarimetry results and inclination constraints.",
+        "Examine the outflow velocity measurements and BAL classification."
+      ],
+      "summarized_text": "Title: Extreme outflow velocities and weak UV emission lines indicate quasars shedding their dust cocoons\nAuthors: Guozhen Ma , Stefan J. Geier , Johan P. U. Fynbo , Lise Christensen , Andrei Berdyugin , Rasmus Frederiksen , Kasper E. Heintz , Phillip D. Henriksen , Jens-Kristian Krogager , Cédric Ledoux , Vilppu Piirola , Palle Møller , Simone Vejlgaard , Hyunseop Choi\nLink: https://arxiv.org/abs/2607.01330\nRelevancy score: 8\nReasons for match: Studies quasars with extreme outflows and dust cocoons, relevant to obscured AGN, broad-line AGN, and early black-hole growth at high redshift.\nShort digest: What is the nature of quasars with extreme outflow velocities and weak UV emission lines? They are likely WLQs emerging from dust cocoons, with massive black holes and high Eddington ratios. This matters for understanding obscured AGN and early SMBH growth in high-redshift studies.\nFull-text inspection checklist: ['Check the SED fitting and extinction curves used (SMC-like vs. steeper).', 'Look for polarimetry results and inclination constraints.', 'Examine the outflow velocity measurements and BAL classification.']\n",
+      "arxiv_id": "2607.01330"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.01479",
+      "pdf": "https://arxiv.org/pdf/2607.01479",
+      "title": "Radiative filtering unifies broad-line phenomenology in active galactic nuclei",
+      "authors": "Mohammad Hassan Naddaf",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; High Energy Astrophysical Phenomena (astro-ph.HE); Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "Broad emission lines (BELs) are a defining feature of active galactic nuclei (AGNs), yet they weaken or disappear in both very low- and very high-accretion systems. These regimes are typically treated separately, and a unified physical explanation has remained elusive. Here we show that this behavior arises if line formation is governed not by the intrinsic luminosity of the central engine, but by the ionizing radiation field that survives filtering before reaching the broad-line region (BLR). In this picture, line production depends on the product of intrinsic ionizing capability and an effective transmission. Because the former increases from low accretion rates while the latter declines at high accretion rates, the effective ionizing field naturally develops a finite and non-universal window for BEL formation. This framework unifies the absence or extreme faintness of BELs in low-luminosity AGNs, LINERs, and weak-line quasars (WLQs), and accounts for the Baldwin effect and the $R_{\\rm Fe}$ trend. It also necessarily implies the breakdown of standard BLR-based scaling relations in extreme accretion regimes. We show that a minimal quantitative realization reproduces this behavior across black-hole mass, accretion rate, and radiative efficiency. These results suggest that AGN emission-line phenomenology is governed by global regulation of the ionizing radiation field rather than by mere presence or condition of local gas.",
+      "Relevancy score": 7,
+      "Reasons for match": "Unifies broad-line phenomenology in AGN, relevant to broad-line AGN, weak-line quasars, and BLR physics at high redshift.",
+      "Short digest": "What unifies the weakening of broad emission lines in low- and high-accretion AGN? The ionizing radiation field filtered before reaching the BLR governs line formation. This matters for interpreting broad-line AGN and WLQs in high-redshift JWST studies.",
+      "Full-text inspection checklist": [
+        "Check the quantitative model for the effective ionizing field.",
+        "Look for predictions for BLR scaling relations in extreme accretion regimes.",
+        "Examine how the framework applies to weak-line quasars (WLQs)."
+      ],
+      "summarized_text": "Title: Radiative filtering unifies broad-line phenomenology in active galactic nuclei\nAuthors: Mohammad Hassan Naddaf\nLink: https://arxiv.org/abs/2607.01479\nRelevancy score: 7\nReasons for match: Unifies broad-line phenomenology in AGN, relevant to broad-line AGN, weak-line quasars, and BLR physics at high redshift.\nShort digest: What unifies the weakening of broad emission lines in low- and high-accretion AGN? The ionizing radiation field filtered before reaching the BLR governs line formation. This matters for interpreting broad-line AGN and WLQs in high-redshift JWST studies.\nFull-text inspection checklist: ['Check the quantitative model for the effective ionizing field.', 'Look for predictions for BLR scaling relations in extreme accretion regimes.', 'Examine how the framework applies to weak-line quasars (WLQs).']\n",
+      "arxiv_id": "2607.01479"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.01659",
+      "pdf": "https://arxiv.org/pdf/2607.01659",
+      "title": "Development of a Retrieval-Augmented Generation Virtual Assistant for Enhanced Information Discovery at Rubin Observatory",
+      "authors": "Leanne P. Guy , Connor Yablonski , Aaron M. Meisner , Guillem Megias Homar , Merlin Fisher-Levine , Eman E. Ali , Tiger J. Hu , Christopher W. Stubbs",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "The NSF-DOE Vera C. Rubin Observatory will generate petabytes of data through the Legacy Survey of Space and Time (LSST) over the next decade, enabling discoveries across a broad range of astrophysical fields. Alongside these data products, Rubin maintains a large but heterogeneous collection of supporting documentation, including operational guides, technical notes, and scientific papers. Because this material is distributed across multiple platforms and formats, staff and scientists often struggle to efficiently locate accurate, up-to-date information. Many resources also reside on internal systems, limiting the ability of general-purpose language models to provide reliable answers to Rubin-specific questions. To address these challenges, we explore the use of Retrieval Augmented Generation (RAG) to improve information discovery. We present a prototype RAG-based virtual assistant that delivers context-aware, factual, conversational access to Rubin's vast and heterogenous documentation ecosystem. The system integrates material from multiple sources and enables semantic search through a conversational interface, using Weaviate for embeddings, LangChain for query orchestration, and an OpenAI GPT model as the LLM backend. By grounding responses in domain-specific knowledge, the assistant reduces hallucinations, improves accuracy, and demonstrates the potential of RAG to enhance access to distributed knowledge, streamline workflows, and support effective use of LSST data products.",
+      "Relevancy score": 6,
+      "Reasons for match": "Applies RAG to Rubin Observatory documentation, relevant to AI-for-astronomy workflows and information discovery.",
+      "Short digest": "Can a RAG virtual assistant improve information discovery at Rubin Observatory? The prototype provides context-aware access to heterogeneous documentation. This matters for AI-assisted workflows in large surveys, though not directly high-redshift galaxies.",
+      "Full-text inspection checklist": [
+        "Check the retrieval accuracy and hallucination rates.",
+        "Look for integration with Rubin-specific documentation sources.",
+        "Examine the evaluation metrics for factual correctness."
+      ],
+      "summarized_text": "Title: Development of a Retrieval-Augmented Generation Virtual Assistant for Enhanced Information Discovery at Rubin Observatory\nAuthors: Leanne P. Guy , Connor Yablonski , Aaron M. Meisner , Guillem Megias Homar , Merlin Fisher-Levine , Eman E. Ali , Tiger J. Hu , Christopher W. Stubbs\nLink: https://arxiv.org/abs/2607.01659\nRelevancy score: 6\nReasons for match: Applies RAG to Rubin Observatory documentation, relevant to AI-for-astronomy workflows and information discovery.\nShort digest: Can a RAG virtual assistant improve information discovery at Rubin Observatory? The prototype provides context-aware access to heterogeneous documentation. This matters for AI-assisted workflows in large surveys, though not directly high-redshift galaxies.\nFull-text inspection checklist: ['Check the retrieval accuracy and hallucination rates.', 'Look for integration with Rubin-specific documentation sources.', 'Examine the evaluation metrics for factual correctness.']\n",
+      "arxiv_id": "2607.01659"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.01832",
+      "pdf": "https://arxiv.org/pdf/2607.01832",
+      "title": "Post-starburst Galaxies with Active Galactic Nucleus: Properties and Evolutionary Sequences",
+      "authors": "Junjie Huang , Yanmei Chen , Yong Shi , Cheng Li , Zhuo Cheng , Ho-Hin Leung , Vivienne Wild , Qiusheng Gu , Qihang Cheng , Ying Yu",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "Post-starburst (PSB) galaxies, identified by strong Balmer absorption and weak nebular emission, provide a key laboratory for studying rapid quenching. Using the final data release of the SDSS-IV MaNGA survey, we follow the traditional PSB selection criteria of Chen et al. (2019) and develop a new method to identify regions that simultaneously exhibit PSB features and nuclear activities (AGN-PSBs). Our final sample comprises 48 AGN-PSBs, 92 central PSBs (CPSBs), 89 ring-like PSBs (RPSBs), and 828 irregular PSBs (IPSBs). We find the global and spatially resolved properties of CPSBs and RPSBs are consistent with the results of Chen et al. (2019). In this work, we focus on the properties of AGN-PSBs, comparing them with CPSBs, RPSBs, and control galaxies. Similar to CPSBs and RPSBs, AGN-PSBs show positive $\\mathrm{D}_{n}4000$ gradients relative to negative $\\mathrm{D}_{n}4000$ gradients of their controls, which indicates younger stellar populations in the central region than that in the outskirt. Among the three sub-types, high-mass CPSBs (H-CPSBs, with $\\log(M_{*}/M_{\\odot})>9.5$) display the highest incidence of merger remnants and gas--star kinematic misalignment, consistent with a merger/interaction-dominated origin. AGN-PSBs and RPSBs, however, show lower and comparable fractions of merger remnants and gas--star kinematic misalignment, favoring less violent external mechanisms. Based on radial profiles of mass-weighted age and $V_{\\rm star}/\\sigma_{\\rm star}$, we suggest that RPSBs can evolve into AGN-PSBs, whereas H-CPSBs likely follow a distinct evolutionary pathway. The existence of RPSBs and IPSBs also indicates that AGN feedback is not a necessary condition for the formation of PSB.",
+      "Relevancy score": 3,
+      "Reasons for match": "Studies post-starburst galaxies with AGN, but at low redshift (SDSS MaNGA), not high-z JWST targets.",
+      "Short digest": "What are the properties and evolutionary sequences of post-starburst galaxies with AGN? Using MaNGA data, they find AGN-PSBs show younger central stellar populations and may evolve from ring-like PSBs. While tangentially related to AGN and quenching, the low-redshift focus limits relevance to my high-redshift JWST work.",
+      "Full-text inspection checklist": [
+        "Check the AGN-PSB selection criteria and how they differ from traditional PSB selection.",
+        "Look for radial profiles of stellar age and kinematic misalignment that support evolutionary sequences."
+      ],
+      "summarized_text": "Title: Post-starburst Galaxies with Active Galactic Nucleus: Properties and Evolutionary Sequences\nAuthors: Junjie Huang , Yanmei Chen , Yong Shi , Cheng Li , Zhuo Cheng , Ho-Hin Leung , Vivienne Wild , Qiusheng Gu , Qihang Cheng , Ying Yu\nLink: https://arxiv.org/abs/2607.01832\nRelevancy score: 3\nReasons for match: Studies post-starburst galaxies with AGN, but at low redshift (SDSS MaNGA), not high-z JWST targets.\nShort digest: What are the properties and evolutionary sequences of post-starburst galaxies with AGN? Using MaNGA data, they find AGN-PSBs show younger central stellar populations and may evolve from ring-like PSBs. While tangentially related to AGN and quenching, the low-redshift focus limits relevance to my high-redshift JWST work.\nFull-text inspection checklist: ['Check the AGN-PSB selection criteria and how they differ from traditional PSB selection.', 'Look for radial profiles of stellar age and kinematic misalignment that support evolutionary sequences.']\n",
+      "arxiv_id": "2607.01832"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.02351",
+      "pdf": "https://arxiv.org/pdf/2607.02351",
+      "title": "Indicatives of Early Stages of Star Formation in the Universe",
+      "authors": "Irina Acharova , Margarita Sharina",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "The paper analyzes formation conditions for globular clusters (GCs) in circumgalactic clouds. The similarity between the metallicity distributions of GCs in the nearby Universe and of circumgalactic clouds is substantiated in detail over a wide range of redshifts: from \\mbox{0.2} to \\mbox{5.9}. The distributions of the number of circumgalactic clouds and GCs both contain a sequence of four local maxima at the metallicity values: \\mbox{$[\\rm{X/H}]\\simeq -2.6, -2.0, -1.4,-0.5$}. The sequential enrichment of a circumgalactic cloud with a mass of $10^{8}\\,M_{\\odot}$ is calculated starting the extremely low metallicity \\mbox{$ [\\rm{X/H}] <-2.3$}, then following through the stages of \\mbox{$-2.3 \\le [\\rm{X/H}]<-1.7$} and \\mbox{$-1.7 \\le [\\rm{X/H}] < -0.9$} to the high metallicity \\mbox{$[\\rm{X/H}] \\ge -0.9$}, where the boundaries of these ranges coincide with the local minima of the number of objects in the distributions. It is shown that for the reproduction of such distributions, it is sufficient that at each stage of enrichment of a part of a cloud in metals, one or more GCs with a total mass of \\mbox{$3 \\times 10^{6}\\,M_{\\odot}$} are formed. It is shown that the maximum mass of stars capable of leading to supernova explosions increases with the increase of metallicity. Possible values of this mass are calculated for the metallicities corresponding to the maxima in the distributions of clouds and GCs.",
+      "Relevancy score": 2,
+      "Reasons for match": "Focuses on globular cluster formation in circumgalactic clouds at z<6, not directly on JWST high-redshift galaxies/AGN.",
+      "Short digest": "Central question: How do globular clusters form in circumgalactic clouds across cosmic time? Main result: Metallicity distributions of GCs and circumgalactic clouds share four local maxima, and sequential enrichment can reproduce these distributions. Why it matters: Only tangentially relevant as it discusses high-redshift conditions but lacks JWST data or AGN focus.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift (z>6) GC formation scenarios are discussed",
+        "Look for any connection to early galaxy formation or AGN feedback"
+      ],
+      "summarized_text": "Title: Indicatives of Early Stages of Star Formation in the Universe\nAuthors: Irina Acharova , Margarita Sharina\nLink: https://arxiv.org/abs/2607.02351\nRelevancy score: 2\nReasons for match: Focuses on globular cluster formation in circumgalactic clouds at z<6, not directly on JWST high-redshift galaxies/AGN.\nShort digest: Central question: How do globular clusters form in circumgalactic clouds across cosmic time? Main result: Metallicity distributions of GCs and circumgalactic clouds share four local maxima, and sequential enrichment can reproduce these distributions. Why it matters: Only tangentially relevant as it discusses high-redshift conditions but lacks JWST data or AGN focus.\nFull-text inspection checklist: ['Check if any high-redshift (z>6) GC formation scenarios are discussed', 'Look for any connection to early galaxy formation or AGN feedback']\n",
+      "arxiv_id": "2607.02351"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.01288",
+      "pdf": "https://arxiv.org/pdf/2607.01288",
+      "title": "Pulsar Science with the SKAO",
+      "authors": "Bhal Chandra Joshi , Aris Karastergiou , Marta Burgay",
+      "subjects": "High Energy Astrophysical Phenomena (astro-ph.HE) ; Cosmology and Nongalactic Astrophysics (astro-ph.CO); Astrophysics of Galaxies (astro-ph.GA); Solar and Stellar Astrophysics (astro-ph.SR)",
+      "abstract": "The large instantaneous sensitivity, wide frequency coverage and flexible observation modes, with large number of beams in the sky, are the main features of the SKA observatory's two telescopes, the SKA-Low and the SKA-Mid. Owing to these capabilities, the SKAO telescopes are going to be a game-changer for radio astronomy in general and pulsar astronomy in particular. Eleven chapters in this book describe their impact on different areas of pulsar science. In this overview article each chapter is briefly summarised and the inter-relationship between different pulsar science use cases are explored: new deep surveys, covering the Galactic field, globular clusters and the Galactic centre, will discover thousands of new pulsars; these will form the backbone for studies of neutron star physics and of their environments. The enhanced understanding provided by these studies will feed into the main contributions to fundamental physics from pulsar astronomy: testing relativistic gravity, studying gravitational waves in the nano-Hz regime and studying the equation of state of nuclear matter. Synergies with other science cases are also highlighted throughout this overview.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on pulsar science with SKAO, unrelated to high-redshift galaxies, AGN, or JWST.",
+      "Short digest": "What pulsar science will SKAO enable? SKAO will discover thousands of new pulsars and advance tests of gravity and neutron star physics. This is not relevant to high-redshift galaxy/AGN studies.",
+      "Full-text inspection checklist": [
+        "N/A"
+      ],
+      "summarized_text": "Title: Pulsar Science with the SKAO\nAuthors: Bhal Chandra Joshi , Aris Karastergiou , Marta Burgay\nLink: https://arxiv.org/abs/2607.01288\nRelevancy score: 1\nReasons for match: Focuses on pulsar science with SKAO, unrelated to high-redshift galaxies, AGN, or JWST.\nShort digest: What pulsar science will SKAO enable? SKAO will discover thousands of new pulsars and advance tests of gravity and neutron star physics. This is not relevant to high-redshift galaxy/AGN studies.\nFull-text inspection checklist: ['N/A']\n",
+      "arxiv_id": "2607.01288"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.01314",
+      "pdf": "https://arxiv.org/pdf/2607.01314",
+      "title": "How I stop worrying about non-universality and $b_ϕ$: Constraining local $f_{\\rm NL}$ with $b_ϕ$ priors from HOD posteriors",
+      "authors": "Jiaxi Yu , Nhat-Minh Nguyen",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "Local primordial non-Gaussianity (local PNG) induces a scale-dependent contribution to galaxy clustering proportional to $f_{\\rm NL}\\,b_\\phi$, where $f_{\\rm NL}$ is the local PNG amplitude and $b_\\phi$ encodes the galaxy response to a long-wavelength primordial potential perturbation. Uncertainty in $b_\\phi$ is the dominant obstacle to precise, robust constraints on $f_{\\rm NL}$ from galaxy surveys. We translate small-scale clustering constraints on the galaxy--halo connection into priors on $b_\\phi$: sampling the posterior of a halo occupation distribution (HOD) model fit to the DESI EDR, we generate mocks from which we measure $b_\\phi$ and construct its prior. Validating against additional mocks with different local PNG amplitudes, we show that the method recovers unbiased $f_{\\rm NL}$, even in the presence of assembly bias.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on local primordial non-Gaussianity and HOD modeling for DESI, not high-redshift JWST galaxies or AGN.",
+      "Short digest": "How can priors on b_phi improve f_NL constraints? The method recovers unbiased f_NL using HOD posteriors from DESI. This is not relevant to my high-redshift JWST research.",
+      "Full-text inspection checklist": [
+        "N/A"
+      ],
+      "summarized_text": "Title: How I stop worrying about non-universality and $b_ϕ$: Constraining local $f_{\\rm NL}$ with $b_ϕ$ priors from HOD posteriors\nAuthors: Jiaxi Yu , Nhat-Minh Nguyen\nLink: https://arxiv.org/abs/2607.01314\nRelevancy score: 1\nReasons for match: Focuses on local primordial non-Gaussianity and HOD modeling for DESI, not high-redshift JWST galaxies or AGN.\nShort digest: How can priors on b_phi improve f_NL constraints? The method recovers unbiased f_NL using HOD posteriors from DESI. This is not relevant to my high-redshift JWST research.\nFull-text inspection checklist: ['N/A']\n",
+      "arxiv_id": "2607.01314"
+    }
+  ]
+}
