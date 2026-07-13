@@ -1,0 +1,136 @@
+{
+  "generated_on": "2026-07-13",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2607.09647",
+      "pdf": "https://arxiv.org/pdf/2607.09647",
+      "title": "Spatial decomposition of Little Red Dots with JWST/NIRSpec IFU into broad-line red cores and narrow-line blue host galaxies",
+      "authors": "Yuzo Ishikawa , Anna-Christina Eilers , Rohan P. Naidu , Jorryt Matthee , Rongmon Bordoloi , John Chisholm , Jenny E. Greene , Yilun Ma , Pascal A. Oesch , Wendy Q. Sun , Alberto Torralba , John R. Weaver , Stijn Wuyts , Mengyuan Xiao",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "Little Red Dots (LRDs) are a population of compact red sources discovered by the James Webb Space Telescope (JWST). Imaging and spectroscopy have shown that LRDs exhibit a complex spectrum with a ``V-shaped\" continuum, broad Balmer emission lines, and in some cases Balmer absorption. While the physical origin of these components remains debated, recent studies propose that they arise from a compact central engine likely hosting a rapidly growing black hole embedded within a more extended host galaxy. We test this central engine + host galaxy model using JWST/NIRSpec integral field unit (IFU) spectroscopy to spectrally decompose the observed continuum, narrow and broad emission lines, and absorption. We spatially map each component for five broad Ha-selected LRDs at z~5 observed with both the prism and high-resolution G395H grating. We find that the blue continuum emission is co-spatial with the narrow emission line region, while the red continuum arises from a compact core co-spatial with the broad Balmer emission and absorption. Spatial maps of the [OIII] equivalent width reveal a pronounced decrease in the central core. Our work provides further evidence that the LRD emission is produced by at least two distinct physical components arising from a red central engine embedded within a blue host galaxy.",
+      "Relevancy score": 10,
+      "Reasons for match": "Directly studies JWST/NIRSpec IFU observations of Little Red Dots at z~5, focusing on broad-line AGN and host galaxy decomposition, which is central to my research interests.",
+      "Short digest": "The central question is whether LRDs consist of a compact central engine (AGN) embedded in a host galaxy. The main result is that spatial decomposition reveals red broad-line cores and blue narrow-line host galaxies, supporting the two-component model. This matters for my work as it provides direct evidence for AGN-host co-evolution in high-redshift LRDs.",
+      "Full-text inspection checklist": [
+        "Look at spatial maps of [OIII] equivalent width showing central decrease",
+        "Check the decomposition of broad and narrow Balmer emission lines",
+        "Examine the continuum color maps separating red core and blue host",
+        "Verify the sample selection and IFU data reduction details"
+      ],
+      "summarized_text": "Title: Spatial decomposition of Little Red Dots with JWST/NIRSpec IFU into broad-line red cores and narrow-line blue host galaxies\nAuthors: Yuzo Ishikawa , Anna-Christina Eilers , Rohan P. Naidu , Jorryt Matthee , Rongmon Bordoloi , John Chisholm , Jenny E. Greene , Yilun Ma , Pascal A. Oesch , Wendy Q. Sun , Alberto Torralba , John R. Weaver , Stijn Wuyts , Mengyuan Xiao\nLink: https://arxiv.org/abs/2607.09647\nRelevancy score: 10\nReasons for match: Directly studies JWST/NIRSpec IFU observations of Little Red Dots at z~5, focusing on broad-line AGN and host galaxy decomposition, which is central to my research interests.\nShort digest: The central question is whether LRDs consist of a compact central engine (AGN) embedded in a host galaxy. The main result is that spatial decomposition reveals red broad-line cores and blue narrow-line host galaxies, supporting the two-component model. This matters for my work as it provides direct evidence for AGN-host co-evolution in high-redshift LRDs.\nFull-text inspection checklist: ['Look at spatial maps of [OIII] equivalent width showing central decrease', 'Check the decomposition of broad and narrow Balmer emission lines', 'Examine the continuum color maps separating red core and blue host', 'Verify the sample selection and IFU data reduction details']\n",
+      "arxiv_id": "2607.09647"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.09460",
+      "pdf": "https://arxiv.org/pdf/2607.09460",
+      "title": "Project Hephaistos -- IV. James Webb Space Telescope Observations of Two Dyson Sphere Candidates",
+      "authors": "Erik Zackrisson , Arjan Bik , Anita Ali Asgar , Olivia Curtis , Jason T. Wright , Tongtian Ren , Roberto J. Assef , Andrew Blain , Alexis Brandeker , Michael A. Garrett , Uma Gorti , Andreas J. Korn , Priyatam K. Mahto , Armin Nabizadeh",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; Solar and Stellar Astrophysics (astro-ph.SR)",
+      "abstract": "We report on JWST/MIRI imaging and spectroscopy of two M-dwarf stars previously singled out by project Hephaistos as potential Dyson-sphere candidates (their candidates D and E) due to the presence of excess flux at mid-infrared wavelengths. We find that the infrared excess does not originate from Dysonian megastructures, or other radiation mechanisms close to these stars, but from background galaxies projected within $\\sim 1$ arcsec of the M dwarfs, thereby confusing previous mid-infrared photometry obtained with the WISE telescope. The candidate D background galaxy lies at redshift $z\\approx 0.9$, appears point-source dominated in imaging and has a mid-infrared spectrum consistent with being a Hot Dust Obscured Galaxy (Hot DOG). The candidate E background galaxy lies at $z\\approx 0.4$, displays an extended morphology with bright knots and a spectrum consistent with a dusty starburst.",
+      "Relevancy score": 8,
+      "Reasons for match": "Uses JWST/MIRI to characterize high-redshift (z~0.4-0.9) dusty galaxies (Hot DOG, starburst) that appear as Dyson sphere candidates, directly relevant to JWST observations of obscured AGN and high-z galaxies.",
+      "Short digest": "Are two M-dwarf Dyson sphere candidates real? JWST/MIRI shows the infrared excess comes from background galaxies at z~0.4-0.9, including a Hot DOG and a dusty starburst. This matters because it demonstrates JWST's power to resolve confusion in high-z galaxy/AGN identification and highlights the importance of high-resolution follow-up.",
+      "Full-text inspection checklist": [
+        "Check the MIRI imaging and spectroscopy details for the background galaxies (morphology, spectral features).",
+        "Look for the SED fitting or classification diagnostics that identify the Hot DOG and starburst.",
+        "Inspect the angular separation and how confusion with the foreground star was resolved.",
+        "Check whether the paper discusses implications for high-z obscured AGN populations."
+      ],
+      "summarized_text": "Title: Project Hephaistos -- IV. James Webb Space Telescope Observations of Two Dyson Sphere Candidates\nAuthors: Erik Zackrisson , Arjan Bik , Anita Ali Asgar , Olivia Curtis , Jason T. Wright , Tongtian Ren , Roberto J. Assef , Andrew Blain , Alexis Brandeker , Michael A. Garrett , Uma Gorti , Andreas J. Korn , Priyatam K. Mahto , Armin Nabizadeh\nLink: https://arxiv.org/abs/2607.09460\nRelevancy score: 8\nReasons for match: Uses JWST/MIRI to characterize high-redshift (z~0.4-0.9) dusty galaxies (Hot DOG, starburst) that appear as Dyson sphere candidates, directly relevant to JWST observations of obscured AGN and high-z galaxies.\nShort digest: Are two M-dwarf Dyson sphere candidates real? JWST/MIRI shows the infrared excess comes from background galaxies at z~0.4-0.9, including a Hot DOG and a dusty starburst. This matters because it demonstrates JWST's power to resolve confusion in high-z galaxy/AGN identification and highlights the importance of high-resolution follow-up.\nFull-text inspection checklist: ['Check the MIRI imaging and spectroscopy details for the background galaxies (morphology, spectral features).', 'Look for the SED fitting or classification diagnostics that identify the Hot DOG and starburst.', 'Inspect the angular separation and how confusion with the foreground star was resolved.', 'Check whether the paper discusses implications for high-z obscured AGN populations.']\n",
+      "arxiv_id": "2607.09460"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.09209",
+      "pdf": "https://arxiv.org/pdf/2607.09209",
+      "title": "Performance of morphological classifiers for galaxy mergers compared to current machine learning methods",
+      "authors": "Aidan P. Cotter , William J. pearson , Subhrata Dey , Berta Margalef-Bentabol , Alejandro Guzmán-Ortega , Vicente Rodriguez-Gomez",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "Aims. Non-parametric morphological statistics can be used for efficient classification of galaxy mergers. This work aims to compare the performance of morphological merger classifiers to state-of-the-art machine learning (ML) models. A secondary aim is to produce updated criteria for mergers based on non-parametric morphological statistics. Methods. The Gini coefficient (G), $M_{20}$ statistic, and concentration ($C$) were calculated for mock Hyper Suprime-Cam Subaru Strategic Program (HSC-SSP) images based on the IllustrisTNG and Horizon-AGN simulations, and observations from HSC-SSP. The IllustrisTNG images were used to find the line which best separates mergers and non-mergers in 2D morphological space with a Markov Chain Monte-Carlo (MCMC) method. Results. Based on the MCMC results, we classified galaxies with $G>(-0.267\\pm0.081)M_{20}+(0.143\\pm0.012)$ or $G>(0.162\\pm0.048)C-(0.149\\pm0.12)$ as mergers, these criteria had precisions of 69.5\\% and 72.3\\% respectively when applied to previously unseen IllustrisTNG mock HSC-SSP images. The precisions of the morphological classifications are consistent with state-of-the-art ML methods. The morphological classifiers were found to be effective at selecting only pre-mergers; post-merger galaxies are indistinguishable from non-mergers in terms of their $G$, $M_{20}$, and $C$ values. Morphological classifiers displayed a similar robustness to new data to ML methods up to a redshift of $\\sim0.52$ and maintained robustness better than ML methods based on convolutional neural networks in the redshift range $0.52<z<1$. Conclusions. This work presents updated morphological classifiers which achieve similar precisions to ML based merger classifiers with a high robustness to new data. New morphological statistics are needed to identify the features of post-merger galaxies.",
+      "Relevancy score": 3,
+      "Reasons for match": "Uses machine learning and morphological classifiers for galaxy mergers, which could be applied to high-z samples, but focuses on z<1 and simulations.",
+      "Short digest": "How do morphological merger classifiers compare to ML methods? Updated G-M20 and G-C criteria achieve ~70% precision, similar to ML, and are more robust at z>0.52. This is tangentially relevant as a methodology for classifying high-z galaxies.",
+      "Full-text inspection checklist": [
+        "Check if the morphological criteria are tested on high-redshift (z>2) simulated images.",
+        "Look for applicability to JWST/NIRCam resolution and depth.",
+        "Inspect whether the classifiers are validated against spectroscopic or multi-wavelength merger indicators."
+      ],
+      "summarized_text": "Title: Performance of morphological classifiers for galaxy mergers compared to current machine learning methods\nAuthors: Aidan P. Cotter , William J. pearson , Subhrata Dey , Berta Margalef-Bentabol , Alejandro Guzmán-Ortega , Vicente Rodriguez-Gomez\nLink: https://arxiv.org/abs/2607.09209\nRelevancy score: 3\nReasons for match: Uses machine learning and morphological classifiers for galaxy mergers, which could be applied to high-z samples, but focuses on z<1 and simulations.\nShort digest: How do morphological merger classifiers compare to ML methods? Updated G-M20 and G-C criteria achieve ~70% precision, similar to ML, and are more robust at z>0.52. This is tangentially relevant as a methodology for classifying high-z galaxies.\nFull-text inspection checklist: ['Check if the morphological criteria are tested on high-redshift (z>2) simulated images.', 'Look for applicability to JWST/NIRCam resolution and depth.', 'Inspect whether the classifiers are validated against spectroscopic or multi-wavelength merger indicators.']\n",
+      "arxiv_id": "2607.09209"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.08812",
+      "pdf": "https://arxiv.org/pdf/2607.08812",
+      "title": "Magnetogenesis by galactic processes: impact on circumgalactic and intergalactic fields",
+      "authors": "Rahul Ramesh , Enrico Garaldi , Chris Byrohl",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "We investigate the origin and evolution of cosmic magnetic fields using a suite of large-volume cosmological magnetohydrodynamic simulations (L$_\\mathrm{box}=25$ Mpc/h) run with the moving-mesh code AREPO. Atop the IllustrisTNG galaxy formation model, we implement additional recipes for magnetogenesis in which magnetic energy is injected during supernovae (SNe) and supermassive black hole (SMBH) feedback events, and compare these to simulations initialized with uniform primordial seed fields. Halo magnetic field strengths at $z=0$ are largely similar across seeding models and are primarily amplified and sustained by small-scale and halo-scale dynamo action. Nevertheless, we find differences in magnetic field topology, with SMBH-driven models exhibiting systematically smaller coherence lengths than primordial-only and SNe-only runs. We find that feedback-driven injection accelerates the onset of dynamo growth, leading to more rapid convergence of magnetic field strengths with numerical resolution, particularly in low-mass halos. In the intergalactic medium (IGM), SNe-only injection underproduces magnetic fields relative to inferred lower limits from $\\gamma$-ray cascade constraints at both $z=0$ and $z \\sim 3$, whereas our specific SMBH-based injection prescription satisfies present-day constraints but remains in mild tension at high redshifts. Reconciling these specific high-$z$ constraints therefore likely requires either modified feedback prescriptions or an additional primordial seeding component.",
+      "Relevancy score": 2,
+      "Reasons for match": "Focuses on magnetogenesis in cosmological simulations, not directly on JWST high-redshift galaxies or AGN.",
+      "Short digest": "How do galactic processes seed cosmic magnetic fields? Feedback-driven injection accelerates dynamo growth but underproduces IGM fields at high-z. This is not directly relevant to my JWST/AGN work.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift (z>3) results are presented that could inform AGN feedback models.",
+        "Look for any discussion of SMBH feedback that might connect to early black hole growth."
+      ],
+      "summarized_text": "Title: Magnetogenesis by galactic processes: impact on circumgalactic and intergalactic fields\nAuthors: Rahul Ramesh , Enrico Garaldi , Chris Byrohl\nLink: https://arxiv.org/abs/2607.08812\nRelevancy score: 2\nReasons for match: Focuses on magnetogenesis in cosmological simulations, not directly on JWST high-redshift galaxies or AGN.\nShort digest: How do galactic processes seed cosmic magnetic fields? Feedback-driven injection accelerates dynamo growth but underproduces IGM fields at high-z. This is not directly relevant to my JWST/AGN work.\nFull-text inspection checklist: ['Check if any high-redshift (z>3) results are presented that could inform AGN feedback models.', 'Look for any discussion of SMBH feedback that might connect to early black hole growth.']\n",
+      "arxiv_id": "2607.08812"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.09285",
+      "pdf": "https://arxiv.org/pdf/2607.09285",
+      "title": "Primordial Black Hole mass growth from neutrinos during radiation era",
+      "authors": "Maël Gonin",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO) ; High Energy Physics - Theory (hep-th)",
+      "abstract": "We present a new picture of primordial black holes mass evolution through neutrino absorption. Using semi-classical approach and a closer look at the kinetic of the early plasma we revisit the thermal absorption of radiation by a population of primordial black holes ranging from $10^{-3}-10^9 M_\\odot$ embedded in a thermal bath. We find significant mass growth of intermediate mass and supermassive PBHs, the effect shift the predicted $e^+e^-$ peak from thermal history. Depending on the value of the collapse fraction an additional peak around the intermediate mass range, might become significant. Moreover, because PBH grow from the thermal bath the fraction of DM in PBH $f_{\\rm PBH}$ also change. These results revise the previous view on mass evolution of PBH and have implications for dark matter PBH observations.",
+      "Relevancy score": 2,
+      "Reasons for match": "Discusses primordial black hole mass growth, which could relate to early SMBH seeds, but is theoretical and not JWST-focused.",
+      "Short digest": "Can primordial black holes grow significantly via neutrino absorption? Intermediate and supermassive PBHs can grow, shifting the e+e- peak. This is marginally relevant to early black hole growth but lacks observational connection to JWST.",
+      "Full-text inspection checklist": [
+        "Check if the mass range overlaps with JWST-observed high-z black hole candidates.",
+        "Look for any predictions testable with JWST or other observatories.",
+        "Inspect whether the model includes realistic accretion physics or is purely semi-classical."
+      ],
+      "summarized_text": "Title: Primordial Black Hole mass growth from neutrinos during radiation era\nAuthors: Maël Gonin\nLink: https://arxiv.org/abs/2607.09285\nRelevancy score: 2\nReasons for match: Discusses primordial black hole mass growth, which could relate to early SMBH seeds, but is theoretical and not JWST-focused.\nShort digest: Can primordial black holes grow significantly via neutrino absorption? Intermediate and supermassive PBHs can grow, shifting the e+e- peak. This is marginally relevant to early black hole growth but lacks observational connection to JWST.\nFull-text inspection checklist: ['Check if the mass range overlaps with JWST-observed high-z black hole candidates.', 'Look for any predictions testable with JWST or other observatories.', 'Inspect whether the model includes realistic accretion physics or is purely semi-classical.']\n",
+      "arxiv_id": "2607.09285"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.09116",
+      "pdf": "https://arxiv.org/pdf/2607.09116",
+      "title": "Climbing the $N$-point Ladder Part I: Information in the Higher-Order Configuration-Space Clustering of Dark Matter Halos",
+      "authors": "Sumi Kim , Cristiano G. Sabiu , Inkyu Park",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "The two-point correlation function completely describes a Gaussian random field, but nonlinear gravitational growth, halo bias, and redshift-space distortions drive the late-time halo field strongly non-Gaussian, moving a substantial part of the cosmological information into higher-order correlations. We quantify the information content of the configuration-space two-, three-, and connected four-point correlation functions of Quijote dark-matter haloes at $z=0$ and fixed number density. We build Fisher forecasts for $\\{\\Omega_m, \\Omega_b, h, n_s, \\sigma_8, M_\\nu\\}$ in real and redshift space from ${\\sim}38{,}000$ GPU-accelerated $N$-point measurements. Treating the statistics as a ladder, $\\mathrm{2PCF} \\rightarrow +\\mathrm{3PCF} \\rightarrow +\\zeta^{(4)}_{\\mathrm{conn}}$, we report the information gained at each rung. The 3PCF supplies most of the accessible higher-order information: it tightens every parameter, most strongly $\\sigma_8$ and $M_\\nu$, whose degeneracy it partially breaks, with per-parameter gains consistent with those of the Fourier-space halo bispectrum on the same simulations. The connected 4PCF adds a further $\\sim1.4$--$1.5\\times$. This rung-to-rung increment is stable against derivative-sample noise and compression regularization, whereas the absolute constraints remain limited by the finite simulation ensembles and are reported as preliminary. We validate the measured 3PCF against a tree-level perturbation-theory model, recovering a linear bias consistent with the 2PCF. The configuration-space ladder thus offers an independent and complementary route to the higher-order information probed by the Fourier-space poly-spectra.",
+      "Relevancy score": 1,
+      "Reasons for match": "Focuses on dark matter halo clustering at z=0, not high-redshift galaxies or AGN.",
+      "Short digest": "How much cosmological information is in higher-order correlation functions of halos? The 3PCF and 4PCF add significant constraining power beyond the 2PCF. This is irrelevant to my work on JWST high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "N/A"
+      ],
+      "summarized_text": "Title: Climbing the $N$-point Ladder Part I: Information in the Higher-Order Configuration-Space Clustering of Dark Matter Halos\nAuthors: Sumi Kim , Cristiano G. Sabiu , Inkyu Park\nLink: https://arxiv.org/abs/2607.09116\nRelevancy score: 1\nReasons for match: Focuses on dark matter halo clustering at z=0, not high-redshift galaxies or AGN.\nShort digest: How much cosmological information is in higher-order correlation functions of halos? The 3PCF and 4PCF add significant constraining power beyond the 2PCF. This is irrelevant to my work on JWST high-redshift galaxies and AGN.\nFull-text inspection checklist: ['N/A']\n",
+      "arxiv_id": "2607.09116"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2607.09148",
+      "pdf": "https://arxiv.org/pdf/2607.09148",
+      "title": "Masking Algorithm for CCD Bleeding in Korea Microlensing Telescope Network Images",
+      "authors": "Jiseop Shin , Mankeun Jeong , Myungshin Im , Seo-Won Chang , Sang-Mok Cha , Seong-Kook Lee",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "Astronomical CCD images are often affected by bleeding from bright sources, producing column-aligned streaks that degrade source detection and photometry. We present a pixel-level masking algorithm for bleeding in Korea Microlensing Telescope Network (KMTNet) images, in which these streaks extend along detector columns away from the readout register. The algorithm identifies bleed-generating pixels using a conservative bleeding threshold and a bleeding index that quantifies excess signal along the expected bleeding direction. The extent of each bleed trail is then determined by termination criteria based on a background-relative detection threshold and a continuity condition. To optimize these termination parameters, we generate multiple candidate masks and evaluate them with an F-beta-like score that favors high purity while preserving recovery of sources whose photometry is biased by bleeding. Using the final mask, we apply interpolation-based cleaning and assess the performance in terms of completeness and photometric accuracy in a crowded KMTNet field, using Gaia DR3 as a reference. The source completeness improves from 94.08% to 98.61%, primarily by enabling proper aperture placement that was previously hindered by bleeding. For selected bleeding-affected sources, the root-mean-square photometric offset decreases from 0.623 mag to 0.068 mag. These results demonstrate that the algorithm provides a practical framework for mitigating bleeding artifacts in KMTNet images. We further examine the stability of the algorithm across different observing conditions and discuss limitations of the current masking and cleaning procedure.",
+      "Relevancy score": 1,
+      "Reasons for match": "Describes a bleeding masking algorithm for KMTNet, unrelated to JWST high-redshift galaxies or AGN.",
+      "Short digest": "How to mask CCD bleeding in KMTNet images? A pixel-level algorithm using a bleeding index and F-beta-like scoring improves completeness and photometry. This is not relevant to my research.",
+      "Full-text inspection checklist": [
+        "N/A"
+      ],
+      "summarized_text": "Title: Masking Algorithm for CCD Bleeding in Korea Microlensing Telescope Network Images\nAuthors: Jiseop Shin , Mankeun Jeong , Myungshin Im , Seo-Won Chang , Sang-Mok Cha , Seong-Kook Lee\nLink: https://arxiv.org/abs/2607.09148\nRelevancy score: 1\nReasons for match: Describes a bleeding masking algorithm for KMTNet, unrelated to JWST high-redshift galaxies or AGN.\nShort digest: How to mask CCD bleeding in KMTNet images? A pixel-level algorithm using a bleeding index and F-beta-like scoring improves completeness and photometry. This is not relevant to my research.\nFull-text inspection checklist: ['N/A']\n",
+      "arxiv_id": "2607.09148"
+    }
+  ]
+}
