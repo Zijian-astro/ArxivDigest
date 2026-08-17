@@ -1,0 +1,46 @@
+{
+  "generated_on": "2026-08-17",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2608.14023",
+      "pdf": "https://arxiv.org/pdf/2608.14023",
+      "title": "The galaxies' energy balance problem solved",
+      "authors": "C. J. Inman , C. C. Popescu , D. Murphy",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "We attempt to resolve the long-standing energy balance problem encountered by Radiative Transfer (RT) models, particularly in edge-on galaxies by incorporating a treatment for the clumpy structure of the Interstellar Medium (ISM). A subgrid approach is adopted, treating the quiescent dust clouds as pseudo-dust grains, with equivalent optical and thermal emission properties. Deriving key quantities such as the absorption, scattering and extinction cross-sections enables the virtualisation of the macroscopic clump into a microscopic pseudo-grain that can be included alongside the existing dust model constituents. The addition of the pseudo-grain results in a flatter extinction curve. A library of clump emission spectral energy distributions (SEDs) is constructed for radiation fields of various colours and intensities. The new clumpy model is applied to the edge-on galaxy NGC 891 and, for the first time, is able to achieve a good energy balance, simultaneously fitting both the submm and Near Infrared (NIR) data. The clumpy model is further applied to a small sample of seven galaxies of various inclinations, and the results are compared with those from the purely diffuse models. The clumpy models are characterised by a reduction in dust opacity, and therefore attenuation, compared to their purely diffuse counterparts. Thus, the maximum face-on optical depth in the $B$-band, ${\\mathrm max}(\\tau^{\\mathrm f}_{\\mathrm B})$, derived from the clumpy models is found to be lower by factors ranging from 1.3 to 2.8. Of the seven galaxies, two are found to be optically thick in their centres, two are found to be moderately optically thick, and three are found to be optically thin.",
+      "Relevancy score": 2,
+      "Reasons for match": "The paper focuses on radiative transfer modeling of local galaxies, not high-redshift JWST observations or AGN.",
+      "Short digest": "The central question is whether clumpy ISM structure can resolve the energy balance problem in edge-on galaxies. The main claim is that a pseudo-grain approach achieves good energy balance for NGC 891 and a small sample. This is not directly relevant to my high-redshift galaxy/AGN work.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift or AGN applications are discussed",
+        "Look for any JWST or NIRSpec/NIRCam data usage"
+      ],
+      "summarized_text": "Title: The galaxies' energy balance problem solved\nAuthors: C. J. Inman , C. C. Popescu , D. Murphy\nLink: https://arxiv.org/abs/2608.14023\nRelevancy score: 2\nReasons for match: The paper focuses on radiative transfer modeling of local galaxies, not high-redshift JWST observations or AGN.\nShort digest: The central question is whether clumpy ISM structure can resolve the energy balance problem in edge-on galaxies. The main claim is that a pseudo-grain approach achieves good energy balance for NGC 891 and a small sample. This is not directly relevant to my high-redshift galaxy/AGN work.\nFull-text inspection checklist: ['Check if any high-redshift or AGN applications are discussed', 'Look for any JWST or NIRSpec/NIRCam data usage']\n",
+      "arxiv_id": "2608.14023"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.13640",
+      "pdf": "https://arxiv.org/pdf/2608.13640",
+      "title": "Laser Metrology for Precision Alignment of Transmission Gratings in the REDSoX Soft X-ray Polarimeter",
+      "authors": "Swati Ravi , Alan Garner , Jill Juneau , F. Elio Angile , Ralf K. Heilmann , Herman L. Marshall , Sarah N.T. Heine",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM) ; High Energy Astrophysical Phenomena (astro-ph.HE)",
+      "abstract": "The Rocket Experiment Demonstration of a Soft X-ray Polarimeter (REDSoX) is a NASA sounding-rocket mission designed to perform the first astrophysical spectropolarimetry in the 0.2-0.4 keV energy band. The instrument uses critical-angle transmission (CAT) gratings to disperse incident X-rays onto laterally graded multilayer (LGML) mirrors, requiring 48 individual gratings to be co-aligned to within 6 arcminutes in yaw, pitch, and roll. To support the systematic assembly of the grating array, we adapted a scanning laser-reflection metrology technique in which normal-reflected, angled-reflected, and diffracted ultraviolet laser beams are measured using three position-sensitive detectors (PSDs). Changes in the measured beam positions are used to reconstruct the local yaw, pitch, and roll of each grating and provide real-time feedback during mechanical adjustment. We demonstrate the system using a prototype miniature grating structure containing two gratings. Following co-alignment, the assembly underwent a flight-level random-vibration test followed by a qualification-level sine sweep. Measurements obtained before and after testing showed that the relative grating orientations were retained to within 1 arcminute, less than 17% of the REDSoX co-alignment tolerance. This work establishes a reproducible and scalable approach to the assembly and verification of large transmission-grating arrays for REDSoX and future X-ray spectroscopic instruments.",
+      "Relevancy score": "1",
+      "Reasons for match": "This paper is about X-ray polarimeter instrumentation, unrelated to high-redshift galaxies, AGN, or JWST.",
+      "Short digest": "The central question is how to align transmission gratings for a soft X-ray polarimeter. The main result is a laser metrology system that achieves alignment within 1 arcminute. This is irrelevant to my work on high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "Not applicable; paper is outside research interests."
+      ],
+      "summarized_text": "Title: Laser Metrology for Precision Alignment of Transmission Gratings in the REDSoX Soft X-ray Polarimeter\nAuthors: Swati Ravi , Alan Garner , Jill Juneau , F. Elio Angile , Ralf K. Heilmann , Herman L. Marshall , Sarah N.T. Heine\nLink: https://arxiv.org/abs/2608.13640\nRelevancy score: 1\nReasons for match: This paper is about X-ray polarimeter instrumentation, unrelated to high-redshift galaxies, AGN, or JWST.\nShort digest: The central question is how to align transmission gratings for a soft X-ray polarimeter. The main result is a laser metrology system that achieves alignment within 1 arcminute. This is irrelevant to my work on high-redshift galaxies and AGN.\nFull-text inspection checklist: ['Not applicable; paper is outside research interests.']\n",
+      "arxiv_id": "2608.13640"
+    }
+  ]
+}
