@@ -1,0 +1,80 @@
+{
+  "generated_on": "2026-08-18",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2608.14788",
+      "pdf": "https://arxiv.org/pdf/2608.14788",
+      "title": "Mixing stochasticity relinquishes evidence for magnetorotational hypernovae",
+      "authors": "Anmol Aggarwal , Ralph Schoenrich",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; High Energy Astrophysical Phenomena (astro-ph.HE); Solar and Stellar Astrophysics (astro-ph.SR)",
+      "abstract": "A recent work claimed by fitting the observed elemental abundance pattern of a halo star with the total yields from single super-/hypernova events that only a magnetorotational hypernova event (a very energetic supernova event that also produces r-process elements) could be the source of the observed abundances. Here, we show that the star's peculiar abundance pattern is better fitted within the framework of mixing stochasticity with yields from a normal core collapse supernova (ccSN; Energy$_{\\rm exp}$ $\\sim 10^{51}$ erg.) and a neutron star merger (NSM). The stochastic mixing model outperforms the hypernova fitting significantly, (r.m.s 0.24 vs 0.44) i.e., favours the composition from common events (ccSN + NSM) over the magnetorotational hypernova scenario. We also discuss the origin of the star and the possibility of enrichment of its birth cloud by both a ccSN and a NSM.",
+      "Relevancy score": "1",
+      "Reasons for match": "Focuses on stellar abundance patterns and supernova/hypernova yields, not related to high-redshift galaxies, AGN, or JWST.",
+      "Short digest": "The paper tests whether a halo star's abundances require a magnetorotational hypernova or can be explained by common events. It finds a normal core-collapse supernova plus neutron star merger fits better. This is irrelevant to high-redshift JWST studies.",
+      "Full-text inspection checklist": [
+        "Check if any connection to high-redshift nucleosynthesis is made",
+        "Verify the stochastic mixing model assumptions"
+      ],
+      "summarized_text": "Title: Mixing stochasticity relinquishes evidence for magnetorotational hypernovae\nAuthors: Anmol Aggarwal , Ralph Schoenrich\nLink: https://arxiv.org/abs/2608.14788\nRelevancy score: 1\nReasons for match: Focuses on stellar abundance patterns and supernova/hypernova yields, not related to high-redshift galaxies, AGN, or JWST.\nShort digest: The paper tests whether a halo star's abundances require a magnetorotational hypernova or can be explained by common events. It finds a normal core-collapse supernova plus neutron star merger fits better. This is irrelevant to high-redshift JWST studies.\nFull-text inspection checklist: ['Check if any connection to high-redshift nucleosynthesis is made', 'Verify the stochastic mixing model assumptions']\n",
+      "arxiv_id": "2608.14788"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.15201",
+      "pdf": "https://arxiv.org/pdf/2608.15201",
+      "title": "Adapting the 23m LST-North mechanical structure design for the strong Chile seismic environment",
+      "authors": "Thomas Schweizer , Josef Eder , Teshima Masahiro , Holger Wetteskind , Razmik Mirzoyan",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "The 23-meter-diameter Large-Sized Telescope (LST) is the largest size telescope of the next generation Cherenkov Telescope Array (CTA). The first telescope, LST-1, was installed at the Roque de los Muchachos Observatory (ORM) on La Palma at an altitude of 2,250 m in 2018 and has been in operation since 2019. Its ultra-lightweight structure (110 tons) enables extremely rapid repositioning (180° in 18 seconds) and has been designed to withstand extreme environmental conditions, including storms and winds exceeding speed up to 200 km/h. To deploy the same solid telescope design at the CTA Southern Observatory in Chile, the structure must be adapted to the significantly higher seismic demands of the site. To address this challenge, the Max Planck Institute for Physics (MPP) has proposed the integration of a seismic isolation system with the proven LST-1 structural design. This approach substantially reduces seismic loads and dynamic amplification, thereby avoiding extensive structural modifications and enabling the existing telescope design to be transferred to the Chilean site with only minor adaptations. In this contribution, we present the proposed seismic isolation concept and its feasibility studies. MPP is responsible for the mechanical structure of the LST and has validated the concept through detailed finite-element analyses and long-term structural lifetime assessments.",
+      "Relevancy score": "1",
+      "Reasons for match": "This paper is about the mechanical design of a ground-based Cherenkov telescope, unrelated to JWST or high-redshift galaxies/AGN.",
+      "Short digest": "The central question is how to adapt the LST structure for Chile's seismic environment. The main result is that a seismic isolation system can reduce loads without major redesign. This is irrelevant to my work on JWST high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "No relevant content for JWST or high-redshift studies; skip."
+      ],
+      "summarized_text": "Title: Adapting the 23m LST-North mechanical structure design for the strong Chile seismic environment\nAuthors: Thomas Schweizer , Josef Eder , Teshima Masahiro , Holger Wetteskind , Razmik Mirzoyan\nLink: https://arxiv.org/abs/2608.15201\nRelevancy score: 1\nReasons for match: This paper is about the mechanical design of a ground-based Cherenkov telescope, unrelated to JWST or high-redshift galaxies/AGN.\nShort digest: The central question is how to adapt the LST structure for Chile's seismic environment. The main result is that a seismic isolation system can reduce loads without major redesign. This is irrelevant to my work on JWST high-redshift galaxies and AGN.\nFull-text inspection checklist: ['No relevant content for JWST or high-redshift studies; skip.']\n",
+      "arxiv_id": "2608.15201"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.15989",
+      "pdf": "https://arxiv.org/pdf/2608.15989",
+      "title": "Exact spherical-wave forward model for radio reflection from stratified media",
+      "authors": "Paramita Dasgupta",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM) ; High Energy Astrophysical Phenomena (astro-ph.HE); High Energy Physics - Experiment (hep-ex); Classical Physics (physics.class-ph); Instrumentation and Detectors (physics.ins-det)",
+      "abstract": "Radio detection of ultra-high energy particles ($\\gtrsim10^{18}$ eV) depends on how broadband radio pulses reflect from natural media boundaries. We extend the spherical-wave (Sommerfeld--Weyl) treatment of a single homogeneous interface to stratified media by replacing the Fresnel coefficient of each plane-wave component with the characteristic-matrix reflection coefficient of a layered medium, evaluated in the local tangent plane on the spherical surface. The calculation reduces to the single-boundary result at machine precision when the layer contrast is removed and agrees with the published spherical-surface calculation to better than $1.1\\%$ at ten HiCal-2 elevation angles, with a mean deviation of $0.6\\%$. We apply the formalism to shallow firn stacks proposed as explanations for anomalous-polarity ANITA events. For realistic firn contrasts, layering changes the reflected amplitude but does not reverse the pulse polarity over $150$--$850$ MHz for the elevations studied. In a reference $s$-polarized two-layer model, a coefficient sign change requires buried refractive index $n_2\\simeq2.56$, $2.04$, and $1.79$ at local elevations of $8^\\circ$, $15^\\circ$, and $25^\\circ$, respectively. We also test the specular factorization used in fast propagation models, finding $0.2\\%$ agreement with the full angular integral for high-altitude balloon geometries, while near-boundary sources require the full integral. The calculated reflected pulses reproduce the expected polarity inversion in $101$ of $106$ HiCal-1 direct/reflected pulse pairs. Because the medium enters through its complex refractive index, the framework applies to ice, lunar regolith, and conducting media.",
+      "Relevancy score": "1",
+      "Reasons for match": "This paper is about radio reflection from stratified media for ultra-high energy particle detection, unrelated to high-redshift galaxies, AGN, or JWST.",
+      "Short digest": "The central question is how broadband radio pulses reflect from stratified media. The main result is an exact spherical-wave forward model that matches published results. This is irrelevant to my work on high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "No relevant content for high-redshift galaxies or AGN",
+        "Not applicable to JWST observations"
+      ],
+      "summarized_text": "Title: Exact spherical-wave forward model for radio reflection from stratified media\nAuthors: Paramita Dasgupta\nLink: https://arxiv.org/abs/2608.15989\nRelevancy score: 1\nReasons for match: This paper is about radio reflection from stratified media for ultra-high energy particle detection, unrelated to high-redshift galaxies, AGN, or JWST.\nShort digest: The central question is how broadband radio pulses reflect from stratified media. The main result is an exact spherical-wave forward model that matches published results. This is irrelevant to my work on high-redshift galaxies and AGN.\nFull-text inspection checklist: ['No relevant content for high-redshift galaxies or AGN', 'Not applicable to JWST observations']\n",
+      "arxiv_id": "2608.15989"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.16481",
+      "pdf": "https://arxiv.org/pdf/2608.16481",
+      "title": "Brightest group and cluster galaxies as indicators of relaxation",
+      "authors": "K. Kelder , P. Heinämäki , P. Nurmi , E. Tempel , M. Einasto",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "Context. Galaxy groups and clusters are widely used to probe the evolution of the cosmic web and cosmology, while assuming that they are relaxed. Aims. We identify the properties of the brightest halo galaxies (BHGs) that can be used to predict the most likely sample of dynamically relaxed host halos. Our work combines thoroughly studied galaxy clusters with less frequently analysed groups. Methods. Our analysis was based on data from the IllustrisTNG simulations. We considered several observationally motivated parameters, including the offset of the BHG from the potential well of the host system ($d_\\text{off}$) and from the r-band luminosity centre ($d_\\text{lum}$), the distance between the brightest and second-brightest galaxies ($d_{12}$), and the r-band magnitude gap between them ($\\Delta m_{12}$). The primary analysis was performed at redshift $z=0$, with an additional investigation of the redshift evolution of halo relaxation up to $z=1$. The observable proxies were applied to construct a halo mass function (HMF), which was then compared to the HMF of the relaxed sample defined from 3D information commonly used in theoretical approaches. Results. We find that $d_\\text{off}$ and $\\Delta m_{12}$ are effective indicators of group and cluster relaxation, particularly when used in combination. The selection criteria of $d_\\text{off}<0.05~R_{200}$ and $\\Delta m_{12}>1.6$ mag allowed us to reproduce an HMF that closely matches that of the relaxed halo population. These criteria can be applied to observations up to $z\\sim0.2$ within a mass range $\\text M_{200}\\geq10^{12.5}\\text M_\\odot$ ($\\text M_\\text{*, BHG}\\gtrsim10^{10.9}\\text M_\\odot$), including groups and clusters in the selection. In this mass range, $15-23\\%$ of the systems are considered fully relaxed at $z=0$. The fraction of relaxed haloes decreases with redshift up to $z\\sim0.4$, after which the decrease is far slower.",
+      "Relevancy score": "1",
+      "Reasons for match": "Focuses on galaxy groups/clusters and relaxation indicators, not high-redshift JWST galaxies or AGN. Uses simulations, not JWST data.",
+      "Short digest": "The paper asks which properties of brightest halo galaxies best predict relaxed host halos. It finds that offset and magnitude gap are effective indicators, allowing selection of relaxed groups/clusters up to z~0.2. This is not directly relevant to high-redshift JWST studies or AGN.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift or JWST-specific applications are discussed",
+        "Verify the simulation and selection criteria are applicable to local universe only"
+      ],
+      "summarized_text": "Title: Brightest group and cluster galaxies as indicators of relaxation\nAuthors: K. Kelder , P. Heinämäki , P. Nurmi , E. Tempel , M. Einasto\nLink: https://arxiv.org/abs/2608.16481\nRelevancy score: 1\nReasons for match: Focuses on galaxy groups/clusters and relaxation indicators, not high-redshift JWST galaxies or AGN. Uses simulations, not JWST data.\nShort digest: The paper asks which properties of brightest halo galaxies best predict relaxed host halos. It finds that offset and magnitude gap are effective indicators, allowing selection of relaxed groups/clusters up to z~0.2. This is not directly relevant to high-redshift JWST studies or AGN.\nFull-text inspection checklist: ['Check if any high-redshift or JWST-specific applications are discussed', 'Verify the simulation and selection criteria are applicable to local universe only']\n",
+      "arxiv_id": "2608.16481"
+    }
+  ]
+}
