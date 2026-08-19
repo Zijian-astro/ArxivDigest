@@ -1,0 +1,131 @@
+{
+  "generated_on": "2026-08-19",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2608.17679",
+      "pdf": "https://arxiv.org/pdf/2608.17679",
+      "title": "Infrared Lines from Sterile-Neutrino Transition Magnetic Moments at JWST",
+      "authors": "Hriditi Howlader , Alekha C. Nayak , Tripurari Srivastava",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "We investigate infrared line signatures from radiatively decaying sterile-neutrino dark matter using publicly available JWST/NIRSpec IFU blank-sky observations. The main signal considered is the sterile-to-sterile transition $N_1\\to N_2\\gamma$, induced by the transition magnetic dipole coefficient $d_{NN\\gamma}$, with $m_1>m_2$. In contrast to ordinary two-photon decays of axion-like or Majoron-like particles, the observed photon energy is not fixed by the full dark matter mass, but by the small mass splitting $\\Delta m=m_1-m_2$. Thus, a keV-scale sterile-neutrino dark matter state can generate an eV-scale infrared photon line in the JWST band. We construct a $\\chi^2$-based line-search analysis using the NIRSpec IFU $\\rm F170LP$-$\\rm G235M$ blank-sky data toward $\\rm GN\\text{-}z11$, modelling the smooth continuum with a cubic spline and including the Milky Way halo decay flux. In the absence of a significant excess, we derive projected limits on $d_{NN\\gamma}$ and on the decay width $\\Gamma_{N_1\\to N_2\\gamma}$ for $0.1~{\\rm eV}\\lesssim\\Delta m\\lesssim1~{\\rm eV}$. For a sterile component saturating the dark matter abundance, the strongest sensitivity reaches $d_{NN\\gamma}\\lesssim7\\times10^{-14}~{\\rm GeV}^{-1}$ and $\\Gamma_{N_1\\to N_2\\gamma}\\lesssim10^{-25}~{\\rm s}^{-1}$. We also include a minimal anomalous-Majoron benchmark, $\\omega\\to\\gamma\\gamma$, obtaining JWST sensitivity to $\\lambda_{\\omega\\gamma\\gamma}\\sim10^{-11}$-$10^{-9}~{\\rm GeV}^{-1}$ for $m_\\omega\\sim0.6$-$1~{\\rm eV}$.",
+      "Relevancy score": 7,
+      "Reasons for match": "Uses JWST/NIRSpec IFU blank-sky data, relevant to JWST observations and dark matter line searches, but not directly high-redshift galaxies or AGN.",
+      "Short digest": "The paper searches for infrared lines from sterile-neutrino dark matter using JWST data. It derives limits on transition magnetic moments. This matters because it demonstrates JWST spectral analysis techniques applicable to high-redshift observations.",
+      "Full-text inspection checklist": [
+        "Check the line-search methodology for spectral fitting",
+        "Look for how continuum modeling is done",
+        "Assess if the data reduction could be applied to high-redshift targets"
+      ],
+      "summarized_text": "Title: Infrared Lines from Sterile-Neutrino Transition Magnetic Moments at JWST\nAuthors: Hriditi Howlader , Alekha C. Nayak , Tripurari Srivastava\nLink: https://arxiv.org/abs/2608.17679\nRelevancy score: 7\nReasons for match: Uses JWST/NIRSpec IFU blank-sky data, relevant to JWST observations and dark matter line searches, but not directly high-redshift galaxies or AGN.\nShort digest: The paper searches for infrared lines from sterile-neutrino dark matter using JWST data. It derives limits on transition magnetic moments. This matters because it demonstrates JWST spectral analysis techniques applicable to high-redshift observations.\nFull-text inspection checklist: ['Check the line-search methodology for spectral fitting', 'Look for how continuum modeling is done', 'Assess if the data reduction could be applied to high-redshift targets']\n",
+      "arxiv_id": "2608.17679"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.17570",
+      "pdf": "https://arxiv.org/pdf/2608.17570",
+      "title": "Dianoga simulations of galaxy clusters and groups: Properties of the baryonic components",
+      "authors": "Stefano Borgani , Alice Damiano , Elena Rasia , Tiago Castro , Michela Esposito , Ilaria Marini , Giuseppe Murante , Milena Valentini , Veronica Biffi , Klaus Dolag , Gian Luigi Granato , Antonio Ragagnin , Cinthia Ragone-Figueroa , Alex Saro , Luca Tornatore",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO) ; Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "We introduce the Dianoga set of cosmological simulations of galaxy clusters and groups, specifically aimed at studying the impact of the implementation of AGN feedback and star formation. Using the OpenGadget3 code, we carry out simulations of 28 regions centred on massive galaxy clusters, and of a cosmological box. This generates a sample of 293 halos with M_{200}> 1.5 x 10^{13} M_{\\odot}. Parameters of AGN feedback in the reference implementation were minimally calibrated exclusively to match the local relation between SMBH masses and stellar masses of host galaxies. Simulations are compared to observed galaxy stellar mass function (GSMF), stellar mass fraction in clusters and groups, BCG masses, scaling relations between ICM/IGM properties and profiles of their thermodynamical properties. In the appendix, we show how results vary as we modify the reference feedback model in six alternative configurations. Our reference model predicts a GSMF in general agreement with observations, albeit overestimated in the high end. BCG stellar masses and mass fractions are higher than observed in massive clusters, while being closer to observations for groups. Predicted properties of the ICM/IGM are in general agreement with observations, with the core regions of simulated clusters having entropy and temperature profiles that are slightly less \"cool-cored\" than observed. A comparison with other implementations of AGN feedback highlights that models including thermal evaporation of the sub-resolution interstellar medium succeed to bring BCG masses and stellar mass fractions closer to observation, and to increase the cool-coreness of simulated clusters. Our results demonstrate that the details of the interface between AGN energy injection and the sub-resolution interstellar medium model are at least as critical as the total feedback efficiency itself.",
+      "Relevancy score": 3,
+      "Reasons for match": "Simulations of galaxy clusters with AGN feedback, but local universe and not JWST observations.",
+      "Short digest": "The paper introduces cosmological simulations of galaxy clusters with AGN feedback. It compares baryonic properties to observations. This informs AGN feedback but not high-redshift JWST directly.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift predictions are made",
+        "Look for AGN feedback prescriptions relevant to early galaxies"
+      ],
+      "summarized_text": "Title: Dianoga simulations of galaxy clusters and groups: Properties of the baryonic components\nAuthors: Stefano Borgani , Alice Damiano , Elena Rasia , Tiago Castro , Michela Esposito , Ilaria Marini , Giuseppe Murante , Milena Valentini , Veronica Biffi , Klaus Dolag , Gian Luigi Granato , Antonio Ragagnin , Cinthia Ragone-Figueroa , Alex Saro , Luca Tornatore\nLink: https://arxiv.org/abs/2608.17570\nRelevancy score: 3\nReasons for match: Simulations of galaxy clusters with AGN feedback, but local universe and not JWST observations.\nShort digest: The paper introduces cosmological simulations of galaxy clusters with AGN feedback. It compares baryonic properties to observations. This informs AGN feedback but not high-redshift JWST directly.\nFull-text inspection checklist: ['Check if any high-redshift predictions are made', 'Look for AGN feedback prescriptions relevant to early galaxies']\n",
+      "arxiv_id": "2608.17570"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.17526",
+      "pdf": "https://arxiv.org/pdf/2608.17526",
+      "title": "From Variability to SED Modeling: A Multiwavelength Study of the Neutrino Blazar TXS 0506+056",
+      "authors": "Shiyu Du , Hanxiao Xia , Jianghua Wu , Yue Fang",
+      "subjects": "High Energy Astrophysical Phenomena (astro-ph.HE) ; Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "The blazar TXS 0506+056 is the first source that was reported to be associated with high-energy extragalactic neutrino events and is one of the major targets for multi-messenger studies. We carried out multi-wavelength optical monitoring of this object on 24 nights in the period from 2018 to 2023. The overall light curves exhibit a dimming trend superposed by some small-amplitude fluctuations, and intraday variability was detected on four nights. Bluer-when-brighter behaviors were observed on both intraday and long timescales and were more pronounced on long timescales, while a weak redder-when-brighter trend was detected on one night. No significant time lags were found between variations at different optical wavelengths. We also retrieved the multi-broadband data from some monitoring programs. The data reveal complex, asynchronous flaring in different wavebands. A cross-correlation analysis shows that the high-energy emission (optical to gamma-ray) is co-spatial and leads the radio emission by a substantial time of about 800 to 900 days, suggesting that the radio emission originates from a downstream region of the jet. We performed time-dependent lepto-hadronic modeling of the spectral energy distributions for three representative epochs, the 2017 neutrino-associated flare, a post-flare phase, and a deep quiescent state, revealing an evolution in the radiative properties of the emission regions. The modeling results provide a phenomenological framework for interpreting the long-term multiwavelength behavior of TXS 0506+056 in a multi-messenger context.",
+      "Relevancy score": 2,
+      "Reasons for match": "Blazar multiwavelength study, but not high-redshift galaxies or AGN in JWST context.",
+      "Short digest": "The paper studies the neutrino blazar TXS 0506+056 across wavelengths. It finds variability and models SEDs. This is tangentially related to AGN but not high-redshift JWST.",
+      "Full-text inspection checklist": [
+        "Check if any high-redshift comparison is made",
+        "Look for SED modeling methods that could apply to AGN"
+      ],
+      "summarized_text": "Title: From Variability to SED Modeling: A Multiwavelength Study of the Neutrino Blazar TXS 0506+056\nAuthors: Shiyu Du , Hanxiao Xia , Jianghua Wu , Yue Fang\nLink: https://arxiv.org/abs/2608.17526\nRelevancy score: 2\nReasons for match: Blazar multiwavelength study, but not high-redshift galaxies or AGN in JWST context.\nShort digest: The paper studies the neutrino blazar TXS 0506+056 across wavelengths. It finds variability and models SEDs. This is tangentially related to AGN but not high-redshift JWST.\nFull-text inspection checklist: ['Check if any high-redshift comparison is made', 'Look for SED modeling methods that could apply to AGN']\n",
+      "arxiv_id": "2608.17526"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.17568",
+      "pdf": "https://arxiv.org/pdf/2608.17568",
+      "title": "NMMA-Astro-COLIBRI: An Automated Light-Curve Supernovae Classification Service in the Multi-Survey Era",
+      "authors": "R. Weizmann Kiendrebeogo , Bernardo Cornejo Avila , Sofia Bisero , Maxime Cellier , Antoine Ciric , Ilja Jaroschewski , Henrik Rose , Alexandre Saint-Paul , Fabian Schüssler",
+      "subjects": "High Energy Astrophysical Phenomena (astro-ph.HE) ; Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "The surge in publicly available photometric alerts from wide-field surveys requires automated tools for real-time transient classification. We present NMMA--Astro-COLIBRI, an on-demand Bayesian classification service that couples the Nuclear-physics and Multi-Messenger Astrophysics (NMMA) inference framework to the Astro-COLIBRI real-time multi-messenger platform. After the detection of an optical transient, if photometry is available, it is quality-filtered. The filtered photometry is fitted by nested sampling against a user-selected model from a library of eleven supernova templates; results are delivered to every user within minutes. Applying two or more models on the same optical transient, the service reports the corresponding log Bayes factors as a quantitative ranking of competing subtypes. We demonstrate the workflow on SN 2021ugl (ZTF21abotose), a Type IIb supernova initially mistaken for a kilonova candidate by automated real-time pipelines, comparing competing supernova and kilonova models. In an early-time configuration using only the first ~ 6 days of photometry in two bands (ZTF g and r), so ten days before spectroscopic confirmation, the empirical Type IIb template recovers the correct classification, favored over both the kilonova template and the kilonova-mimicking shock-cooling model. In the full 47-day, three-band baseline, it again achieves the highest evidence over every competing supernova and kilonova template. These results highlight the importance of a comprehensive supernova template library for kilonova discrimination in the multi-survey era.",
+      "Relevancy score": 2,
+      "Reasons for match": "Machine learning for supernova classification, not directly high-redshift galaxies or AGN.",
+      "Short digest": "The paper presents an automated supernova classification service. It uses Bayesian model comparison on light curves. This is AI-for-astronomy but not focused on high-redshift JWST.",
+      "Full-text inspection checklist": [
+        "Check if methods could be adapted for AGN classification",
+        "Look for any JWST data usage"
+      ],
+      "summarized_text": "Title: NMMA-Astro-COLIBRI: An Automated Light-Curve Supernovae Classification Service in the Multi-Survey Era\nAuthors: R. Weizmann Kiendrebeogo , Bernardo Cornejo Avila , Sofia Bisero , Maxime Cellier , Antoine Ciric , Ilja Jaroschewski , Henrik Rose , Alexandre Saint-Paul , Fabian Schüssler\nLink: https://arxiv.org/abs/2608.17568\nRelevancy score: 2\nReasons for match: Machine learning for supernova classification, not directly high-redshift galaxies or AGN.\nShort digest: The paper presents an automated supernova classification service. It uses Bayesian model comparison on light curves. This is AI-for-astronomy but not focused on high-redshift JWST.\nFull-text inspection checklist: ['Check if methods could be adapted for AGN classification', 'Look for any JWST data usage']\n",
+      "arxiv_id": "2608.17568"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.17680",
+      "pdf": "https://arxiv.org/pdf/2608.17680",
+      "title": "$R_{\\rm e}$, or not $R_{\\rm e}$: Developing $R_5\\equiv R_{-2}$ as a scale radius for galaxy sizes, masses, and mass-to-light ratios",
+      "authors": "Alister W. Graham",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "The effective half-light radius $R_{\\rm e}$ marks an arbitrary 50-per-cent light boundary, and scaling relations involving such effective radii and their associated surface brightnesses, $\\mu_{\\rm e}$, depend systematically on the adopted percentage. Here, a gradient-defined scale, $R_5\\equiv R_{-2}$, is developed as an alternative. It is the projected radius where the logarithmic slope of the intensity profile is equal to $-2$, corresponding to a slope of the surface-brightness profile of $5.00\\,\\text{mag dex}^{-1}$, and the radius at which the luminosity contributed per logarithmic radial interval is maximal. It can be measured non-parametrically or with a parametrized fit. For the Sérsic $R^{1/n}$ family, the exact relation $R_5=(2n/b_n)^n\\,R_{\\rm e}$ is derived, with $R_5/R_{\\rm e}\\rightarrow{\\rm e}^{1/6}\\approx1.181$ as $n\\rightarrow\\infty$. Reparameterizing the (now $b_n$-free) $R^{1/n}$ model in terms of the observable pair $(R_5,\\mu_5)$ removes the non-linear (radial scale)-(concentration, $n$) coupling and because the local slope is $5\\,\\text{mag dex}^{-1}$ at $R_5$, correlated measurement errors in $R_5$ and $\\mu_5$ largely cancel when deriving the inferred total magnitude. Additionally, an exact single-integral identity is provided to relate any projected light fraction to the fraction within a sphere of the same radius. The directly observable $R_5$ is connected, through a weakly $n$-dependent factor, to the anisotropy-insensitive intrinsic radius $r_{-3}$, yielding a refined $n$-dependent Wolf-type mass estimator $M_{-3}$ and spatial mass-to-light ratio $(M_{\\rm dyn}/L)_{-3}$. Past half-light substitutions in dynamical mass estimators have introduced systematic concentration-dependent offsets of 12-18 per~cent in enclosed mass and a range $>20$ per~cent in the mass-to-light ratio. Dynamical mass estimators for (dark matter)-free stellar systems are also provided.",
+      "Relevancy score": 2,
+      "Reasons for match": "Galaxy size definitions and mass estimators, but not high-redshift specific or JWST.",
+      "Short digest": "The paper develops a new scale radius R5 for galaxy sizes. It provides relations for mass estimators. This is tangentially relevant for galaxy structure but not high-redshift JWST.",
+      "Full-text inspection checklist": [
+        "Check if the R5 definition is applied to high-redshift galaxies",
+        "Look for any JWST data usage"
+      ],
+      "summarized_text": "Title: $R_{\\rm e}$, or not $R_{\\rm e}$: Developing $R_5\\equiv R_{-2}$ as a scale radius for galaxy sizes, masses, and mass-to-light ratios\nAuthors: Alister W. Graham\nLink: https://arxiv.org/abs/2608.17680\nRelevancy score: 2\nReasons for match: Galaxy size definitions and mass estimators, but not high-redshift specific or JWST.\nShort digest: The paper develops a new scale radius R5 for galaxy sizes. It provides relations for mass estimators. This is tangentially relevant for galaxy structure but not high-redshift JWST.\nFull-text inspection checklist: ['Check if the R5 definition is applied to high-redshift galaxies', 'Look for any JWST data usage']\n",
+      "arxiv_id": "2608.17680"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.16960",
+      "pdf": "https://arxiv.org/pdf/2608.16960",
+      "title": "TomoSphero: Fast Differentiable Projector for Planetary and Solar Tomography on Spherical Grids",
+      "authors": "Evan Widloski , Lara Waldrop",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM) ; Earth and Planetary Astrophysics (astro-ph.EP); Solar and Stellar Astrophysics (astro-ph.SR)",
+      "abstract": "Computational tomography is a tool for determining the internal structure of objects from a set of projections, typically taken along some regular path. In recent years, methods and GPU-accelerated libraries have emerged that allow for fast reconstruction from projections along more complicated paths. Most of these libraries rely on a Cartesian discretization of the object, which is not appropriate for all scenarios. We present TomoSphero, a differentiable tomographic projector over spherical grids which are often used in planetary and solar tomography. TomoSphero is designed to be used as a building block in reconstruction algorithms and includes common projection types such as cone-beam and parallel-beam, but is flexible enough to accommodate arbitrary projections. TomoSphero is implemented in PyTorch which allows for fast projection computation on GPUs, easy access to modern machine learning optimizers, and automatic differentiation for rapid prototyping of parametric models.",
+      "Relevancy score": 1,
+      "Reasons for match": "This paper is about computational tomography for planetary and solar applications, not directly related to high-redshift galaxies or AGN.",
+      "Short digest": "The central question is how to perform fast differentiable tomography on spherical grids. The main result is the development of TomoSphero, a PyTorch-based projector for spherical grids. This is not relevant to my work on JWST high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "Check if the method could be adapted to astronomical imaging, but unlikely relevant."
+      ],
+      "summarized_text": "Title: TomoSphero: Fast Differentiable Projector for Planetary and Solar Tomography on Spherical Grids\nAuthors: Evan Widloski , Lara Waldrop\nLink: https://arxiv.org/abs/2608.16960\nRelevancy score: 1\nReasons for match: This paper is about computational tomography for planetary and solar applications, not directly related to high-redshift galaxies or AGN.\nShort digest: The central question is how to perform fast differentiable tomography on spherical grids. The main result is the development of TomoSphero, a PyTorch-based projector for spherical grids. This is not relevant to my work on JWST high-redshift galaxies and AGN.\nFull-text inspection checklist: ['Check if the method could be adapted to astronomical imaging, but unlikely relevant.']\n",
+      "arxiv_id": "2608.16960"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.17049",
+      "pdf": "https://arxiv.org/pdf/2608.17049",
+      "title": "pynucastro 3: A community library for nuclear astrophysics",
+      "authors": "Zhi Chen , Khanak Bhargava , Eric T. Johnson , Reth Lopes , Melissa Rasmussen , Alexander Smith Clark , Michael Zingale , Brendan Boyd , Kiran Eiden , Sam Glosser , Don E. Willcox",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "We describe the latest release of pynucastro: a community python library for nuclear astrophysics. The goal of the pynucastro project is to build the tools needed to interactively explore nuclear properties, reaction rates, and networks, and to export these networks to a variety of simulation codes. Major changes in pynucastro since the last major release include new rate approximations, a stellar equation of state, support for the StarLib library and rate uncertainties, and new tools for exploring networks.",
+      "Relevancy score": "1",
+      "Reasons for match": "This paper is about a nuclear astrophysics library, not related to high-redshift galaxies, AGN, or JWST observations.",
+      "Short digest": "The paper describes the latest release of pynucastro, a Python library for nuclear astrophysics. It includes new rate approximations, a stellar equation of state, and support for StarLib. This is unrelated to my research on high-redshift galaxies and AGN.",
+      "Full-text inspection checklist": [
+        "Not relevant; no need for inspection."
+      ],
+      "summarized_text": "Title: pynucastro 3: A community library for nuclear astrophysics\nAuthors: Zhi Chen , Khanak Bhargava , Eric T. Johnson , Reth Lopes , Melissa Rasmussen , Alexander Smith Clark , Michael Zingale , Brendan Boyd , Kiran Eiden , Sam Glosser , Don E. Willcox\nLink: https://arxiv.org/abs/2608.17049\nRelevancy score: 1\nReasons for match: This paper is about a nuclear astrophysics library, not related to high-redshift galaxies, AGN, or JWST observations.\nShort digest: The paper describes the latest release of pynucastro, a Python library for nuclear astrophysics. It includes new rate approximations, a stellar equation of state, and support for StarLib. This is unrelated to my research on high-redshift galaxies and AGN.\nFull-text inspection checklist: ['Not relevant; no need for inspection.']\n",
+      "arxiv_id": "2608.17049"
+    }
+  ]
+}
