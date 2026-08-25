@@ -1,0 +1,133 @@
+{
+  "generated_on": "2026-08-25",
+  "topic": "Astrophysics",
+  "categories": [
+    "Astrophysics of Galaxies",
+    "Cosmology and Nongalactic Astrophysics",
+    "Instrumentation and Methods for Astrophysics"
+  ],
+  "threshold": 7,
+  "interest": "I study JWST observations of high-redshift galaxies and AGN, especially\nlittle red dots (LRDs), compact red sources, dust-reddened or broad-line AGN,\nearly black-hole growth, and galaxy/AGN co-evolution at cosmic dawn.\n\nPrioritize papers about:\n1. JWST/NIRCam/NIRSpec/MIRI observations of high-redshift galaxies and AGN\n2. little red dots, compact red galaxies, obscured AGN, broad-line AGN, and\n   high-redshift black hole candidates\n3. SED fitting, spectroscopy, emission lines, photometric redshifts, stellar\n   masses, dust attenuation, AGN contamination, and source classification\n4. high-redshift galaxy formation, reionization-era galaxies, early SMBH\n   growth, and galaxy/AGN co-evolution\n5. survey papers from CEERS, JADES, UNCOVER, COSMOS-Web, PRIMER, GLASS,\n   RUBIES, and similar JWST deep fields\n\nAlso keep papers about AI, machine learning, large language models (LLMs),\nlarge multimodal models (LMMs), foundation models, anomaly detection,\nautomated classification, spectral/photometric inference, or research agents\nwhen they are applied to astronomy, astrophysics, JWST data, galaxy surveys,\nAGN selection, or literature/data analysis.\n\nDeprioritize unrelated stellar, solar-system, local-universe, gravitational\nwave, or purely theoretical papers unless they directly inform high-redshift\ngalaxies, AGN, JWST analysis, or AI-for-astronomy workflows.\n",
+  "papers": [
+    {
+      "main_page": "https://arxiv.org/abs/2608.22080",
+      "pdf": "https://arxiv.org/pdf/2608.22080",
+      "title": "[CII] as a global cold gas tracer in novel hydrodynamical simulations",
+      "authors": "Valentina P. Miranda , Patricia B. Tissera , Jorge González-López , Emanuel Sillero",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "[CII] emission is a powerful tool for studying the gas content in galaxies, especially at early stages of evolution. Given its low excitation potential, the [CII] 158 \\mu m line is the main coolant of neutral gas in photodissociation regions and giant molecular clouds, hence a tracer of all phases of the interstellar medium. However, there is no consensus on what is the nature of the gas traced by this emission. We aim to provide insights into the physics of the [CII] emission and predictions for future observations. We used four pre-prepared simulations performed with a version of p-gadget-3, which includes the krome chemistry package. We implemented a postprocessing semi-analytical model to simulate the [CII] emission. We analysed an isolated Milky Way-mass-size galaxy, and three merger configurations: a co-rotating, counter-rotating, and perpendicular major mergers of two Milky Way-mass-size galaxies. We reproduce fundamental relations such as the [CII] luminosity and the star formation rate, L[CII]-SFR relation, in which mergers show an extra component for the [CII] emission not traced by the star formation alone. During quiescent or starburst stages, galaxies deviate from the L[CII]-SFR relation. We find that [CII] is a robust tracer of molecular gas, as well as atomic gas in both cold and warm phases on a global scale. Our results indicate that around 50 per cent of the total [CII] emission is traced by molecular gas, while 30 to 40 per cent is traced by atomic and ionised hydrogen regardless of the configuration. Our findings suggest that the nature of the [CII] emission depends strongly on the evolutionary history of galaxies, in which mergers and starbursts act as more efficient drivers of [CII] emission through collision with molecular hydrogen.",
+      "Relevancy score": "6",
+      "Reasons for match": "This paper studies [CII] emission as a tracer of cold gas in galaxies, which is relevant to high-redshift galaxy observations and SED/line diagnostics, though it uses simulations rather than JWST data.",
+      "Short digest": "The central question is what gas phases [CII] emission traces in galaxies. The main result is that [CII] is a robust tracer of molecular and atomic gas, with mergers adding extra emission. This matters for interpreting [CII] observations in high-redshift galaxies, including those from JWST.",
+      "Full-text inspection checklist": [
+        "Check how the semi-analytical model handles different gas phases",
+        "Look for predictions that can be tested with JWST [CII] observations",
+        "Examine the L[CII]-SFR relation and its scatter"
+      ],
+      "summarized_text": "Title: [CII] as a global cold gas tracer in novel hydrodynamical simulations\nAuthors: Valentina P. Miranda , Patricia B. Tissera , Jorge González-López , Emanuel Sillero\nLink: https://arxiv.org/abs/2608.22080\nRelevancy score: 6\nReasons for match: This paper studies [CII] emission as a tracer of cold gas in galaxies, which is relevant to high-redshift galaxy observations and SED/line diagnostics, though it uses simulations rather than JWST data.\nShort digest: The central question is what gas phases [CII] emission traces in galaxies. The main result is that [CII] is a robust tracer of molecular and atomic gas, with mergers adding extra emission. This matters for interpreting [CII] observations in high-redshift galaxies, including those from JWST.\nFull-text inspection checklist: ['Check how the semi-analytical model handles different gas phases', 'Look for predictions that can be tested with JWST [CII] observations', 'Examine the L[CII]-SFR relation and its scatter']\n",
+      "arxiv_id": "2608.22080"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.22726",
+      "pdf": "https://arxiv.org/pdf/2608.22726",
+      "title": "Observational Evidence for the Kinematic Memory of Cosmic Filaments from Satellite Orbital Orientations",
+      "authors": "Peng Wang , Wei Wang , Wenting Wang , Min Bao , Xi Kang , Hong Guo , Youcai Zhang , Xiao-xiao Tang",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "We present an observational study of the kinematic coherence between satellite orbital planes and the cosmic web. Using the SDSS DR12 galaxy sample combined with the Bisous filament catalogue, we investigate whether the orbital motion of satellites preserves the memory of filamentary accretion. For each satellite system, we define a projected orbital-normal vector using galaxy sky positions and line-of-sight velocity offsets. By measuring the angle $\\theta$ between this vector and the local projected filament direction, we detect a distinctive preferred orientation: satellite orbital planes tend to contain or lie parallel to the filament axis. This signal deviates from the isotropic expectation at a high significance level of $12.8\\sigma$. The strength of this kinematic connection depend strongly on environment and host properties. The preference for orbital planes to track the filament direction is most pronounced for groups in close distance to the filament spine and for more massive hosts. Conversely, at intermediate distances from the filament and at large group-centric radii, the signal reverses, indicating a tendency for orbital planes to be oriented perpendicular to the filament. Our findings provide direct observational evidence for the two-phase model of filamentary accretion, where a transition from initial perpendicular collapse toward the filament spine to subsequent parallel streamwise infall into dark matter haloes governs the orientation of satellite orbital angular momentum and galaxy spin. The observed transition may further trace the characteristic radial scale of filaments, offering a dynamical perspective on the internal structure and assembly of the cosmic filament.",
+      "Relevancy score": "3",
+      "Reasons for match": "This paper studies satellite orbital orientations relative to cosmic filaments, which is related to galaxy formation and large-scale structure, but not directly to high-redshift galaxies or AGN.",
+      "Short digest": "The central question is whether satellite orbital planes preserve memory of filamentary accretion. The main result is a preferred orientation with a 12.8 sigma significance. This is relevant to galaxy formation but not to my focus on high-z JWST observations.",
+      "Full-text inspection checklist": [
+        "Check if the findings can be extended to high-redshift galaxy surveys",
+        "Look for any connection to AGN or galaxy co-evolution"
+      ],
+      "summarized_text": "Title: Observational Evidence for the Kinematic Memory of Cosmic Filaments from Satellite Orbital Orientations\nAuthors: Peng Wang , Wei Wang , Wenting Wang , Min Bao , Xi Kang , Hong Guo , Youcai Zhang , Xiao-xiao Tang\nLink: https://arxiv.org/abs/2608.22726\nRelevancy score: 3\nReasons for match: This paper studies satellite orbital orientations relative to cosmic filaments, which is related to galaxy formation and large-scale structure, but not directly to high-redshift galaxies or AGN.\nShort digest: The central question is whether satellite orbital planes preserve memory of filamentary accretion. The main result is a preferred orientation with a 12.8 sigma significance. This is relevant to galaxy formation but not to my focus on high-z JWST observations.\nFull-text inspection checklist: ['Check if the findings can be extended to high-redshift galaxy surveys', 'Look for any connection to AGN or galaxy co-evolution']\n",
+      "arxiv_id": "2608.22726"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.21474",
+      "pdf": "https://arxiv.org/pdf/2608.21474",
+      "title": "Radio Galaxies detection and characterization using deep learning techniques",
+      "authors": "Sanjay Khatik , Rohit Sharma , Pankaj Jain",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM) ; Astrophysics of Galaxies (astro-ph.GA)",
+      "abstract": "Future radio telescopes will generate data volumes that are increasingly difficult to analyse using traditional statistical methods, motivating the adoption of machine-learning techniques. In this work, we present YOLO-Chars (YOLO-based Detection and Characterisation of Radio Sources), a two-stage deep-learning framework for the automated detection and characterisation of radio galaxies in survey images. The framework is developed and evaluated using the Square Kilometre Array Science Data Challenge 1 (SKA SDC1) dataset. In the first stage, customised YOLO-based multi-scale detection models are used to localise compact and extended sources across large sky maps. In the second stage, a dedicated source-characterisation network estimates the physical properties of the detected sources. We focus on three key parameters: flux density, angular size, and position angle. Our results show that YOLO-Chars achieves competitive detection and characterisation performance on the SKA SDC1 benchmark, demonstrating its potential as a scalable framework for next-generation radio continuum surveys.",
+      "Relevancy score": 2,
+      "Reasons for match": "Focuses on radio galaxies and deep learning for SKA data, not JWST or high-redshift optical/IR galaxies/AGN. Limited overlap with AI-for-astronomy workflows but not directly relevant to your interests.",
+      "Short digest": "The paper asks whether deep learning can automate detection and characterization of radio galaxies in large surveys. It presents YOLO-Chars, a two-stage framework achieving competitive performance on SKA SDC1 data for flux, size, and position angle. This is not directly relevant to your JWST high-redshift galaxy/AGN work, though the AI methodology could be transferable.",
+      "Full-text inspection checklist": [
+        "Check if the detection/characterization methods could be adapted to JWST NIRCam images",
+        "Look for any discussion of AGN or high-redshift sources in the SKA dataset"
+      ],
+      "summarized_text": "Title: Radio Galaxies detection and characterization using deep learning techniques\nAuthors: Sanjay Khatik , Rohit Sharma , Pankaj Jain\nLink: https://arxiv.org/abs/2608.21474\nRelevancy score: 2\nReasons for match: Focuses on radio galaxies and deep learning for SKA data, not JWST or high-redshift optical/IR galaxies/AGN. Limited overlap with AI-for-astronomy workflows but not directly relevant to your interests.\nShort digest: The paper asks whether deep learning can automate detection and characterization of radio galaxies in large surveys. It presents YOLO-Chars, a two-stage framework achieving competitive performance on SKA SDC1 data for flux, size, and position angle. This is not directly relevant to your JWST high-redshift galaxy/AGN work, though the AI methodology could be transferable.\nFull-text inspection checklist: ['Check if the detection/characterization methods could be adapted to JWST NIRCam images', 'Look for any discussion of AGN or high-redshift sources in the SKA dataset']\n",
+      "arxiv_id": "2608.21474"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.22069",
+      "pdf": "https://arxiv.org/pdf/2608.22069",
+      "title": "AstroBind: Machine learning prediction of binding energy distributions on interstellar water ice from geometric surface descriptors",
+      "authors": "Aneesa Ahmad , Catherine Walsh",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "Binding energies on amorphous solid water regulate molecular desorption in molecular clouds and protoplanetary disks, but computing them from first principles across the heterogeneous binding sites of disordered ice surfaces is computationally prohibitive. We aim to develop a rapid, interpretable method for predicting binding energies on amorphous solid water that captures surface heterogeneity without requiring explicit electronic-structure calculations. We trained a machine-learning model using 27 geometric descriptors of the local ice-adsorbate environment. The model was trained on binding energies for 13 adsorbates on amorphous solid water clusters and evaluated through pooled leave-one-cluster-out validation across 15 ice surfaces. Its transferability was assessed on radical species excluded entirely from training. The model achieves a pooled leave-one-cluster-out coefficient of determination $R^2 = 0.90$ (the fraction of variance in the binding energies captured by the model, where 1 is a perfect fit), and a mean absolute error of 378 K across 15 ice surfaces. It also transfers to radical species withheld from training, with a pooled $R^2 = 0.79$, although its accuracy decreases when the unpaired electron contributes directly to the surface interaction. Our results demonstrate a route towards rapid, distribution-aware parameterisation of binding energies and desorption/diffusion rates in gas-grain astrochemical models, while preserving physical interpretability on heterogeneous ice surfaces.",
+      "Relevancy score": "2",
+      "Reasons for match": "This paper uses machine learning to predict binding energies on interstellar ice, which is tangentially related to astrochemistry but not directly to high-redshift galaxies, AGN, or JWST observations.",
+      "Short digest": "The central question is whether binding energies on amorphous water ice can be predicted rapidly with machine learning. The main result is a model with R^2=0.90 on training data. This is not directly relevant to my work, though the ML approach could be of interest.",
+      "Full-text inspection checklist": [
+        "Check if the ML method could be applied to astronomical data classification",
+        "Look for any connection to high-redshift or JWST contexts"
+      ],
+      "summarized_text": "Title: AstroBind: Machine learning prediction of binding energy distributions on interstellar water ice from geometric surface descriptors\nAuthors: Aneesa Ahmad , Catherine Walsh\nLink: https://arxiv.org/abs/2608.22069\nRelevancy score: 2\nReasons for match: This paper uses machine learning to predict binding energies on interstellar ice, which is tangentially related to astrochemistry but not directly to high-redshift galaxies, AGN, or JWST observations.\nShort digest: The central question is whether binding energies on amorphous water ice can be predicted rapidly with machine learning. The main result is a model with R^2=0.90 on training data. This is not directly relevant to my work, though the ML approach could be of interest.\nFull-text inspection checklist: ['Check if the ML method could be applied to astronomical data classification', 'Look for any connection to high-redshift or JWST contexts']\n",
+      "arxiv_id": "2608.22069"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.22172",
+      "pdf": "https://arxiv.org/pdf/2608.22172",
+      "title": "Modeling the technical specifications for future multi-object spectroscopy instrumentation",
+      "authors": "Ummee Tania Ahmed , Andrew Hopkins , Simon Ellis",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "We investigate a proof-of-concept code designed to model the functionality of current generation astronomical fiber positioner instruments. This code accommodates an arbitrary number of fiber probes and astronomical targets. To establish the prerequisites for future fiber positioning technologies, we conduct a systematic analysis of both the observational and instrumentation parameter space (such as target density, fiber density, and exclusion and patrol radius). The tool assesses the efficiency and completeness of such a system by modeling the allocation of fibers to targets over multiple visits or observations, enabling the quantification of performance based on the specific parameters. This tool holds significance in delineating the technical specifications for future multi-object spectroscopy instrumentation. This will inform the development of new technologies for the next generation of telescopes using novel instrumentation techniques or the extension of existing technologies.",
+      "Relevancy score": "2",
+      "Reasons for match": "This paper models fiber positioner instruments for multi-object spectroscopy, which could inform future JWST or ground-based surveys, but it is not directly about high-redshift galaxies or AGN.",
+      "Short digest": "The central question is how to model fiber positioner efficiency for future instrumentation. The main result is a proof-of-concept code that allocates fibers to targets. This is tangentially relevant to survey design but not to my specific interests.",
+      "Full-text inspection checklist": [
+        "Check if the code can be applied to JWST or high-z surveys",
+        "Look for any specific predictions for future multi-object spectroscopy"
+      ],
+      "summarized_text": "Title: Modeling the technical specifications for future multi-object spectroscopy instrumentation\nAuthors: Ummee Tania Ahmed , Andrew Hopkins , Simon Ellis\nLink: https://arxiv.org/abs/2608.22172\nRelevancy score: 2\nReasons for match: This paper models fiber positioner instruments for multi-object spectroscopy, which could inform future JWST or ground-based surveys, but it is not directly about high-redshift galaxies or AGN.\nShort digest: The central question is how to model fiber positioner efficiency for future instrumentation. The main result is a proof-of-concept code that allocates fibers to targets. This is tangentially relevant to survey design but not to my specific interests.\nFull-text inspection checklist: ['Check if the code can be applied to JWST or high-z surveys', 'Look for any specific predictions for future multi-object spectroscopy']\n",
+      "arxiv_id": "2608.22172"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.22240",
+      "pdf": "https://arxiv.org/pdf/2608.22240",
+      "title": "Primordial Asymmetries, Primordial Equation of State & Primordial Black Holes",
+      "authors": "Maël Gonin , Julien Froustey , Albert Escrivà , Alberto Magaraggia , Günther Hasinger , Florian Kühnel",
+      "subjects": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+      "abstract": "We study the thermal history of the primordial Universe in presence of non-zero lepton and baryon asymmetries. Considering different scenarios, we determine the equation of state (EoS) of the Universe from T = 10 GeV down to T = 1 keV, spanning the QCD transition, hadron gas phase and neutrino decoupling epochs. Using a combination of numerical codes, we track the cosmic trajectories of chemical potentials associated with the baryonic, leptonic and electric charges, and follow the evolution of lepton asymmetries including through the era where neutrino oscillations take place. Combining peak theory with numerical-relativity simulations of the collapse threshold, we show the EoS-induced modifications to the primordial black hole (PBH) mass spectrum. We determine the associated Gravitational Wave (GW) signal, showing how lepton asymmetries and a particular spectral index of curvature perturbations can be hinted at by current ground interferometer-based GW observations. Finally, we discuss constraints and positive evidence for PBHs.",
+      "Relevancy score": "2",
+      "Reasons for match": "This paper discusses primordial asymmetries and primordial black holes, which is tangentially related to early universe physics but not directly to high-redshift galaxies, AGN, or JWST observations.",
+      "Short digest": "The central question is how lepton and baryon asymmetries affect the primordial equation of state and PBH formation. The main result is that asymmetries modify the PBH mass spectrum and GW signal. This is not directly relevant to my work.",
+      "Full-text inspection checklist": [
+        "Check for any connection to high-redshift galaxy or AGN formation",
+        "Look for any JWST or observational content"
+      ],
+      "summarized_text": "Title: Primordial Asymmetries, Primordial Equation of State & Primordial Black Holes\nAuthors: Maël Gonin , Julien Froustey , Albert Escrivà , Alberto Magaraggia , Günther Hasinger , Florian Kühnel\nLink: https://arxiv.org/abs/2608.22240\nRelevancy score: 2\nReasons for match: This paper discusses primordial asymmetries and primordial black holes, which is tangentially related to early universe physics but not directly to high-redshift galaxies, AGN, or JWST observations.\nShort digest: The central question is how lepton and baryon asymmetries affect the primordial equation of state and PBH formation. The main result is that asymmetries modify the PBH mass spectrum and GW signal. This is not directly relevant to my work.\nFull-text inspection checklist: ['Check for any connection to high-redshift galaxy or AGN formation', 'Look for any JWST or observational content']\n",
+      "arxiv_id": "2608.22240"
+    },
+    {
+      "main_page": "https://arxiv.org/abs/2608.22548",
+      "pdf": "https://arxiv.org/pdf/2608.22548",
+      "title": "Instrumental artifacts in photonic lantern spectroastrometry and their mitigation with PLred",
+      "authors": "Yoo Jung Kim , Michael P. Fitzgerald , Malena Bloom , Aidan Walk , Sebastien Vievard , Miles Lucas , Olivier Guyon , Sylvestre Lacour , Elsa Huby , Jehanne Sarrazin , Manon Lallement , Julien Lozi , Nemanja Jovanovic",
+      "subjects": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+      "abstract": "Spectroastrometry is a powerful spectral-differential technique for probing angular scales below the resolution limit, but it is also well known to be susceptible to instrumental artifacts that can mimic or obscure real signals. In photonic lantern spectroastrometry, recently demonstrated on-sky with Subaru/FIRST-PL, the astrometric signal is encoded in relative flux variations between lantern outputs rather than in centroid shifts along a slit. This changes the artifact landscape: some slit-based spectroastrometric artifacts are avoided, but new artifact mechanisms emerge, including detector nonlinearity and spectral extraction errors, which can produce spurious features on emission or absorption lines. These lessons directly informed the design of PLred, an open source Python package for photonic lantern data reduction and instrument-agnostic spectral-differential image reconstruction. We describe the origin of these artifacts and the key pipeline design choices used to mitigate them.",
+      "Relevancy score": "2",
+      "Reasons for match": "This paper discusses instrumental artifacts in photonic lantern spectroastrometry, which is relevant to spectroscopy techniques but not directly to high-redshift galaxies or AGN.",
+      "Short digest": "The central question is how to mitigate artifacts in photonic lantern spectroastrometry. The main result is the PLred pipeline that addresses detector nonlinearity and extraction errors. This is tangentially relevant to spectral analysis but not to my specific interests.",
+      "Full-text inspection checklist": [
+        "Check if the pipeline can be applied to JWST/NIRSpec data",
+        "Look for any relevance to high-z galaxy or AGN spectroscopy"
+      ],
+      "summarized_text": "Title: Instrumental artifacts in photonic lantern spectroastrometry and their mitigation with PLred\nAuthors: Yoo Jung Kim , Michael P. Fitzgerald , Malena Bloom , Aidan Walk , Sebastien Vievard , Miles Lucas , Olivier Guyon , Sylvestre Lacour , Elsa Huby , Jehanne Sarrazin , Manon Lallement , Julien Lozi , Nemanja Jovanovic\nLink: https://arxiv.org/abs/2608.22548\nRelevancy score: 2\nReasons for match: This paper discusses instrumental artifacts in photonic lantern spectroastrometry, which is relevant to spectroscopy techniques but not directly to high-redshift galaxies or AGN.\nShort digest: The central question is how to mitigate artifacts in photonic lantern spectroastrometry. The main result is the PLred pipeline that addresses detector nonlinearity and extraction errors. This is tangentially relevant to spectral analysis but not to my specific interests.\nFull-text inspection checklist: ['Check if the pipeline can be applied to JWST/NIRSpec data', 'Look for any relevance to high-z galaxy or AGN spectroscopy']\n",
+      "arxiv_id": "2608.22548"
+    }
+  ]
+}
