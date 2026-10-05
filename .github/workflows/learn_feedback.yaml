@@ -1,0 +1,44 @@
+name: Learn astro paper feedback
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: astro-selection-feedback
+  cancel-in-progress: false
+
+jobs:
+  learn:
+    if: >-
+      github.event.sender.login == github.repository_owner &&
+      github.event.issue.user.login == github.repository_owner &&
+      startsWith(github.event.issue.title, '[digest-feedback]') &&
+      contains(github.event.issue.body, '<!-- arxiv-digest-feedback -->')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Learn and validate selection guidance
+        run: python src/feedback.py process
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "反馈处理未完整完成，请核对策略版本与日志：$RUN_URL"

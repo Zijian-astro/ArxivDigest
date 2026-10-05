@@ -17,6 +17,8 @@ top_k_for_deep_read: 5
 min_papers: 7
 provider: "deepseek"
 model: "deepseek-chat"
+feedback_state: "feedback/astro.json"
+feedback_repository: "Zijian-astro/ArxivDigest"
 
 interest: |
   I study JWST observations of high-redshift galaxies and AGN, especially

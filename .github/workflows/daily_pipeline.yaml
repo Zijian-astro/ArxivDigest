@@ -10,6 +10,11 @@ on:
         description: 'Optional arXiv submission date to digest, in YYYY-MM-DD format'
         required: false
         type: string
+      include_ai:
+        description: 'Also run the paused AI-for-astronomy supplement'
+        required: false
+        default: false
+        type: boolean
   schedule:
     # * is a special character in YAML so you have to quote this string
     # Runs Monday-Friday at 12:00 Beijing time (04:00 UTC).
@@ -29,11 +34,11 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        include:
-          - config: personal_config.yaml
-            artifact: astro-jwst-lrd
-          - config: personal_config_ai_astro.yaml
-            artifact: ai-for-astro
+        # Scheduled runs use only astro; the supplement remains available manually.
+        include: >-
+          ${{ inputs.include_ai &&
+              fromJSON('[{"config":"personal_config.yaml","artifact":"astro-jwst-lrd"},{"config":"personal_config_ai_astro.yaml","artifact":"ai-for-astro"}]') ||
+              fromJSON('[{"config":"personal_config.yaml","artifact":"astro-jwst-lrd"}]') }}
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
@@ -44,6 +49,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Load latest learned astro strategy
+      if: matrix.artifact == 'astro-jwst-lrd'
+      run: python src/feedback.py sync
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Generate Digest 
       run: |
         if [ "${{ matrix.artifact }}" = "ai-for-astro" ]; then
@@ -99,6 +109,9 @@ jobs:
         from datetime import datetime, timezone
         from pathlib import Path
         import html
+        import sys
+        sys.path.insert(0, "src")
+        from feedback_ui import render_feedback_form
 
         new_site = Path("new_site")
         public = Path("public")
@@ -118,6 +131,7 @@ jobs:
                 "digest.md",
                 "digest.json",
                 "mcp_deep_read_queue.md",
+                "selection_audit.json",
             ]:
                 source = digest_dir / filename
                 if source.exists():
@@ -148,6 +162,7 @@ jobs:
                     rows.append(row)
             digest_data[digest_dir.name] = rows
         digest_data_json = json.dumps(digest_data, ensure_ascii=False).replace("</", "<\\/")
+        feedback_form = render_feedback_form("${{ github.repository }}")
 
         now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
         cards = []
@@ -164,6 +179,7 @@ jobs:
             cards.append(
                 f'<section class="card">'
                 f'<h2>{html.escape(name)}</h2>'
+                + ('<p class="hint">Daily schedule paused; available for manual runs.</p>' if name == "ai-for-astro" else '') +
                 f'<p class="card-copy">Latest available digest: <strong>{html.escape(latest_date or "not generated yet")}</strong></p>'
                 f'<div class="actions">'
                 f'<a class="button primary" href="{html.escape(latest_link)}">Open latest</a>'
@@ -222,6 +238,7 @@ jobs:
           <main>
             <h1>Personal arXiv Digest</h1>
             <p>Last generated: {html.escape(now)}</p>
+            {feedback_form}
             <div class="grid">{''.join(cards)}</div>
           </main>
           <script>

@@ -15,6 +15,8 @@ import openai
 from relevancy import generate_relevance_score, process_subject_fields
 from download_new_papers import get_papers
 from smtp_mailer import load_smtp_settings, send_email
+from feedback import load_strategy, selection_guidance, normalize_arxiv_id
+from feedback_ui import render_feedback_form
 
 
 PLACEHOLDER_ENV_VALUES = {
@@ -271,6 +273,8 @@ def generate_digest(
     max_papers=None,
     digest_guidance="",
     max_tokens_per_paper=320,
+    strategy=None,
+    audit_data=None,
 ):
     if topic == "Physics":
         raise RuntimeError("You must choose a physics subtopic.")
@@ -280,28 +284,39 @@ def generate_digest(
         abbr = topics[topic]
     else:
         raise RuntimeError(f"Invalid topic {topic}")
+    strategy = strategy or load_strategy(None)
+    papers = get_papers(abbr, target_date=target_date)
+    fetched_papers = papers
+    positive_ids = {item["arxiv_id"] for item in strategy["examples"]}
     if categories:
         for category in categories:
             if category not in category_map[topic]:
                 raise RuntimeError(f"{category} is not a category of {topic}")
-        papers = get_papers(abbr, target_date=target_date)
         papers = [
             t
             for t in papers
             if bool(set(process_subject_fields(t["subjects"])) & set(categories))
+            or normalize_arxiv_id(t["main_page"]) in positive_ids
         ]
-    else:
-        papers = get_papers(abbr, target_date=target_date)
+    if audit_data is not None:
+        candidate_urls = {paper["main_page"] for paper in papers}
+        audit_data.extend(
+            dict(paper, selected=False, selection_reason="category_excluded")
+            for paper in fetched_papers if paper["main_page"] not in candidate_urls
+        )
     if interest:
         relevancy, hallucination = generate_relevance_score(
             papers,
-            query={"interest": interest, "digest_guidance": digest_guidance},
+            query={"interest": interest, "digest_guidance": digest_guidance,
+                   "selection_guidance": selection_guidance(strategy)},
             threshold_score=threshold,
             model_name=model_name,
             num_paper_in_prompt=16,
             min_results=min_papers,
             max_results=max_papers,
             max_tokens_per_paper=max_tokens_per_paper,
+            audit_data=audit_data,
+            positive_ids=positive_ids,
         )
         relevancy = [_normalize_paper(paper) for paper in relevancy]
         body = "<br><br>".join(
@@ -312,7 +327,7 @@ def generate_digest(
         )
         if hallucination:
             body = (
-                "Warning: the model hallucinated some papers. We have tried to remove them, but the scores may not be accurate.<br><br>"
+                "Some batch scoring responses were incomplete or mismatched; all affected papers were rescored individually.<br><br>"
                 + body
             )
         selected_papers = relevancy
@@ -359,7 +374,8 @@ def configure_llm_provider(config):
     raise RuntimeError(f"Unsupported provider: {provider}")
 
 
-def write_digest_outputs(body, papers, config, output_dir="outputs", digest_date=None):
+def write_digest_outputs(body, papers, config, output_dir="outputs", digest_date=None,
+                         strategy=None, audit_data=None):
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
@@ -371,11 +387,22 @@ def write_digest_outputs(body, papers, config, output_dir="outputs", digest_date
         "threshold": config["threshold"],
         "interest": config.get("interest", ""),
         "papers": papers,
+        "feedback_repository": config.get("feedback_repository", ""),
+        "selection_strategy": strategy or load_strategy(None),
     }
 
     (output_path / "digest.html").write_text(body, encoding="utf-8")
     (output_path / "digest.json").write_text(
         json.dumps(digest, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    (output_path / "selection_audit.json").write_text(
+        json.dumps({"generated_on": today, "threshold": config["threshold"],
+                    "strategy_revision": digest["selection_strategy"]["revision"],
+                    "model": config.get("model"), "categories": config["categories"],
+                    "min_papers": config.get("min_papers", 0),
+                    "max_papers": config.get("max_papers"),
+                    "papers": audit_data or []}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
     markdown_lines = [
@@ -444,6 +471,7 @@ def write_digest_outputs(body, papers, config, output_dir="outputs", digest_date
         "queue": output_path / "mcp_deep_read_queue.md",
         "web": output_path / "index.html",
         "dated_web": output_path / f"{today}.html",
+        "audit": output_path / "selection_audit.json",
     }
 
 
@@ -458,6 +486,10 @@ def _as_list(value):
 def render_digest_page(digest):
     papers = digest["papers"]
     title = f"{digest['topic']} arXiv Digest - {digest['generated_on']}"
+    feedback_form = render_feedback_form(
+        digest.get("feedback_repository", ""), digest["generated_on"],
+        digest.get("selection_strategy", {}).get("revision", 0),
+    )
     cards = []
     for paper in papers:
         score = html.escape(str(paper.get("Relevancy score", "n/a")))
@@ -595,6 +627,7 @@ def render_digest_page(digest):
     <p class="subtitle">{len(papers)} papers selected. Categories: {html.escape(", ".join(digest["categories"]))}</p>
   </header>
   <main>
+    {feedback_form}
     <div class="toolbar">
       <input id="search" type="search" placeholder="Filter by title, abstract, AGN, LRD, JWST, author...">
     </div>
@@ -639,6 +672,8 @@ if __name__ == "__main__":
     threshold = config["threshold"]
     interest = config["interest"]
     model_name = configure_llm_provider(config)
+    strategy = load_strategy(config.get("feedback_state"))
+    audit_data = []
     body, papers, hallucination = generate_digest(
         topic,
         categories,
@@ -650,6 +685,8 @@ if __name__ == "__main__":
         max_papers=config.get("max_papers"),
         digest_guidance=config.get("digest_guidance", ""),
         max_tokens_per_paper=int(config.get("max_tokens_per_paper", 320)),
+        strategy=strategy,
+        audit_data=audit_data,
     )
     with open("digest.html", "w") as f:
         f.write(body)
@@ -659,9 +696,11 @@ if __name__ == "__main__":
         config,
         output_dir=config.get("output_dir", "outputs"),
         digest_date=args.date,
+        strategy=strategy,
+        audit_data=audit_data,
     )
     if hallucination:
-        print("Warning: model hallucination cleanup was triggered.")
+        print("Incomplete or mismatched batch responses were recovered with individual scoring.")
     print("Wrote personalized outputs:")
     for name, path in output_files.items():
         print(f"- {name}: {path}")

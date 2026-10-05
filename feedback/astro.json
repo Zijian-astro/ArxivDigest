@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "updated_on": "2026-10-05",
+  "rules": [
+    "Prioritize JWST studies of high-redshift compact broad-line emitters, including compact blue broad-line emitters (BLEs), even when the title does not mention AGN or little red dots.",
+    "Include papers connecting blue broad-line sources to LRDs through ionizing continua, emission lines, obscuring envelopes, escape fractions, or contributions to reionization. Relevance does not require red colors or a confirmed AGN interpretation."
+  ],
+  "examples": [
+    {
+      "main_page": "https://arxiv.org/abs/2608.25021",
+      "pdf": "https://arxiv.org/pdf/2608.25021",
+      "title": "The ionizing properties of JWST's compact broad-line emitters",
+      "authors": "Sara Mascia , Jorryt Matthee , Alberto Torralba , Jenny E. Greene , Anna-Christina Eilers , Edoardo Iani , Rohan P. Naidu",
+      "abstract": "The recent JWST discovery of a numerous population of broad-line emitters (BLEs) at $z>4$ has reopened the question of whether sources other than faint galaxies contributed significantly to cosmic reionization. To assess this contribution, we present a systematic census of compact, blue broad-line emitters at $4\\leq z\\leq7$ selected from the DJA, designed to isolate sources in which the UV continuum and the broad-line emission originate from the same compact physical region. Starting from a parent sample of 4145 galaxies with NIRSpec/PRISM spectroscopy and NIRCam imaging, we apply criteria on broad Ha emission (FWHM$>2000$km s-1, detected at S/N$\\geq5$, complete at $L_{Ha,broad}\\geq10^{42.7}$erg s-1), blue continuum slopes ($\\beta_{UV}\\leq-1.5$, $\\beta_{opt}<0.5$), and morphological compactness in both the rest-frame UV and optical, returning a final sample of 20 sources. This constitutes $\\sim20%$ of the PRISM-selected broad-line sample, which is dominated by Little Red Dots (LRDs). We find that the compact blue BLEs display hot ionizing continua, high-ionization UV lines (CIV, NIV], HeII), and elevated Lya emitter fractions ($X_{Lya}=50-67%$) relative to star-forming galaxies and LRDs. Beyond their similar lack of X-ray emission, their optical spectra closely resemble those of LRDs. This suggests that compact blue BLEs extend this population towards lower column density envelopes, but with similar engines, rather than representing a physically distinct population. Using Sirocco to model physical configurations that reproduce the observed spectra, we find a high ionizing photon production efficiency (log$\\xi_{ion}\\sim25.4$Hz erg-1) and a weighted average escape fraction $fesc\\sim0.2$ for the bluest sources, and $\\sim0.01$ for LRDs. This implies that broad-line sources do not dominate reionization globally, but given their luminosity, their contribution can dominate up to few Mpc scales.",
+      "subjects": "Astrophysics of Galaxies (astro-ph.GA) ; High Energy Astrophysical Phenomena (astro-ph.HE)",
+      "arxiv_id": "2608.25021",
+      "user_note": "用户明确标记为漏选，希望以后选入科学内容相近的论文。",
+      "source": "user_seed"
+    }
+  ],
+  "validation": {
+    "status": "user_seed_not_model_validated"
+  }
+}

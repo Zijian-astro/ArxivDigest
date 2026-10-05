@@ -178,8 +178,17 @@ def _download_new_papers(field_abbr):
     h3 = content.find("h3").text   # e.g: New submissions for Wed, 10 May 23
     date = h3.replace("New submissions for", "").strip()
 
-    dt_list = content.dl.find_all("dt")
-    dd_list = content.dl.find_all("dd")
+    # Include new submissions and cross-lists, excluding replacement sections.
+    lists = []
+    for heading in content.find_all("h3"):
+        if "New submissions" in heading.get_text() or "Cross submissions" in heading.get_text():
+            listing = heading.parent if heading.parent.name == "dl" else heading.find_next_sibling("dl")
+            if listing is not None:
+                lists.append(listing)
+    if not lists:
+        raise RuntimeError("Could not find the arXiv new-submission listing")
+    dt_list = [item for listing in lists for item in listing.find_all("dt")]
+    dd_list = [item for listing in lists for item in listing.find_all("dd")]
     arxiv_base = "https://arxiv.org/abs/"
 
     assert len(dt_list) == len(dd_list)
@@ -216,6 +225,45 @@ def _download_new_papers(field_abbr):
     with open(f"./data/{field_abbr}_{date}.jsonl", "w") as f:
         for paper in new_paper_list:
             f.write(json.dumps(paper) + "\n")
+
+
+def get_paper_by_id(arxiv_id):
+    """Fetch title and abstract metadata for a single feedback paper.
+
+    Parameters
+    ----------
+    arxiv_id : str
+        arXiv ID or arxiv.org URL.
+
+    Returns
+    -------
+    dict
+        Paper metadata in the same format as daily discovery records.
+
+    Raises
+    ------
+    RuntimeError
+        If arXiv does not return title, authors, subjects, and abstract.
+    """
+    from feedback import normalize_arxiv_id
+
+    paper_id = normalize_arxiv_id(arxiv_id)
+    url = f"https://arxiv.org/abs/{paper_id}"
+    with _urlopen_with_retry(url) as response:
+        soup = bs(response.read(), features="html.parser")
+    selectors = {
+        "title": ("h1.title", "Title"),
+        "authors": ("div.authors", "Authors"),
+        "abstract": ("blockquote.abstract", "Abstract"),
+        "subjects": ("td.tablecell.subjects", "Subjects"),
+    }
+    paper = {"main_page": url, "pdf": f"https://arxiv.org/pdf/{paper_id}"}
+    for field, (selector, label) in selectors.items():
+        element = soup.select_one(selector)
+        if element is None:
+            raise RuntimeError(f"arXiv metadata missing {field} for {paper_id}")
+        paper[field] = _clean_labeled_text(element, label)
+    return paper
 
 
 def _download_papers_for_date(field_abbr, target_date, max_results=500):

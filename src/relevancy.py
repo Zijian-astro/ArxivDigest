@@ -11,6 +11,7 @@ import random
 import re
 import string
 from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 import tqdm
@@ -19,17 +20,21 @@ import utils
 
 def encode_prompt(query, prompt_papers):
     """Encode multiple prompt instructions into a single string."""
-    prompt = open("src/relevancy_prompt.txt").read() + "\n"
+    prompt = Path(__file__).with_name("relevancy_prompt.txt").read_text() + "\n"
     prompt += query['interest']
     if query.get("digest_guidance"):
         prompt += "\n\nAdditional digest guidance:\n"
         prompt += query["digest_guidance"]
+    if query.get("selection_guidance"):
+        prompt += "\n\nUser feedback selection guidance:\n"
+        prompt += query["selection_guidance"]
 
     for idx, task_dict in enumerate(prompt_papers):
         (title, authors, abstract) = task_dict["title"], task_dict["authors"], task_dict["abstract"]
         if not title:
             raise
         prompt += f"###\n"
+        prompt += f"{idx + 1}. Paper ID: {_paper_id(task_dict)}\n"
         prompt += f"{idx + 1}. Title: {title}\n"
         prompt += f"{idx + 1}. Authors: {authors}\n"
         prompt += f"{idx + 1}. Abstract: {abstract}\n"
@@ -38,44 +43,61 @@ def encode_prompt(query, prompt_papers):
     return prompt
 
 
+def _paper_id(paper):
+    return paper["main_page"].rstrip("/").rsplit("/abs/", 1)[-1]
+
+
+class RelevanceResponseError(ValueError):
+    """The model did not return one identifiable score for every input paper."""
+
+
 def post_process_chat_gpt_response(paper_data, response, threshold_score=8):
     selected_data = []
     if response is None:
-        return []
+        raise RelevanceResponseError("No model response")
     content = response['message']['content']
     import pprint
     try:
         score_items = extract_json_items(content)
     except Exception:
         pprint.pprint(content)
-        raise RuntimeError("failed")
+        raise RelevanceResponseError("No valid relevance JSON")
     pprint.pprint(score_items)
-    scores = []
-    for item in score_items:
-        temp = item["Relevancy score"]
-        if isinstance(temp, str) and "/" in temp:
-            scores.append(int(temp.split("/")[0]))
-        else:
-            scores.append(int(temp))
+    if not all(isinstance(item, dict) for item in score_items):
+        raise RelevanceResponseError("Scores must be JSON objects")
     if len(score_items) != len(paper_data):
-        score_items = score_items[:len(paper_data)]
-        hallucination = True
-    else:
-        hallucination = False
+        raise RelevanceResponseError(
+            f"Expected {len(paper_data)} scores, received {len(score_items)}"
+        )
+    # A single-paper retry is unambiguous even if the model omits its ID.
+    if len(paper_data) == 1 and not score_items[0].get("Paper ID"):
+        score_items[0]["Paper ID"] = _paper_id(paper_data[0])
+    items_by_id = {str(item.get("Paper ID", "")): item for item in score_items}
+    expected_ids = {_paper_id(paper) for paper in paper_data}
+    if len(items_by_id) != len(score_items) or set(items_by_id) != expected_ids:
+        raise RelevanceResponseError("Missing, duplicate, or unexpected Paper ID")
 
-    for idx, inst in enumerate(score_items):
-        # if the decoding stops due to length, the last example is likely truncated so we discard it
-        if scores[idx] < threshold_score:
+    for paper in paper_data:
+        inst = dict(items_by_id[_paper_id(paper)])
+        try:
+            score = int(str(inst["Relevancy score"]).split("/")[0])
+        except (KeyError, ValueError, TypeError) as error:
+            raise RelevanceResponseError("Invalid relevance score") from error
+        if not 0 <= score <= 10:
+            raise RelevanceResponseError("Relevance score outside 0-10")
+        if score < threshold_score:
             continue
-        output_str = "Title: " + paper_data[idx]["title"] + "\n"
-        output_str += "Authors: " + paper_data[idx]["authors"] + "\n"
-        output_str += "Link: " + paper_data[idx]["main_page"] + "\n"
+        inst["Relevancy score"] = score
+        scored_paper = dict(paper)
+        output_str = "Title: " + paper["title"] + "\n"
+        output_str += "Authors: " + paper["authors"] + "\n"
+        output_str += "Link: " + paper["main_page"] + "\n"
         for key, value in inst.items():
-            paper_data[idx][key] = value
+            scored_paper[key] = value
             output_str += str(key) + ": " + str(value) + "\n"
-        paper_data[idx]['summarized_text'] = output_str
-        selected_data.append(paper_data[idx])
-    return selected_data, hallucination
+        scored_paper['summarized_text'] = output_str
+        selected_data.append(scored_paper)
+    return selected_data, False
 
 
 def extract_json_items(content):
@@ -138,6 +160,8 @@ def generate_relevance_score(
     min_results=0,
     max_results=None,
     max_tokens_per_paper=320,
+    audit_data=None,
+    positive_ids=None,
 ):
     ans_data = []
     request_idx = 1
@@ -165,9 +189,20 @@ def generate_relevance_score(
         request_duration = time.time() - request_start
 
         process_start = time.time()
-        batch_data, hallu = post_process_chat_gpt_response(
-            prompt_papers, response, threshold_score=0
-        )
+        try:
+            batch_data, hallu = post_process_chat_gpt_response(
+                prompt_papers, response, threshold_score=0
+            )
+        except RelevanceResponseError as error:
+            if len(prompt_papers) == 1:
+                raise
+            print(f"Incomplete batch ({error}); retrying each paper individually.")
+            batch_data, _ = generate_relevance_score(
+                prompt_papers, query, model_name=model_name, threshold_score=0,
+                num_paper_in_prompt=1, temperature=temperature, top_p=top_p,
+                sorting=False, max_tokens_per_paper=max_tokens_per_paper,
+            )
+            hallu = True
         hallucination = hallucination or hallu
         ans_data.extend(batch_data)
 
@@ -177,21 +212,35 @@ def generate_relevance_score(
     if sorting:
         ans_data = sorted(ans_data, key=lambda x: int(x["Relevancy score"]), reverse=True)
 
-    if min_results:
-        ans_data = [
-            paper
-            for index, paper in enumerate(ans_data)
-            if int(paper["Relevancy score"]) >= threshold_score or index < min_results
-        ]
-    else:
-        ans_data = [
-            paper
-            for paper in ans_data
-            if int(paper["Relevancy score"]) >= threshold_score
-        ]
-
+    all_scored = ans_data
+    positive_ids = set(positive_ids or [])
+    ans_data = [
+        paper for index, paper in enumerate(all_scored)
+        if paper["Relevancy score"] >= threshold_score or index < min_results
+    ]
     if max_results:
         ans_data = ans_data[:max_results]
+    selected_ids = {_paper_id(paper) for paper in ans_data}
+    for paper in all_scored:
+        base_id = re.sub(r"v\d+$", "", _paper_id(paper))
+        if base_id in positive_ids:
+            paper["feedback_priority"] = True
+            if _paper_id(paper) not in selected_ids:
+                ans_data.append(paper)
+                selected_ids.add(_paper_id(paper))
+        if audit_data is not None:
+            row = dict(paper)
+            row["selected"] = _paper_id(paper) in selected_ids
+            row["selection_reason"] = (
+                "user_positive_feedback" if base_id in positive_ids else
+                "threshold" if paper["Relevancy score"] >= threshold_score and row["selected"] else
+                "minimum_results" if row["selected"] else
+                "result_limit" if paper["Relevancy score"] >= threshold_score else
+                "below_threshold"
+            )
+            audit_data.append(row)
+    if sorting:
+        ans_data.sort(key=lambda paper: paper["Relevancy score"], reverse=True)
     
     return ans_data, hallucination
 
