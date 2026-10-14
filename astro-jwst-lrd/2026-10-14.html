@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Astrophysics arXiv Digest - 2026-10-14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f4;
+      --ink: #1e2528;
+      --muted: #5f6b70;
+      --line: #d9dedb;
+      --accent: #096b72;
+      --accent-2: #8a4b22;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      padding: 28px clamp(18px, 4vw, 48px) 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 38px); }
+    .subtitle { color: var(--muted); margin: 0; }
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 24px auto 56px;
+      display: grid;
+      gap: 16px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+    input {
+      min-width: min(420px, 100%);
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font: inherit;
+      background: #fff;
+    }
+    .paper-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .paper-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .score {
+      display: inline-grid;
+      place-items: center;
+      min-width: 34px;
+      height: 28px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+    h2 { margin: 12px 0 6px; font-size: 21px; line-height: 1.25; }
+    h3 { margin: 18px 0 6px; font-size: 13px; text-transform: uppercase; color: var(--accent-2); }
+    .authors { color: var(--muted); margin: 0 0 10px; }
+    .links { display: flex; gap: 14px; margin: 8px 0 4px; }
+    a { color: var(--accent); font-weight: 650; text-decoration-thickness: 1px; }
+    ul { margin: 6px 0 0 20px; padding: 0; }
+    details { margin-top: 16px; color: var(--muted); }
+    summary { cursor: pointer; color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Astrophysics arXiv Digest - 2026-10-14</h1>
+    <p class="subtitle">7 papers selected. Categories: Astrophysics of Galaxies, Cosmology and Nongalactic Astrophysics, Instrumentation and Methods for Astrophysics</p>
+  </header>
+  <main>
+    
+<section class="feedback-panel" aria-labelledby="feedback-heading">
+  <style>
+    .feedback-panel { padding: 20px; margin: 18px 0; border: 1px solid #d9dedb; border-radius: 8px; background: #fff; }
+    .feedback-panel h2 { margin: 0 0 10px; font-size: 21px; }
+    .feedback-panel label { display: block; margin: 10px 0 5px; font-weight: 650; }
+    .feedback-panel input, .feedback-panel textarea { box-sizing: border-box; display: block; width: 100%; min-width: 0; padding: 10px; border: 1px solid #b9c5c2; border-radius: 6px; font: inherit; }
+    .feedback-panel button { margin-top: 12px; padding: 10px 14px; border: 0; border-radius: 6px; background: #096b72; color: #fff; font: inherit; cursor: pointer; }
+    .feedback-panel p { color: #5f6b70; }
+    #feedback-error { color: #a12828; }
+  </style>
+  <h2 id="feedback-heading">标记漏选论文</h2>
+  <p>输入论文链接，并说明你为什么想看它。点击按钮后，在 GitHub 点击 Create 完成提交；AI 随后学习补充筛选规则，并在 Issue 回复结果，下一次筛选使用新策略。</p>
+  <p>本页筛选策略：v1。 <a href="https://github.com/Zijian-astro/ArxivDigest/issues?q=is%3Aissue+%5Bdigest-feedback%5D">查看反馈和学习结果</a></p>
+  <form id="feedback-form">
+    <label for="feedback-paper">arXiv 链接或 ID</label>
+    <input id="feedback-paper" required placeholder="https://arxiv.org/abs/2608.25021v1" autocomplete="off">
+    <label for="feedback-note">为什么这篇论文值得选入？（选填）</label>
+    <textarea id="feedback-note" rows="3" maxlength="1500" placeholder="例如：高红移 compact blue broad-line emitters 与 LRD 的物理联系也是我的研究重点。"></textarea>
+    <label for="feedback-date">漏选的 digest 日期（选填）</label>
+    <input id="feedback-date" type="date" value="2026-10-14">
+    <button type="submit">在 GitHub 提交漏选反馈</button>
+    <p id="feedback-error" role="status" aria-live="polite"></p>
+  </form>
+</section>
+<script>
+(() => {
+  const config = {"repository": "Zijian-astro/ArxivDigest", "digest_date": "2026-10-14"};
+  const form = document.getElementById('feedback-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const error = document.getElementById('feedback-error');
+    error.textContent = '';
+    let id = document.getElementById('feedback-paper').value.trim();
+    if (id.includes('://')) {
+      try {
+        const url = new URL(id);
+        if (!['https:', 'http:'].includes(url.protocol) || url.host !== 'arxiv.org' || !/^\/(abs|pdf)\//.test(url.pathname)) throw new Error();
+        id = url.pathname.replace(/^\/(abs|pdf)\//, '').replace(/\/$/, '');
+      } catch (_) {
+        error.textContent = '请输入 arxiv.org 的 abs/PDF 链接，或 arXiv ID。';
+        return;
+      }
+    }
+    id = id.replace(/^arxiv:\s*/i, '').replace(/\.pdf$/, '').replace(/v\d+$/, '');
+    if (!/^(\d{4}\.\d{4,5}|[a-z-]+(?:\.[A-Z]{2})?\/\d{7})$/.test(id)) {
+      error.textContent = 'arXiv ID 格式不正确，例如 2608.25021。';
+      return;
+    }
+    const payload = {
+      arxiv_id: id,
+      note: document.getElementById('feedback-note').value.trim(),
+      digest_date: document.getElementById('feedback-date').value,
+    };
+    const body = '<!-- arxiv-digest-feedback -->\n```json\n' + JSON.stringify(payload, null, 2) + '\n```\n\n由个人 arXiv digest 网站提交。';
+    const issue = new URL('https://github.com/' + config.repository + '/issues/new');
+    issue.searchParams.set('title', '[digest-feedback] 漏选 ' + id);
+    issue.searchParams.set('body', body);
+    window.location.assign(issue.href);
+  });
+})();
+</script>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Filter by title, abstract, AGN, LRD, JWST, author...">
+    </div>
+    <section id="papers">
+      
+            <article class="paper-card" data-score="10">
+              <div class="paper-meta">
+                <span class="score">10</span>
+                <span>2610.15901</span>
+              </div>
+              <h2>The DAWN JWST Archive: A spectroscopically-informed population study of the physical properties of galaxies at z&gt;2</h2>
+              <p class="authors">Rashmi Gottumukkala , Gabriel Brammer , Sune Toft , Mengyuan Xiao , Anna de Graaff , Pascal A. Oesch , Francesco Valentino , Katherine E. Whitaker , William M. Baker , Laia Barrufet , Rachel Bezanson , Leindert A. Boogaard , Alex J. Cameron , Olivia R. Cooper , Emma Giovinazzo , Kasper E. Heintz , Michaela Hirschmann , Kei Ito , Ivo Labbe , Minju M. Lee , Zach J. Lewis , Jorryt Matthee , Ian McConachie , Desika Narayanan , Clara L. Pollock , Sedona H. Price , David J. Setton , Marko Shuntov , Pieter van Dokkum , Bingjie Wang , Joris Witstok , Yunchong Zhang , Pengpei Zhu</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.15901">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.15901">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks how star formation, stellar mass, and dust build up from cosmic noon to cosmic dawn, using joint spectrophotometric modelling of ~12,000 z&gt;2 galaxies. It releases a BAGPIPES-based catalogue of stellar masses, SFRs on multiple timescales, and Av, showing that the dustiest galaxies are massive, strongly star-forming, and that attenuation-curve slope depends on Av and sSFR. This matters because it provides a large, spectroscopically informed reference sample and methodology for interpreting my JWST high-redshift and LRD/AGN-host SED fits.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>Directly relevant: a large JWST/NIRSpec PRISM + NIRCam spectrophotometric catalogue of z&gt;2 galaxies with stellar masses, SFRs, and dust attenuation, exactly the SED-fitting and physical-property framework I use for high-redshift galaxies and AGN hosts.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the SED-fitting setup, priors, and how AGN contamination is (or is not) treated in the BAGPIPES runs</li><li>Check the Av and attenuation-curve slope diagnostics and whether they separate dusty star-forming galaxies from possible AGN</li><li>Examine the ugi colour-colour diagrams and where quiescent/dusty/recently quenched galaxies fall</li><li>Check the catalogue release details and selection function for reuse in my own samples</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>Charting the evolution of star-formation, stellar mass and dust build-up over cosmic time relies on the accurate characterisation of the stellar population properties of high redshift galaxies. We present a catalogue of spectroscopically derived physical properties for ~12,000 galaxies at z&gt;2, with archival JWST/NIRSpec PRISM spectroscopy and JWST/NIRCam imaging from the DAWN JWST Archive. We present a custom version of the SED fitting code BAGPIPES, used to perform joint spectrophotometric modelling of PRISM spectra and broadband NIRCam photometry. In doing so, we publicly release a science-ready catalogue of the physical properties of galaxies beyond cosmic noon. We report key physical properties, such as stellar masses, star-formation rates (SFR) and timescales, and V-band dust attenuation (Av). We further probe the recent star-formation histories (SFH) of galaxies via their SFRs on 3 Myr, 10 Myr, and 100 Myr timescales, capturing both rising and falling recent SFHs. Through dust-corrected ugi colour-colour diagrams of massive galaxies, we show how quiescent and dusty galaxies populate this colour space at z&gt;2, with galaxies experiencing a recent downturn in star-formation occupying distinct parameter space. We also study the dustiest galaxies in our sample, showing that they are preferentially more massive and strongly star-forming relative to the parent sample, residing on the high-mass end of the star-forming main-sequence. The slope of the attenuation curve has a strong dependence on Av, varying from steep to shallow as the dust attenuation increases and the specific star-formation rate decreases. Our findings show that the unparalleled number statistics of this catalogue of spectroscopically derived stellar population properties uniquely enables the study star-formation, quenching and dust properties of galaxies from cosmic noon to cosmic dawn.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="10">
+              <div class="paper-meta">
+                <span class="score">10</span>
+                <span>2610.18263</span>
+              </div>
+              <h2>Massive black holes in the first billion years with JWST</h2>
+              <p class="authors">Hannah Übler</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.18263">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.18263">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks what JWST has revealed about active massive black holes in the early Universe. It summarizes their unexpected multi-wavelength properties, mass measurements, and relations to host galaxies, and discusses open questions for black-hole formation and growth models. This is highly relevant to my work on early SMBH growth and galaxy/AGN co-evolution at cosmic dawn.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>This is a review of JWST-discovered massive black holes in the first billion years, directly addressing early black-hole growth, AGN properties, and host-galaxy relations central to my research.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the compilation of JWST black-hole mass measurements and their uncertainties</li><li>Check the discussion of broad-line versus photometric black-hole mass estimates</li><li>Look for comparisons between little red dots, broad-line AGN, and other high-z black-hole candidates</li><li>Check the review&#x27;s treatment of host-galaxy relations and selection biases</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>The James Webb Space Telescope has unlocked uncharted territory for the study of early black holes, enabling the detection of fainter and smaller black holes at larger cosmological distances than previously possible. Compared to nearby massive black holes, they are characterised by several unexpected attributes, such as their multi-wavelength properties or their relation to their host galaxies. These observational findings challenge our understanding of the past evolution of present-day supermassive black holes, and provide novel anchor points to constrain theoretical models of black hole formation and growth. This review summarises our current understanding of the observed properties of newly discovered, active black holes in the early Universe, discusses the status of mass measurements and the relation to their hosts, as well as open questions and future prospects.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="9">
+              <div class="paper-meta">
+                <span class="score">9</span>
+                <span>2610.17559</span>
+              </div>
+              <h2>A radio counterpart of the local little-red-dot J092359+415736</h2>
+              <p class="authors">Tao An , Ruqiu Lin , Ailing Wang</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.17559">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.17559">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks whether the local LRD J092359+415736 has a radio counterpart and what powers it. It finds a compact 144 MHz detection with long-term radio brightening best explained by accretion onto the central black hole. This matters for my work because it provides multi-frequency, multi-epoch evidence for AGN activity in LRDs, complementing high-redshift JWST studies.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>This paper directly studies a local little red dot with radio observations, connecting LRD phenomenology to accreting black holes and multi-frequency variability. It is highly relevant to my work on LRDs, AGN, and black-hole growth.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the radio SED and spectral index measurements that distinguish AGN from star formation</li><li>Check the variability analysis and timescales to assess AGN origin</li><li>Examine the comparison to other radio-detected LRDs and implications for the LRD class</li><li>Look for any discussion of how local LRD properties connect to high-z LRDs</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>Little red dots (LRDs) are compact red sources at z&gt;~4. Broad lines suggest accreting black holes, yet radio and X-ray measurements are usually weak. Local LRDs allow multi-frequency, multi-epoch radio studies that are inaccessible at high redshift. We search archival radio images for a counterpart to the local LRD J092359+415736 at z~0.323, quantify its long-term radio variability, and identify the plausible origin of the radio emission. Flux densities at the optical position are measured in FIRST, LoTSS, RACS, VAST, and VLASS products spanning 0.144-3.0 GHz and 1994-2024. A compact 144 MHz counterpart is detected at 42sigma in LoTSS, coincident with the Gaia position, and is recovered in FIRST, RACS, VAST, and VLASS. LoTSS and ASKAP give a spectral index alpha ~ -0.30 +/- 0.11. The source varies on multiple timescales: FIRST at 1.4 GHz (1994) is a factor of ~2.6 below ASKAP (2021-2024) and below the extrapolated LoTSS-ASKAP spectrum, indicating long-term brightening over 26 yr; the 3 GHz flux density rises by 2.3sigma between VLASS epochs 2.2 and 3.2. A star-formation-only origin would require ~200 Msun/yr, against an unobscured H-alpha upper limit of 3.3 Msun/yr, implying an extreme obscured starburst. Ordinary radio supernovae and tidal disruption events are strongly disfavoured by the luminosity and 30-yr recovery, while refractive scintillation would itself require an ultracompact nuclear emitter. The persistent radio counterpart is best explained by accretion onto the central black hole. Among the three radio-detected local LRDs, this source is intermediate in luminosity and the only one with reported multi-year variability, adding a temporal dimension to the radio diversity of the class.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="8">
+              <div class="paper-meta">
+                <span class="score">8</span>
+                <span>2610.15255</span>
+              </div>
+              <h2>Anisotropic Radiation in Super-Eddington Active Galactic Nuclei: The Responsivity of Broad-Line Regions to Continuum Variability</h2>
+              <p class="authors">Feng-Na Fang , Pu Du , Jian-Min Wang</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.15255">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.15255">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks whether the ionizing radiation incident on broad-line region clouds in super-Eddington AGN is anisotropic relative to the observer&#x27;s line of sight. It finds that H-beta responsivity in super-Eddington AGN implies ionizing fluxes differing significantly from the line-of-sight continuum, unlike sub-Eddington AGN. This matters for my work because it offers a physical mechanism that could explain the compact broad-line and reddened AGN signatures seen in JWST little red dots.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>This paper directly addresses anisotropic ionizing radiation in super-Eddington AGN and explicitly discusses implications for JWST little red dots, connecting BLR reverberation physics to LRD interpretation.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the quantitative comparison between inferred BLR ionizing flux and observed line-of-sight continuum in super- versus sub-Eddington AGN</li><li>Check the discussion connecting anisotropic ionizing radiation to JWST little red dots and whether it predicts specific emission-line ratios or continuum shapes</li><li>Look for the sample selection and reverberation-lag measurements used to derive H-beta responsivity</li><li>Check whether the paper provides diagnostics that could distinguish anisotropic BLR illumination from dust reddening in LRD SEDs</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>Anisotropic ionizing radiation is a natural theoretical expectation for super-Eddington accretion in active galactic nuclei (AGNs), implying that the ionizing flux incident on the broad-line region (BLR) clouds differs from that measured along the observer&#x27;s line of sight. Reverberation mapping studies have revealed systematically shortened time lags of the broad H$\beta$ emission line relative to continuum variations in super-Eddington AGNs, a phenomenon that can be naturally interpreted as a consequence of anisotropic ionizing continuum radiation. To further investigate this anisotropy, we perform a systematic analysis of the H$\beta$ line responsivity, defined as the ratio of the variability amplitude of H$\beta$ to that of the driving continuum, for both sub- and super-Eddington AGNs. By combining the effective responsivities measured relative to the driving continuum, after correcting for the continuum--emission-line delay, with photoionization calculations, we infer the ionizing radiation field received by their BLRs. We find that, in super-Eddington AGNs, the ionizing flux inferred from the H$\beta$ responsivity differs significantly from that observed along the line of sight, whereas the two are in closer agreement in sub-Eddington AGNs. These results provide compelling evidence for strong anisotropy of the incident ionizing radiation in super-Eddington AGNs. We conclude by discussing the broader implications of this anisotropy, including its potential relevance to the &quot;little red dots&quot; recently discovered by the James Webb Space Telescope.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="8">
+              <div class="paper-meta">
+                <span class="score">8</span>
+                <span>2610.17575</span>
+              </div>
+              <h2>Mergers may not be the main channel for galaxy stellar mass growth at redshift $z\gtrsim5$: Predictions from cosmological hierarchical models and simulations</h2>
+              <p class="authors">Hao Fu , Mohammadreza Ayromlou , Francesco Shankar , Lars Hernquist , Andrea Lapi , Daniel Roberts , Feng Yuan , Maulik Bhatt , Evgenii Chaikin , Simona Gallerani , Luca Graziani , Antonio La Marca , George Mountrichas , Yingjie Peng , Haocheng Wang , Kai Wang</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.17575">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.17575">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks whether mergers or in-situ star formation dominate stellar mass growth at cosmic dawn. It finds that mergers contribute less than 10% of stellar mass density evolution at z&gt;~5, with in-situ star formation dominating. This matters for my work because it provides theoretical context for interpreting JWST-observed high-redshift galaxy assembly and AGN co-evolution.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>This paper directly addresses galaxy stellar mass growth at z&gt;~5, including the role of mergers versus star formation, which is highly relevant to high-redshift galaxy formation and JWST observations. It also discusses AGN feedback and implications for interpreting JWST pair fractions.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the merger rate calculations and how they compare to JWST-observed pair fractions</li><li>Check the ex-situ stellar mass fractions across models and their implications for high-z galaxy SEDs</li><li>Examine the treatment of AGN feedback and its effect on quenching at high redshift</li><li>Assess whether the simulations cover the mass and redshift range relevant to LRDs and compact red sources</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>Mergers are a crucial channel of galaxy growth, but their role relative to star formation remains uncertain at high redshift. Here we investigate merger rates and merger-driven stellar mass assembly for galaxies with stellar mass $M_\star \gtrsim 10^8 \, {\rm M_{\odot}}$ at $z\simeq 5-11$, by combining complementary theoretical approaches within $\Lambda$CDM. These include the DECODE semi-empirical model, the TNG100 and EAGLE hydrodynamical simulations, and the \textsc{L-Galaxies} semi-analytical model, together with the Millennium and TNG100-Dark simulations used to examine dark matter subhalo statistics and merger timescales. This compares models with different treatments of baryonic physics and galaxy-halo connections. We find that dark matter-only simulations predict merger timescales $\sim 30\%$ longer than those inferred from cosmological simulations including baryons. Galaxy major merger ($M_{\rm \star,sat} / M_{\rm \star,cen} &gt; 0.25$) rates are high at cosmic dawn and increase towards earlier epochs, reaching $\sim 1/{\rm Gyr}$ at $z\sim 5$ and peaking at $\sim 3/{\rm Gyr}$ at $z\sim 8$. Despite these high rates, mergers contribute only $\lesssim 10\%$ of the total cosmic stellar mass density evolution. The ex-situ stellar mass fraction ranges from a few percent to $\sim 20\%$ for all galaxies at $z\gtrsim 5$, across different models and simulations. Their broad agreement implies that stellar mass assembly at cosmic dawn is dominated by in-situ star formation rather than mergers. These findings suggest that the high pair fractions identified by JWST may not directly trace efficient ex-situ stellar mass growth, highlighting the need for physically motivated merger timescales to interpret galaxy assembly in the early Universe.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="6">
+              <div class="paper-meta">
+                <span class="score">6</span>
+                <span>2610.16509</span>
+              </div>
+              <h2>Nearly pristine gas in a galaxy 1 billion years after the Big Bang</h2>
+              <p class="authors">Sarah E. I. Bosman , Frederick B. Davies , Louise Welsh , Emanuele P. Farina , Prakash Gaikwad , Benedetta Spina , Barun Maity , Ryan Cooke , Klaudia Protušová , Valentina D&#x27;Odorico , Eduardo Bañados , James S. Bolton , Rebecca L. Davies , Xiaohui Fan , Martin G. Haehnelt , Joseph F. Hennawi , Tahlia J. Hill , Seyeon Hwang , Vid Iršič , Laura Keating , Girish Kulkarni , Samuel Lai , Emma V. Ryan-Weber , Lasse Seyberlich , Molly Wolfson</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.16509">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.16509">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks whether galaxies with nearly pristine gas exist at cosmic dawn and what their abundance patterns reveal. It reports UMP-DLA-1 at ~1 Gyr after the Big Bang with carbon 11,000x below solar, the most pristine known, implying a top-heavy stellar population and elevated O/C from early massive stars. This matters as a benchmark for early chemical enrichment and the stellar populations expected in the high-redshift galaxies I study with JWST.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>High-redshift (z~6) ultra-metal-poor galaxy discovered via quasar absorption spectroscopy; relevant to early galaxy formation and first-generation stellar populations, though it is absorption-line rather than JWST emission-line work.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the metallicity measurements and abundance-pattern diagnostics (C/O, O/H) and their uncertainties</li><li>Check the absorption-line analysis and whether any emission counterparts or host-galaxy properties are constrained</li><li>Examine the implications for top-heavy IMFs and first-generation stellar yields</li><li>Check whether the object&#x27;s properties connect to JWST-observed high-z galaxy populations</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>Excitation of carbon and oxygen ions is the primary mechanism by which collapsing gas clouds dissipate heat to form new stars. At early cosmic times, in galaxies with chemically pristine gas, many stars are expected to have masses far larger than the mass of our sun due to the deficit in these elements. We searched for ultra-metal-poor galaxies using their spectroscopic absorption signatures in front of bright background quasars, employing the new GHOST high-resolution spectrograph. Here we report the discovery of the first galaxy containing a reservoir of neutral hydrogen gas with metallicity below the ultra-metal-poor threshold: with a measured carbon-to-hydrogen ratio 11,000 times lower than the Sun, it is the most pristine ever found by a factor of four. UMP-DLA-1 is the only known galaxy with measured carbon and oxygen abundances too low to enable efficient formation of stars with solar mass or below. The low metallicity alone therefore guarantees a top-heavy stellar population, providing a direct view of the chemical composition imprinted by massive low-metallicity stars that perished long before the present day: an elevated oxygen-to-carbon ratio. The abundance pattern of UMP-DLA-1 is likely a close representation of the atomic yields of first- or early second-generation stars.</p>
+              </details>
+            </article>
+            
+            <article class="paper-card" data-score="6">
+              <div class="paper-meta">
+                <span class="score">6</span>
+                <span>2610.16982</span>
+              </div>
+              <h2>A Quest for Changing-State AGNs</h2>
+              <p class="authors">Kasra Mokhtarpour , Vicki Sarajedini</p>
+              <div class="links">
+                <a href="https://arxiv.org/abs/2610.16982">arXiv</a>
+                <a href="https://arxiv.org/pdf/2610.16982">PDF</a>
+              </div>
+              <section>
+                <h3>Short Digest</h3>
+                <p>The paper asks whether Gaia DR3 light curves can be mined to find changing-state AGN candidates. It identifies 682 two-state candidates among 8,504 anomalous light curves using Gaussian mixture models and deep learning. It matters for my work as a methodological template for automated AGN selection and anomaly detection, potentially adaptable to JWST time-domain or spectroscopic data.</p>
+              </section>
+              <section>
+                <h3>Reason</h3>
+                <p>It uses unsupervised deep learning and anomaly detection on AGN light curves, relevant to AI-for-astronomy and AGN variability, though it is low-redshift and not JWST-based.</p>
+              </section>
+              <section>
+                <h3>Full-Text Inspection Checklist</h3>
+                <ul><li>Look for the anomaly-detection architecture and whether it can handle sparse JWST light curves</li><li>Check the GMM two-state selection criteria and false-positive rate</li><li>Examine the redshift and luminosity distributions of candidates</li><li>Check whether any high-redshift or JWST AGN are included</li></ul>
+              </section>
+              <details>
+                <summary>Abstract</summary>
+                <p>We use Gaia Data Release 3 (DR3) light curves to identify photometrically selected changing-state active galactic nucleus (CSAGN) candidates. We employ unsupervised deep learning and anomaly detection methods to identify unusual patterns of variability in the light curves of 872,228 AGNs with known variability. We find that 8,504 light curves show anomalous behavior. Among these, 682 sources show evidence for two-state photometric behavior during the Gaia DR3 observing baseline. These 682 CSAGN candidates were selected using an automated statistical pattern recognition approach based on Gaussian mixture models (GMMs) to identify sources whose magnitude distributions are consistent with two preferred brightness levels, substantially reducing the need for human visual inspection in selecting the CSAGN candidates. The candidates tend to have fainter absolute magnitudes and lower redshifts than the non-anomalous Gaia variable AGN sample, suggesting that some may be accreting at lower rates. Our approach builds a large candidate sample with less reliance on human visual selection. Follow-up observations of these sources can help identify what drives changing-state transitions and clarify their connection to accretion-disk physics and supermassive black hole (SMBH) fueling.</p>
+              </details>
+            </article>
+            
+    </section>
+  </main>
+  <script>
+    const search = document.getElementById('search');
+    const cards = [...document.querySelectorAll('.paper-card')];
+    search.addEventListener('input', () => {
+      const q = search.value.toLowerCase();
+      for (const card of cards) {
+        card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>
